@@ -3,7 +3,7 @@ import { PlayCircleIcon } from '@heroicons/react/24/outline';
 import video from '../../assets/animation_sphere_bleu_Vadims.mp4';
 
 export default function Section5() {
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const handlePlayVideo = () => {
     if (videoRef.current) {

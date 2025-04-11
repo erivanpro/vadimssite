@@ -1,4 +1,3 @@
-import Cube3D from '../cube3d/cube'; // Importer le composant Cube3D
 import designskate from '../../assets/skate.webp'
 export default function Section3() {
   return (

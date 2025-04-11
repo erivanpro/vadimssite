@@ -1,5 +1,4 @@
 import maisonchalon from '../../assets/maisonchalon.webp';
-
 export default function Section9() {
   return (
     <div className="overflow-hidden bg-white py-24 sm:py-32">

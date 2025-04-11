@@ -1,4 +1,3 @@
-import Cube3D from '../cube3d/cube'; // Importer le composant Cube3D
 import thetrace from '../../assets/thetrace.webp';
 
 export default function Section4() {

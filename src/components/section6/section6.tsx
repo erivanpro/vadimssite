@@ -1,6 +1,3 @@
-import { PlayCircleIcon } from '@heroicons/react/24/outline';
-import Cube3D from '../cube3d/cube'; // Importer le composant Cube3D
-import vision from "../../assets/"
 export default function Section6(){
   return (
     <div className="overflow-hidden bg-white py-24 sm:py-32">

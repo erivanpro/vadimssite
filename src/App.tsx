@@ -14,8 +14,6 @@ import Statsdeux from './components/statsdeux/statsdeux';
 import Section3 from './components/section3/section3';
 import Section4 from './components/section4/section4';
 import Section5 from './components/section5/Section5';
-import Section6 from './components/section6/section6';
-import Section7 from './components/section7/section7';
 import Section8 from './components/section8/Section8';
 import Section9 from './components/section9/Section9';
 function App() {
@@ -27,23 +25,11 @@ function App() {
 <Banner/>
 <Tech/>
 <Section1/>
-
-
 <Section9/>
 <Section4/>
 <Section8/>
-
 <Section3/>
 <Section5/>
-
-
-
-
-
-
-
-
-
 <Go/>
 <FAQ/>
 <Statsdeux/>

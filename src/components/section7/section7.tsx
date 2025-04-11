@@ -1,5 +1,3 @@
-import Cube3D from '../cube3d/cube'; // Importer le composant Cube3D
-
 export default function Section7() {
   return (
     <div className="overflow-hidden bg-white py-24 sm:py-32">

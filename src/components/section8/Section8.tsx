@@ -1,4 +1,3 @@
-import Cube3D from '../cube3d/cube'; // Importer le composant Cube3D
 import vortex from '../../assets/vortex.webp'
 export default function Section8() {
     return (
