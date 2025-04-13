@@ -20,7 +20,7 @@ export default function Header() {
         <div className="flex lg:flex-1">
         <a href="https://www.instagram.com/blooky.product/" className="block -m-1.5 p-1.5 text-left">
   <span className="sr-only">Your Company</span>
-  <img src={logo} className="h-26 w-36 mr-12" />
+  <img src={logo} className="lg:h-26 lg:w-36 mr-12 w-36 h-22" />
 </a>
 
         </div>
@@ -39,11 +39,11 @@ export default function Header() {
 
 
           <a
-            href={cv}
-            className="rounded-full bg-black text-white px-3 py-2.5 text-sm font-semibold shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-          >
-            Télécharger mon CV 
-          </a>
+  href={cv}
+  className="inline-block rounded-full text-[8px]  bg-black text-white px-4 py-2 lg:text-sm md:px-6 md:py-3 md:text-base font-semibold shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 transition-all duration-300"
+>
+  Télécharger mon CV
+</a>
 
 
 
@@ -67,11 +67,8 @@ export default function Header() {
           <div className="flex items-center gap-x-6">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
-                alt=""
-                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=cyan&shade=600"
-                className="h-8 w-auto"
-              />
+              <img src={logo} className="lg:h-26 lg:w-36 mr-12 w-36 h-22" />
+
             </a>
             <button
               type="button"
@@ -97,10 +94,10 @@ export default function Header() {
               </div>
               <div className="py-6">
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/vadims-martinez/"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-black hover:bg-gray-50"
                 >
-                  Log in
+                  voir mon linkedin 
                 </a>
               </div>
             </div>

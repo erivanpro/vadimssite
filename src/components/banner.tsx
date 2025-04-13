@@ -51,7 +51,7 @@ export default function Banner() {
           >
             <a
               href="mailto:vadimsmartinezpro@gmail.co"
-              className="rounded-md bg-black px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-black hover:rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="rounded-md bg-black lg:px-3.5 lg:py-2.5 px-2 py-1.25 text-sm font-semibold text-white shadow-sm hover:bg-black hover:rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Contactez-moi
             </a>
