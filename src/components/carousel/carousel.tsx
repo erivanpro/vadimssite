@@ -114,6 +114,6 @@ export default function ThreeJsCarousel() {
   }, []);
 
   return (
-    <div className="w-full h-[500px] bg-white" ref={mountRef}></div>
+    <div className="w-full h-[600px] bg-white" ref={mountRef}></div>
   );
 }

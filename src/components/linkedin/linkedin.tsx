@@ -1,11 +1,19 @@
 import { XMarkIcon } from '@heroicons/react/20/solid';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Linkedin() {
   const [isVisible, setIsVisible] = useState(true);
 
+  useEffect(() => {
+    const bannerDismissed = localStorage.getItem('linkedinBannerDismissed');
+    if (bannerDismissed === 'true') {
+      setIsVisible(false);
+    }
+  }, []);
+
   const handleDismiss = () => {
     setIsVisible(false);
+    localStorage.setItem('linkedinBannerDismissed', 'true');
   };
 
   if (!isVisible) {
@@ -40,15 +48,13 @@ export default function Linkedin() {
       </div>
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         <p className="text-sm text-white">
-         
-         
           Rejoignez-nous sur linkedin pour rester informé des dernières nouvelles et mises à jour de mon travail
         </p>
         <a
           href="https://www.linkedin.com/in/vadims-martinez/?originalSubdomain=fr"
           className="flex-none rounded-full bg-white px-3.5 py-1 text-sm font-semibold text-black shadow-sm "
         >
-        voir mon linkedin 
+          voir mon linkedin
         </a>
       </div>
       <div className="flex flex-1 justify-end">

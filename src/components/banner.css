@@ -1,0 +1,31 @@
+@keyframes marioAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px); /* Mario moves right */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes turtleAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20px); /* Turtle moves left */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-mario {
+  animation: marioAnimation 5s ease-in-out infinite;
+}
+
+.animate-turtle {
+  animation: turtleAnimation 5s ease-in-out infinite;
+}

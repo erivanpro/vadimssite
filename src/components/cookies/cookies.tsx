@@ -1,13 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Cookies() {
   const [isVisible, setIsVisible] = useState(true);
 
+  useEffect(() => {
+    // Check if the user has already made a decision (accepted or rejected cookies)
+    const userDecision = localStorage.getItem('cookieConsent');
+    
+    if (userDecision) {
+      setIsVisible(false); // Hide the banner if a decision has already been made
+    }
+  }, []);
+
   const handleAccept = () => {
+    localStorage.setItem('cookieConsent', 'accepted'); // Store the user's decision
     setIsVisible(false); // Hide the banner after accepting cookies
   };
 
   const handleReject = () => {
+    localStorage.setItem('cookieConsent', 'rejected'); // Store the user's decision
     setIsVisible(false); // Hide the banner after rejecting cookies
   };
 
@@ -19,7 +30,6 @@ export default function Cookies() {
         
         {/* Siri-like icon */}
         <div className="flex items-center gap-x-2 mb-4">
-         
           <p className="text-sm text-gray-900">
             Ce site utilise des cookies pour compléter un régime équilibré et offrir une récompense bien méritée aux sens après
             avoir consommé des repas fades mais nutritifs. Accepter nos cookies est facultatif mais recommandé, car ils sont
