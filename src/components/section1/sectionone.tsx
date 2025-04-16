@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Cube3D from '../cube3d/cube'; // Importer le composant Cube3D
 
 export default function Section1() {
   return (
