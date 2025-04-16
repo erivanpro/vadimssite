@@ -41,7 +41,7 @@ export default function FAQ() {
             <h2 className="text-pretty text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
               Questions fréquemment posées
             </h2>
-            <p className="mt-4 text-pretty text-base/7 text-gray-600">
+            <p className="mt-4  text-sm font-semibold text-white">
               Vous ne trouvez pas la réponse que vous cherchez ? Contactez notre{' '}
               <a href="#" className="font-semibold text-cyan-600 hover:text-cyan-500">
                 équipe de support client

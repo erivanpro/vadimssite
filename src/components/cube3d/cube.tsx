@@ -75,7 +75,7 @@ const ThreeDShapes = () => {
 
   return (
     <div 
-      className="w-full h-[500px] bg-white" // Assure une taille visible pour la scène
+      className="w-full h-auto bg-white" // Assure une taille visible pour la scène
       ref={mountRef} // On utilise la référence pour rendre le canvas
     />
   );

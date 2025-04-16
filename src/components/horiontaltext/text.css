@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
+.bar {
+  width: 100%;
+  padding: 50px 0;
+  background-color: #000;
+  color: #fff;
+  font-family: "Zen Dots", cursive;
+  font-weight: 400;
+  font-size: 64px;
+  text-transform: uppercase;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  border-top: 4px solid #fff;
+  border-bottom: 4px solid #fff;
+  letter-spacing: 8px;
+}
+
+.bar_content {
+  display: inline-flex;
+  gap: 100px;
+  animation: scroll-left 30s linear infinite; /* Slowed down to 30s */
+}
+
+.bar_texts {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  line-height: 1.1;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8), /* Shadow 1 */
+    -2px -2px 4px rgba(0, 0, 0, 0.8), /* Shadow 2 */
+    0 0 10px rgba(255, 255, 255, 0.8); /* Glowing effect */
+}
+
+/* Smooth scroll */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

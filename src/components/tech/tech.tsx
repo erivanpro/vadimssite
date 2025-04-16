@@ -27,7 +27,7 @@ export default function Tech() {
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="text-center text-lg/8 font-semibold text-gray-900">
+        <h2 className="text-center text-lg/8 font-semibold text-white">
           Création d'interfaces et de visuels 3D avec des outils modernes
         </h2>
 
