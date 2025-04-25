@@ -13,9 +13,7 @@ import Section8 from './components/section8/Section8';
 import Section9 from './components/section9/Section9';
 import CircularText from './CircularText';
 import Text from './components/horiontaltext/text';
-
 gsap.registerPlugin(ScrollTrigger);
-
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -28,7 +26,6 @@ function App() {
       }
     };
     document.addEventListener("mousemove", moveCursor);
-
     return () => {
       document.removeEventListener("mousemove", moveCursor);
     };
@@ -42,7 +39,6 @@ function App() {
       onComplete: () => setLoading(false),
     });
   };
-
   return (
     <div className="relative h-screen bg-black cursor-none">
       {/* Custom cursor */}
@@ -108,8 +104,6 @@ function App() {
           </button>
         </div>
       )}
-
-      {/* Main Content */}
       {!loading && (
         <>
           <Header />

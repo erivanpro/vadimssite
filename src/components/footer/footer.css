@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "MyFont";
+    src: url("./fonts/Mayonice.ttf");
+}
+
+footer{
+    font-family: "MyFont", sans-serif;
+    background-color: #000000;
+}

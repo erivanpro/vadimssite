@@ -50,7 +50,7 @@ export default function Header() {
 
         <a
   href={cv}
-  className=" custom-btn btn-16"
+  className=" custom-btn btn-16 rounded-0"
 >
   Télécharger mon CV
 </a>

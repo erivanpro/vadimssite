@@ -1,3 +1,7 @@
+import './footer.css';
+
+
+
 const navigation = {
   main: [
     { name: 'Linkedin', href: 'https://www.linkedin.com/in/vadims-martinez?original_referer=https%3A%2F%2Fwww%2Egoogle%2Ecom%2F&originalSubdomain=fr' }, // Add actual href here
