@@ -2,16 +2,17 @@ import { motion } from 'framer-motion';
 
 export default function Section1() {
   return (
-    <div className="overflow-hidden section bg-black py-24 sm:py-32">
+    <div className="overflow-hidden  section bg-black py-24 sm:py-32 flex items-center justify-center">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+        {/* Flexbox container for one row */}
+        <div className="flex items-center justify-center space-x-8">
           
           {/* Left Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            className="lg:pr-8 lg:pt-4"
+            className="lg:pr-8 lg:pt-4 mb-12"
           >
             <div className="lg:max-w-lg">
               <h2 className="text-base/7 font-semibold text-white">
@@ -25,17 +26,7 @@ export default function Section1() {
               </p>
             </div>
           </motion.div>
-
-          {/* Animated Cube3D */}
-          <motion.div
-            className="h-[200px] flex justify-center items-center"
-            initial={{ opacity: 0, scale: 0.9, rotateY: -20 }}
-            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-            transition={{ duration: 2, ease: 'easeOut' }}
-          >
-           
-          </motion.div>
-
+          
         </div>
       </div>
     </div>

@@ -13,6 +13,7 @@ import Section8 from './components/section8/Section8';
 import Section9 from './components/section9/Section9';
 import CircularText from './CircularText';
 import Text from './components/horiontaltext/text';
+import HorizontalSlider from './components/slide/slide';
 gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [loading, setLoading] = useState(true);
@@ -108,10 +109,13 @@ function App() {
         <>
           <Header />
           <Banner />
+          
           <Section1 />
+          <HorizontalSlider />
           <Text />
           <Section9 />
           <Section4 />
+         
           <Section8 />
           <Section3 />
           <Section5 />
@@ -123,3 +127,6 @@ function App() {
 }
 
 export default App;
+
+
+
