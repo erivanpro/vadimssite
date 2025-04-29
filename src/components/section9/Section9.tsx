@@ -1,22 +1,37 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import maisonchalon from '../../assets/affiche-chalon-marrin-portfolio-vadims.webp';
-import maisonchalonlogo from '../../assets/Fichier_11logo_hiboux_chalon_noir.webp';
+import maisonchalon2 from '../../assets/chalon2.webp';
+import maisonchalonlogo from '../../assets/logowhite.webp';
+
+const chalonImages = [maisonchalon, maisonchalon2];
 
 export default function Section9() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % chalonImages.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div id="section9" className="overflow-hidden section bg-black py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:flex-row-reverse">
 
-          {/* Animated Image with Apple effect (smooth scaling on hover) */}
+          {/* Auto-changing Animated Image */}
           <motion.img
-            src={maisonchalon}
+            key={currentImage}
+            src={chalonImages[currentImage]}
             alt="Maison Chalon"
             className="w-48 h-auto rounded-xl shadow-lg object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            viewport={{ once: true, amount: 0.4 }}
           />
 
           {/* Animated Text Block */}

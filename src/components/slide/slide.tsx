@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import  { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import './slide.css'
 const slides = [
@@ -42,7 +42,10 @@ const HorizontalSlider = () => {
       x: direction === 'prev' ? '+=300' : '-=300',
       duration: 0.8,
       ease: 'power2.out',
-      onComplete: () => tween.current?.play(),
+      onComplete: () => {
+        tween.current?.play();
+        return void 0;
+      },
     });
 
     setCurrentIndex((prevIndex) =>

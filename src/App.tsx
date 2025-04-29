@@ -14,6 +14,8 @@ import Section9 from './components/section9/Section9';
 import CircularText from './CircularText';
 import Text from './components/horiontaltext/text';
 import HorizontalSlider from './components/slide/slide';
+import SectionRocky from './components/section4/sectionrocky/sectionrocky';
+import SectionBird from './components/section4/sectionbird/sectionbird';
 gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [loading, setLoading] = useState(true);
@@ -119,6 +121,8 @@ function App() {
           <Section8 />
           <Section3 />
           <Section5 />
+          <SectionRocky />
+          <SectionBird/>
           <Footer />
         </>
       )}
