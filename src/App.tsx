@@ -19,11 +19,13 @@ import SectionBird from './components/section4/sectionbird/sectionbird';
 gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [loading, setLoading] = useState(true);
-  const [showCube, setShowCube] = useState(true);
-  const [showPyramid, setShowPyramid] = useState(false);
+
+        {/*   const [showCube, setShowCube] = useState(true);*/}
+     {/* const [showPyramid, setShowPyramid] = useState(false);*/}
+
 
   
-
+  {/*
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowCube(false);
@@ -32,7 +34,7 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  
+  */}
 
 
   useEffect(() => {
