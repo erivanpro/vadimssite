@@ -19,6 +19,21 @@ import SectionBird from './components/section4/sectionbird/sectionbird';
 gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [loading, setLoading] = useState(true);
+  const [showCube, setShowCube] = useState(true);
+  const [showPyramid, setShowPyramid] = useState(false);
+
+  
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowCube(false);
+      setShowPyramid(true);
+    }, 3000); // 3 seconds
+    return () => clearTimeout(timer);
+  }, []);
+
+  
+
 
   useEffect(() => {
     // Cursor logic
@@ -58,15 +73,65 @@ function App() {
           id="loader"
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black text-white text-3xl font-bold flex-col gap-6"
         >
+
+
+
+
+<div id="div1">
+  <div id="l" >
+    <div className="pupil">
+      <div className="p5">
+        <div className="pupl2">
+          <div className="pupil3"></div>
+          <div className="pupil4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="m" >
+    <div className="pupil">
+      <div className="p5">
+        <div className="pupl2">
+          <div className="pupil3"></div>
+          <div className="pupil4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{/* {showPyramid && (
+
+<div className="pyramid-loader">
+  <div className="wrapper">
+    <span className="side side1"></span>
+    <span className="side side2"></span>
+    <span className="side side3"></span>
+    <span className="side side4"></span>
+    <span className="shadow"></span>
+  </div>  
+</div>
+
+)}
+
+{showCube && (
           <div className="cube-loader">
             <div className="cube-top"></div>
             <div className="cube-wrapper">
               <span className="cube-span" style={{ '--i': '0' } as React.CSSProperties}></span>
               <span className="cube-span" style={{ '--i': 1 } as React.CSSProperties}></span>
-              <span className="cube-span" style={{ '--i': 2 } as React.CSSProperties}></span>
+              <span className="cube-span" style={{ '--i': 2 } as React.CSSProperties}></span>  
               <span className="cube-span" style={{ '--i': 3 } as React.CSSProperties}></span>
             </div>
           </div>
+)} */}
+
+
+
 
           <button className="button mt-24" onClick={handleClick}>
             <div className="dots_border"></div>
@@ -102,6 +167,7 @@ function App() {
               ></path>
             </svg>
             <span className="text_button">
+              
               continuer cette aventure
             </span>
           </button>
