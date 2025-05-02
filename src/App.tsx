@@ -19,9 +19,6 @@ import SectionBird from './components/section4/sectionbird/sectionbird';
 gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [loading, setLoading] = useState(true);
- 
-
-  
 
 
   
@@ -95,32 +92,6 @@ function App() {
 
 
 
-
-{/* {showPyramid && (
-
-<div className="pyramid-loader">
-  <div className="wrapper">
-    <span className="side side1"></span>
-    <span className="side side2"></span>
-    <span className="side side3"></span>
-    <span className="side side4"></span>
-    <span className="shadow"></span>
-  </div>  
-</div>
-
-)}
-
-{showCube && (
-          <div className="cube-loader">
-            <div className="cube-top"></div>
-            <div className="cube-wrapper">
-              <span className="cube-span" style={{ '--i': '0' } as React.CSSProperties}></span>
-              <span className="cube-span" style={{ '--i': 1 } as React.CSSProperties}></span>
-              <span className="cube-span" style={{ '--i': 2 } as React.CSSProperties}></span>  
-              <span className="cube-span" style={{ '--i': 3 } as React.CSSProperties}></span>
-            </div>
-          </div>
-)} */}
 
 
 
