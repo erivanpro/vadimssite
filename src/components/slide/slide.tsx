@@ -1,6 +1,9 @@
 import  { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import './slide.css'
+
+
+
 const slides = [
   {
     title: 'PROJET XV DE FRANCE',
@@ -8,16 +11,51 @@ const slides = [
     image: 'https://images.unsplash.com/photo-1726137065565-2c088892ee76?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8',
   },
   {
-    title: 'MISSION TESLA',
-    description: `Projet de 2 mois autour de maquettes Figma pour la nouvelle sportive Tesla, avec présence au lancement en Californie.`,
-    image: '/assets/tesla-project.png',
+    title: 'Maison Chalon',
+    description: `Création d'un branding pour une boutique de luxe spécialisée dans la petite maroquinerie.`,
+    image: '',
   },
   {
-    title: 'AUDI E-TRON',
+    title: 'The Trace',
     description: `Interface UX/UI pour un projet e-tron. Importance du design immersif et fluide.`,
-    image: '/assets/audi-project.png',
+    image: 'https://www.vadimsmartinez.com/assets/thetrace-CnAoI2d3.webp',
+  },
+  {
+    title: 'Vortex Utopia',
+    description: `Création d'un programme dépliant pour un festival de musique techno (Vortex Utopia).`,
+    image: 'https://www.vadimsmartinez.com/assets/vortex-DmaGsQF-.webp',
+  },
+  {
+    title: 'Skates JACKER',
+    description: `Dans le cadre de ce projet, j'ai conçu un design de skates pour la marque JACKER. J'ai utilisé Adobe Illustrator et Adobe Photoshop pour réaliser la mise en forme et les détails du design.`,
+    image: 'https://www.vadimsmartinez.com/assets/skate-DuDfY3dX.webp',
+  },
+ 
+  {
+    title: 'Rocky',
+    description: `Création d'un logo pour Rocky.`,
+    image: 'https://www.vadimsmartinez.com/assets/rocky2-nFacTLIj.png',
+  },
+
+  {
+    title: 'Cours de Photoshop',
+    description: `Création d'un logo pour Rocky.`,
+    image: 'https://www.vadimsmartinez.com/assets/bird1-BAN48Z_w.webp',
   },
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const HorizontalSlider = () => {
   const trackRef = useRef<HTMLDivElement>(null);
