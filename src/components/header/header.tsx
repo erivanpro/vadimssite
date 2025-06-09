@@ -5,22 +5,24 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import logo from '../../assets/Fichier_1ldpi.webp'
 import cv from '../../assets/cv 2025.pdf';
 import './header.css'
+import { Search } from './Search'
 
 
 
 
 const navigation = [
-  { name: 'Accueil', href: '' },
-  { name: 'Mes projets', href: '' },
+  { name: 'Accueil', href: './' },
+  { name: 'Mes projets', href: './mesprojets' },
  
 ]
 
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [showSearch, setShowSearch] = useState(false);
 
   return (
-    <header className="bg-black  backdrop-blur-2xl">
+    <header className=" bg-gradient-to-br from-blue-900 via-black  backdrop-blur-2xl">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between gap-x-6 p-6 lg:px-8 rounded-xl"
@@ -42,19 +44,33 @@ export default function Header() {
          
        
 
-      <a href={cv}  className="text-sm font-semibold text-white">
-      Contact
-     </a>
-     
+    
+
+        <a
+          href="/contact"
+        className="text-sm font-semibold text-white"
+        >
+          Contact
+        </a>
 
 
 
         <a
-  href={cv}
-  className=" custom-btn btn-16 rounded-0"
->
-  Télécharger mon CV
-</a>
+      href={cv}
+      className=" custom-btn btn-16 rounded-0"
+    >
+      Télécharger 
+    </a>
+
+   
+    <Search
+      setShowSearch={setShowSearch}
+showSearch={showSearch}
+    />
+  
+
+
+
 
         </div>
         <div className="flex lg:hidden">
@@ -114,3 +130,7 @@ export default function Header() {
     </header>
   )
 }
+
+
+      
+

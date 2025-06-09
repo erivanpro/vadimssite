@@ -1,7 +1,5 @@
 // components/CircularText.js
-
 import './CircularText.css';
-
 const CircularText = () => {
   return (
     <div className="circular-text-wrapper">

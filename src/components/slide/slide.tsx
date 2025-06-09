@@ -5,15 +5,11 @@ import './slide.css'
 
 
 const slides = [
-  {
-    title: 'PROJET XV DE FRANCE',
-    description: `En charge de réaliser le backstage du reportage d’un joueur du XV de France en sélection nationale.`,
-    image: 'https://images.unsplash.com/photo-1726137065565-2c088892ee76?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8',
-  },
+ 
   {
     title: 'Maison Chalon',
     description: `Création d'un branding pour une boutique de luxe spécialisée dans la petite maroquinerie.`,
-    image: '',
+    image: 'https://vadimssite-7l8y6rhk7-erivanpros-projects.vercel.app/assets/chalon2-DiQXBANq.webp',
   },
   {
     title: 'The Trace',

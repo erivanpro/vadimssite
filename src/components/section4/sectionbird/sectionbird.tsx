@@ -43,30 +43,7 @@ export default function SectionBird() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
           />
 
-          {/* Animated Text Block */}
-          <motion.div
-            className="lg:pr-8 lg:pt-4"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, ease: 'easeOut' }}
-            viewport={{ once: true, amount: 0.4 }}
-          >
-            <div className="lg:max-w-lg">
-              <p className="mt-2 text-cyan-600 text-3xl font-semibold tracking-tight sm:text-4xl">
-                Cours de Photoshop
-              </p>
-              <p className="mt-4 text-lg leading-8 text-white">
-               Création photoshop d'un oiseau en 3D , ainsi que d'autres éléments graphiques.
-              </p>
-              <button
-                onClick={handlePlayVideo}
-                className="mt-6 inline-flex items-center gap-2 rounded-full bg-cyan-600 px-6 py-3 text-base font-semibold text-white shadow-lg ring-4 ring-cyan-600 hover:ring-cyan-100 transform hover:scale-105 transition-all duration-300 ease-in-out"
-              >
-                <PlayCircleIcon className="h-6 w-6" />
-                Voir la vidéo
-              </button>
-            </div>
-          </motion.div>
+        
 
         </div>
       </div>
