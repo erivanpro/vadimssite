@@ -1,23 +1,11 @@
-import { useRef, useState, useEffect } from 'react';
-import { PlayCircleIcon } from '@heroicons/react/24/outline';
+import {  useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import bird1 from '../../../assets/bird1.webp';
 import bird2 from '../../../assets/bird2.webp';
 import bird3 from '../../../assets/bird3.webp';
-
 const birdImages = [bird1, bird2, bird3];
-
 export default function SectionBird() {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const [currentImage, setCurrentImage] = useState(0);
-
-  const handlePlayVideo = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
-      videoRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % birdImages.length);
@@ -25,12 +13,10 @@ export default function SectionBird() {
 
     return () => clearInterval(interval); // Cleanup
   }, []);
-
   return (
     <div id="section5" className="section overflow-hidden bg-black py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:flex-row-reverse">
-
           {/* Animated Image instead of video */}
           <motion.img
             key={currentImage}
@@ -42,9 +28,6 @@ export default function SectionBird() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           />
-
-        
-
         </div>
       </div>
     </div>
