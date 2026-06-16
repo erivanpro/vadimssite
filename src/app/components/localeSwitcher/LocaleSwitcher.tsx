@@ -48,7 +48,7 @@ export default function LocaleSwitcher({
         aria-expanded={isDropdownOpen ? 'true' : 'false'}
       >
         <div 
-         className={`flex items-center justify-between rounded-full border border-black/10 bg-white px-4 py-2 transition-all duration-300 ease-in-out hover:border-[#52bf88] hover:bg-[#f4f6f2]`}
+         className={`flex items-center justify-between rounded-[6px] border border-black/10 bg-white px-4 py-2 transition-all duration-300 ease-in-out hover:border-[#52bf88] hover:bg-[#f4f6f2]`}
     >
           <CircleFlagLanguage className="w-6 h-6" languageCode={locale as string} />
           <p className="ml-2 text-sm font-medium">{currentLanguageName}</p>
@@ -57,7 +57,7 @@ export default function LocaleSwitcher({
 
         {isDropdownOpen && (
          
-          <div className="absolute left-0 right-0 z-10 mt-2 max-h-60 overflow-auto rounded-2xl border border-black/10 bg-white shadow-lg">
+          <div className="absolute left-0 right-0 z-10 mt-2 max-h-60 overflow-auto rounded-[8px] border border-black/10 bg-white shadow-lg">
             <LocaleSwitcherSelect
               currentLocale={locale}
               allLocales={Object.keys(languages)}

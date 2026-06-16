@@ -22,12 +22,14 @@ export default function Box2() {
         <div className="split-copy">
            
            
-            <p  className="different modern-section-title">
-            {t('Louez des voitures pour toutes les occasions')}
+          
+           <p
+  className="different modern-section-title"
+  style={{ fontSize: '10px' }}
+>
+  {t('Louez des voitures pour toutes les occasions')}
+</p>
 
-
-
-            </p>
             <p className="modern-section-copy">
             {t('Explorez une incroyable sélection de voitures, des plus communes aux plus extraordinaires')}
 

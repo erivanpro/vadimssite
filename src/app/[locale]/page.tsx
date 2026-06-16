@@ -432,7 +432,10 @@ export default function Page() {
                 </span>
               </motion.div>
 
-             <h2 className="different modern-hero-title !text-2xl md:!text-3xl">
+            <h2
+  className="different modern-hero-title"
+  style={{ fontSize: "20px" }}
+>
   <span>{t("Location de voitures")}</span>
 </h2>
               <p className="modern-hero-copy">

@@ -106,7 +106,7 @@ export default function SearchBar() {
       {/* Search Button */}
       <button
         onClick={toggleSearch}
-        className="ml-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#52bf88] p-2 text-white transition hover:bg-[#2f8d61]"
+        className="ml-3 flex h-10 w-10 items-center justify-center rounded-[6px] bg-[#52bf88] p-2 text-white transition hover:bg-[#2f8d61]"
       >
         <MagnifyingGlassIcon className="w-6 h-6" />
       </button>
@@ -128,18 +128,18 @@ export default function SearchBar() {
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
-        className="relative w-full max-w-lg rounded-[28px] border border-black/10 bg-white p-6 shadow-2xl"
+        className="relative w-full max-w-lg rounded-[8px] border border-black/10 bg-white p-6 shadow-xl"
       >
         {/* Close Button */}
         <button
           onClick={toggleSearch}
-          className="absolute right-4 top-4 rounded-full bg-[#f4f6f2] p-1 text-gray-700 transition-all duration-300 hover:text-black"
+          className="absolute right-4 top-4 rounded-[6px] bg-[#f4f6f2] p-1 text-gray-700 transition-all duration-300 hover:text-black"
         >
           <XMarkIcon className="w-6 h-6" />
         </button>
 
         {/* Search Input */}
-        <div className="flex items-center rounded-full border border-black/10 bg-[#f4f6f2] px-4 py-3">
+        <div className="flex items-center rounded-[6px] border border-black/10 bg-[#f4f6f2] px-4 py-3">
           <MagnifyingGlassIcon className="w-6 h-6 text-gray-500" />
 
 <input
@@ -160,7 +160,7 @@ export default function SearchBar() {
               filteredItems.map((item, index) => (
                 <li key={index}>
                   <Link href={item.link} onClick={toggleSearch}>
-                    <span className="block rounded-2xl px-4 py-3 text-lg font-semibold text-gray-800 transition duration-200 hover:bg-[#f4f6f2]">
+                    <span className="block rounded-[6px] px-4 py-3 text-lg font-semibold text-gray-800 transition duration-200 hover:bg-[#f4f6f2]">
                       {item.name}
                     </span>
                   </Link>
@@ -181,4 +181,3 @@ export default function SearchBar() {
     </>
   );
 }
-

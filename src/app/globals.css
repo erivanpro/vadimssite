@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #142019;
+  --background: #f7f8f4;
+  --foreground: #101511;
   --limitless-green: #52bf88;
   --limitless-green-dark: #2f8d61;
-  --limitless-ink: #142019;
-  --limitless-muted: #66746c;
-  --limitless-soft: #f6f8f5;
-  --limitless-line: #e5ebe6;
+  --limitless-ink: #101511;
+  --limitless-muted: #5c665f;
+  --limitless-soft: #f7f8f4;
+  --limitless-line: #dde3dc;
 }
 
 body {
@@ -78,4 +78,26 @@ body {
 
 h2.different {
   font-family: inherit;
+}
+
+.info-modal-panel {
+  box-sizing: border-box;
+  width: min(28rem, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.info-modal-panel p {
+  overflow-wrap: anywhere;
+}
+
+.modal-socials {
+  flex-wrap: wrap;
+}
+
+@supports (height: 100dvh) {
+  .info-modal-panel {
+    max-height: calc(100dvh - 32px);
+  }
 }

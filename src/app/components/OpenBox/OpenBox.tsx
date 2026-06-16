@@ -40,14 +40,14 @@ function InfoModal() {
         aria-describedby="info-modal-description"
       >
         {/* Overlay */}
-        <div className="fixed inset-0 bg-slate-900/25" aria-hidden="true" />
+        <div className="fixed inset-0 bg-slate-950/25" aria-hidden="true" />
 
         {/* Contenu du Modal */}
-        <Dialog.Panel className="w-full max-w-md bg-white rounded-3xl shadow-xl p-6 relative">
+        <Dialog.Panel className="info-modal-panel relative rounded-[8px] border border-black/10 bg-white p-6 shadow-xl">
           {/* Bouton Fermer */}
           <button
             onClick={closeModal}
-            className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-gray-700 hover:text-gray-900 active:text-gray-700 transition-colors duration-200"
+            className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-[6px] bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-gray-700 hover:text-gray-900 active:text-gray-700 transition-colors duration-200"
             aria-label="Fermer"
           >
             ✕
@@ -71,7 +71,7 @@ function InfoModal() {
 
           {/* Sélecteur de langue */}
           <div className="flex justify-center mb-6">
-            <LocaleSwitcher />
+            <LocaleSwitcher removeMargin />
           </div>
 
           {/* Autorisation des cookies */}
@@ -79,19 +79,19 @@ function InfoModal() {
             <span className="text-sm text-gray-700">Autoriser les cookies</span>
             <button
               onClick={() => setAllowCookies(!allowCookies)}
-              className={`relative w-12 h-6 rounded-full focus:outline-none ${
+              className={`relative w-12 h-6 rounded-[6px] focus:outline-none ${
                 allowCookies ? "bg-[#52bf88]" : "bg-gray-300"
               }`}
             >
               <span
-                className={`absolute left-0 top-0 m-1 w-4 h-4 rounded-full bg-white transform transition-transform ${
+                className={`absolute left-0 top-0 m-1 w-4 h-4 rounded-[4px] bg-white transform transition-transform ${
                   allowCookies ? "translate-x-6" : ""
                 }`}
               />
             </button>
           </div>
 
-          <p className="text-sm text-gray-300">
+          <p className="break-words text-sm leading-6 text-gray-500">
             La société GoLimitless, enregistrée sous le numéro SIREN 939 203 287 R.C.S. Paris, a été officiellement constituée le 6 janvier 2025 en tant que société à responsabilité limitée (SARL). Avec un capital social de 300 €, son siège social est situé au 60 rue François 1er, 75008 Paris.
           </p>
 
@@ -99,14 +99,14 @@ function InfoModal() {
           <div className="mt-6 flex justify-end">
             <button
               onClick={closeModal}
-              className="bg-[#52bf88] font-bold text-white rounded-full px-6 py-3 text-sm hover:bg-[#2f8d61] focus:outline-none focus:ring-4"
+              className="bg-[#52bf88] font-bold text-white rounded-[6px] px-6 py-3 text-sm hover:bg-[#2f8d61] focus:outline-none focus:ring-4"
             >
               Fermer
             </button>
           </div>
 
           {/* Liens sociaux */}
-          <div className="flex justify-center space-x-6 mt-12 mb-12">
+          <div className="modal-socials mt-12 mb-12 flex justify-center gap-6">
             <a
               href="https://x.com/LimitlessA66221"
               className="text-gray-500 hover:text-gray-900"

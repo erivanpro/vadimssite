@@ -34,7 +34,7 @@ export default function RentComponent() {
           <a
             key={index}
             href="/gettheapp"
-            className="inline-block whitespace-nowrap rounded-full border border-black/10 bg-[#f6f8f4] px-6 py-3 text-sm font-bold text-[#142019] transition hover:border-[#52bf88] hover:bg-white"
+            className="inline-block whitespace-nowrap rounded-[6px] border border-black/10 bg-[#f6f8f4] px-6 py-3 text-sm font-bold text-[#142019] transition hover:border-[#52bf88] hover:bg-white"
           >
             {isFrench
               ? `Louez une voiture à l'aéroport de ${city}`
