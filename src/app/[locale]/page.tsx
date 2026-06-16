@@ -48,7 +48,7 @@ import { useTranslations } from "next-intl";
 import Team from "../team";
 import LocaleSwitcher from "../components/localeSwitcher/LocaleSwitcher";
 import "./style.css"; // Import your custom styles
-import heroPhone from "@/app/components/Devices 6/Apple/français.png";
+import heroPhone from "@/app/components/Devices 6/Apple/francais.png";
 import { FaX } from "react-icons/fa6";
 import {
   FaEnvelope,
@@ -154,6 +154,7 @@ export default function Page() {
             width={80}
             height={80}
             className="z-10 mb-4"
+            priority
           />
           <div className="text-[#142019] font-bold text-lg animate-bounce mb-4">
             ...

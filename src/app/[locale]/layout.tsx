@@ -38,7 +38,7 @@ export default async function RootLayout({
   const direction = "ltr";
 
   return (
-    <html lang="en" dir={direction}> {/* Default to English */}
+    <html lang="en" dir={direction}>
       <head>
         {/* Add favicon */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -52,5 +52,4 @@ export default async function RootLayout({
     </html>
   );
 }
-
 
