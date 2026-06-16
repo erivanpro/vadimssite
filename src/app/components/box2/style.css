@@ -1,0 +1,43 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-rating {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.arrow-badge::after {
+  content: "→"; /* Unicode de la flèche */
+  margin-left: 8px; /* Espacement entre le texte et la flèche */
+  font-size: 12px; /* Taille de la flèche */
+}
+
+
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradientMove 3s linear infinite;
+}
+
+
+@font-face {
+  font-family: 'MyCustomFont'; /* Name of your custom font */
+  src: url('./font/Golimitless.ttf') format('truetype'); /* Path to your custom font */
+  font-weight: normal;
+  font-style: normal;
+}
+
+h2.different {
+  font-family: 'MyCustomFont'; /* Name of your custom font */
+}

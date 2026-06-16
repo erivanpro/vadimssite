@@ -1,0 +1,47 @@
+/* Enhanced Glass Effect for Tailwind CSS */
+.glass-effect {
+    background-color: rgba(255, 255, 255, 0.15); /* Semi-transparent white background with opacity */
+    backdrop-filter: blur(20px); /* Increased blur for a stronger glass effect */
+    border-radius: 16px; /* More rounded corners for a soft look */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border with opacity */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+    padding: 2rem; /* Adequate padding around the content */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* Smooth transition for hover effects */
+    opacity: 0.85; /* Initial opacity to make the glass effect more transparent */
+  }
+  
+  /* Hover Effect for Glass Cards */
+  .glass-effect:hover {
+    transform: translateY(-5px); /* Subtle lift effect on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+    opacity: 0.5; /* Full opacity on hover for more intensity */
+  }
+  
+  /* Glowing Effect on Text */
+  .glass-effect h3 {
+    color: #000000; /* White text for contrast */
+  }
+  
+  .glass-effect h3:hover {
+    text-shadow: 0 0 15px rgba(17, 17, 17, 0.7); /* Glowing text effect on hover */
+  }
+  
+  /* Optional: Lighten the background slightly on hover */
+  .glass-effect:hover {
+    background-color: rgba(255, 255, 255, 0.25); /* Slightly less transparent on hover */
+  }
+  
+
+
+  @font-face {
+    font-family: 'MyCustomFont'; /* Name of your custom font */
+    src: url('../../[locale]/font/Golimitless.ttf') format('truetype'); /* Path to your custom font */
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  h3.different {
+    font-family: 'MyCustomFont'; /* Name of your custom font */
+    line-height: 1.5; /* Adjust this value as needed */
+  }
+  
