@@ -42,6 +42,10 @@ export default async function RootLayout({
       <head>
         {/* Add favicon */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <meta
+          name="google-site-verification"
+          content="6sbsxa7mlHIjTAh5Nd94xpw8-H4fJ9qARSscnmx9fEE"
+        />
       </head>
       <body className={`${myFont.className} antialiased`}>
         {/* Provide messages to the app via NextIntlClientProvider */}
@@ -52,4 +56,3 @@ export default async function RootLayout({
     </html>
   );
 }
-
