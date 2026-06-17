@@ -36,12 +36,12 @@ export default function LocaleSwitcherSelect({
   }
 
   return (
-    <div className="flex flex-col items-center overflow-hidden rounded-2xl bg-white">
+    <div className="locale-switcher-options flex flex-col items-center overflow-hidden rounded-2xl bg-white">
       {allLocales.map((locale) => {
         if (locale === currentLocale) return null;
         return (
           <button
-            className="flex w-full items-center gap-3 px-3 py-2 text-left text-sm font-semibold text-gray-800 transition-colors duration-200 ease-in-out hover:bg-[#f4f6f2]"
+            className="locale-switcher-option flex w-full items-center gap-3 px-3 py-2 text-left text-sm font-semibold text-gray-800 transition-colors duration-200 ease-in-out hover:bg-[#f4f6f2]"
             key={locale}
             type="button"
             onClick={() => onSelectChange(locale)}

@@ -60,6 +60,8 @@
     },
 
     "Légal": "Legal",
+    "Assurance": "Seguro",
+    "Professionnels": "Profesionales",
     "Télécharger": "Descargar",
     "Notre assurance prend en compte tout": "Nuestro seguro tiene en cuenta todo",
     "Devenir hôte": "Convertirse en anfitrión",
@@ -149,26 +151,368 @@
     "Nous sommes là pour vous aider": "Estamos aquí para ayudarte",
     "Visitez le centre d'aide": "Visita el centro de ayuda"
   },
-  "contact":{
-  "title": "contacto",
-  "subtitle": "Estamos aquí para ayudarte con tus problemas de alquiler.",
-  "formTitle": "Completa el formulario",
-  "firstName": "Nombre",
-  "lastName": "Apellido",
-  "email": "Dirección de correo electrónico",
-  "phone": "Número de teléfono",
-  "selectPlaceholder": "Seleccionar tipo de problema",
-  "stoppedRental": "Alquiler detenido",
-  "carStolen": "Coche robado",
-  "technicalIssue": "Problema técnico con el coche",
-  "paymentIssue": "Problema de pago",
-  "appIssue": "Problema de la aplicación",
-  "userIssue": "Problema de usuario",
-  "other": "Otro",
-  "details": "Detalles",
-  "submit": "Enviar",
-  "responseTime": "Te responderemos en un plazo de 1 a 2 días hábiles."
-},
+    "contact": {
+    "eyebrow": "Seguro y atención al cliente",
+    "title": "Contacta con nuestro equipo de soporte de seguros",
+    "subtitle": "Cuéntanos qué necesitas y dirigiremos tu solicitud al equipo adecuado para pólizas, coberturas, cotizaciones, reclamaciones, facturación, certificados, renovaciones, cancelaciones, beneficios para empleados, gestión de riesgos, seguros personales, seguros comerciales y protección de alquileres.",
+    "fastestHelpTitle": "Cómo obtener ayuda más rápido",
+    "fastestHelpText": "Elige la categoría que mejor corresponda e incluye los datos que nuestro equipo necesita.",
+    "fastestHelpItems": [
+      "Para reclamaciones o accidentes, incluye reserva, póliza o número de reclamación, fecha, lugar, fotos e información policial o de terceros.",
+      "Para facturación, renovaciones, cancelaciones o cambios, incluye póliza, factura, aviso de renovación o referencia de pago.",
+      "Para seguros comerciales, beneficios, certificados o gestión de riesgos, incluye empresa, tamaño de flota, ubicaciones y fecha límite."
+    ],
+    "departmentCards": [
+      {
+        "title": "Reclamaciones e incidentes",
+        "text": "Accidentes, daños, robo, responsabilidad, estado de reclamación y documentos."
+      },
+      {
+        "title": "Servicio de pólizas",
+        "text": "Cobertura, cambios, renovaciones, cancelaciones, certificados y facturación."
+      },
+      {
+        "title": "Comercial y beneficios",
+        "text": "Flotas, alianzas con agencias, gestión de riesgos, vida, salud y beneficios."
+      }
+    ],
+    "formTitle": "Enviar una solicitud detallada",
+    "formIntro": "Cuanto más contexto proporciones, más precisa será la respuesta del departamento adecuado.",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "company": "Empresa o agencia (opcional)",
+    "policyOrReservation": "Número de póliza, reserva, factura o certificado (opcional)",
+    "claimNumber": "Número de reclamación (opcional)",
+    "customerType": "Tipo de cliente",
+    "customerTypePlaceholder": "Selecciona tipo de cliente",
+    "category": "¿Con qué necesitas ayuda?",
+    "categoryPlaceholder": "Selecciona una categoría",
+    "insuranceLine": "Seguro o área de servicio",
+    "insuranceLinePlaceholder": "Selecciona seguro o servicio",
+    "preferredContact": "Método de contacto preferido",
+    "preferredContactPlaceholder": "Selecciona método de contacto",
+    "urgency": "Urgencia",
+    "urgencyPlaceholder": "Selecciona urgencia",
+    "details": "¿Cómo podemos ayudar?",
+    "detailsPlaceholder": "Describe la situación, lo ocurrido, lo que necesitas, fechas importantes, vehículo o póliza y plazos.",
+    "consent": "Acepto que Limitless use esta información para dirigir y responder mi solicitud.",
+    "submit": "Enviar solicitud",
+    "sending": "Enviando solicitud",
+    "responseTime": "La mayoría de solicitudes reciben respuesta en 1 a 2 días hábiles. Las reclamaciones urgentes y asuntos de seguridad tienen prioridad.",
+    "successMessage": "Hemos recibido tu solicitud. El equipo adecuado la revisará y responderá lo antes posible.",
+    "errorMessage": "No pudimos enviar tu solicitud. Inténtalo de nuevo más tarde.",
+    "validation": {
+      "required": "Este campo es obligatorio.",
+      "email": "Introduce un correo válido.",
+      "phone": "Introduce un teléfono válido.",
+      "details": "Añade al menos 20 caracteres para dar suficiente contexto.",
+      "consent": "Confirma que podemos usar los detalles para responder."
+    },
+    "customerTypes": [
+      {
+        "value": "renter",
+        "label": "Arrendatario"
+      },
+      {
+        "value": "host",
+        "label": "Anfitrión de vehículo"
+      },
+      {
+        "value": "professionalFleet",
+        "label": "Operador de flota profesional"
+      },
+      {
+        "value": "agency",
+        "label": "Agencia de alquiler"
+      },
+      {
+        "value": "individual",
+        "label": "Asegurado particular"
+      },
+      {
+        "value": "business",
+        "label": "Cliente empresa"
+      },
+      {
+        "value": "broker",
+        "label": "Corredor o asesor"
+      },
+      {
+        "value": "other",
+        "label": "Otro"
+      }
+    ],
+    "insuranceLines": [
+      {
+        "value": "carSharing",
+        "label": "Protección de reserva de car sharing"
+      },
+      {
+        "value": "personalAuto",
+        "label": "Seguro auto personal"
+      },
+      {
+        "value": "commercialAuto",
+        "label": "Seguro auto comercial"
+      },
+      {
+        "value": "fleet",
+        "label": "Seguro de flota"
+      },
+      {
+        "value": "lifeHealth",
+        "label": "Seguro de vida y salud"
+      },
+      {
+        "value": "employeeBenefits",
+        "label": "Beneficios para empleados"
+      },
+      {
+        "value": "propertyLiability",
+        "label": "Seguro de propiedad y responsabilidad"
+      },
+      {
+        "value": "general",
+        "label": "Servicio general de seguros"
+      }
+    ],
+    "preferredContacts": [
+      {
+        "value": "email",
+        "label": "Correo"
+      },
+      {
+        "value": "phone",
+        "label": "Teléfono"
+      },
+      {
+        "value": "app",
+        "label": "Mensaje en la app"
+      },
+      {
+        "value": "video",
+        "label": "Videollamada"
+      }
+    ],
+    "urgencyOptions": [
+      {
+        "value": "emergency",
+        "label": "Emergencia o incidente activo"
+      },
+      {
+        "value": "sameDay",
+        "label": "Respuesta el mismo día"
+      },
+      {
+        "value": "standard",
+        "label": "Solicitud estándar"
+      },
+      {
+        "value": "planning",
+        "label": "Planificación o cambio futuro"
+      }
+    ],
+    "categoryData": {
+      "labels": [
+        "Preguntas de póliza",
+        "Opciones de cobertura",
+        "Cotizaciones y precios",
+        "Asistencia con reclamaciones",
+        "Facturación y pagos",
+        "Cambios de póliza",
+        "Renovaciones",
+        "Cancelaciones",
+        "Certificados de seguro",
+        "Seguro de vida y salud",
+        "Seguro personal",
+        "Seguro comercial",
+        "Beneficios para empleados",
+        "Gestión de riesgos",
+        "Incidente de alquiler o daño",
+        "App, cuenta o reserva",
+        "Alianza o alta de flota",
+        "Otro servicio de seguro"
+      ],
+      "departments": [
+        "Servicio de pólizas",
+        "Asesoría de cobertura",
+        "Equipo de cotizaciones",
+        "Departamento de reclamaciones",
+        "Facturación",
+        "Servicio de pólizas",
+        "Renovaciones",
+        "Servicio de pólizas",
+        "Certificados",
+        "Vida y salud",
+        "Líneas personales",
+        "Líneas comerciales",
+        "Beneficios",
+        "Gestión de riesgos",
+        "Reclamaciones",
+        "Soporte al cliente",
+        "Alianzas",
+        "Soporte al cliente"
+      ],
+      "guidance": [
+        "Pregunta sobre términos, documentos, elegibilidad, exclusiones, deducibles o significado de la póliza.",
+        "Compara opciones, límites, complementos, deducibles y protecciones antes de reservar o cambiar.",
+        "Solicita una cotización para seguro personal, comercial, flota, vida, salud, beneficios o car sharing.",
+        "Recibe ayuda para abrir una reclamación, revisar estado, enviar documentos o entender próximos pasos.",
+        "Consulta facturas, recibos, pagos fallidos, reembolsos, métodos de pago o correcciones.",
+        "Solicita cambios de dirección, conductor, vehículo, cobertura, beneficiario, empresa o contacto.",
+        "Consulta avisos de renovación, precio, documentos requeridos o vencimientos.",
+        "Pide ayuda con cancelación, fecha efectiva, comprobante o consecuencias.",
+        "Solicita prueba de seguro, titular del certificado, asegurado adicional o actualización comercial.",
+        "Consulta opciones de vida, salud, médica, discapacidad o protección relacionada.",
+        "Recibe orientación para auto personal, hogar, responsabilidad, viaje o necesidades individuales.",
+        "Recibe ayuda con auto comercial, flota, responsabilidad, propiedad, agencia o cobertura empresarial.",
+        "Consulta salud grupal, vida, discapacidad, beneficios voluntarios, inscripción o administración.",
+        "Solicita revisión de riesgos, prevención, seguridad, tendencias de reclamaciones o asesoría de flota.",
+        "Reporta accidentes, daños, robo, devolución tardía, responsabilidad o protección urgente de alquiler.",
+        "Recibe ayuda con acceso a la app, verificación, reservas o soporte de cuenta.",
+        "Habla sobre publicación de flotas, alianzas con agencias, onboarding y requisitos comerciales.",
+        "Cuéntanos qué necesitas y lo dirigiremos al equipo adecuado."
+      ]
+    },
+    "categories": [
+      {
+        "value": "policyQuestions",
+        "label": "Preguntas de póliza",
+        "department": "Servicio de pólizas",
+        "guidance": "Pregunta sobre términos, documentos, elegibilidad, exclusiones, deducibles o significado de la póliza."
+      },
+      {
+        "value": "coverageOptions",
+        "label": "Opciones de cobertura",
+        "department": "Asesoría de cobertura",
+        "guidance": "Compara opciones, límites, complementos, deducibles y protecciones antes de reservar o cambiar."
+      },
+      {
+        "value": "quotes",
+        "label": "Cotizaciones y precios",
+        "department": "Equipo de cotizaciones",
+        "guidance": "Solicita una cotización para seguro personal, comercial, flota, vida, salud, beneficios o car sharing."
+      },
+      {
+        "value": "claimsAssistance",
+        "label": "Asistencia con reclamaciones",
+        "department": "Departamento de reclamaciones",
+        "guidance": "Recibe ayuda para abrir una reclamación, revisar estado, enviar documentos o entender próximos pasos."
+      },
+      {
+        "value": "billingPayments",
+        "label": "Facturación y pagos",
+        "department": "Facturación",
+        "guidance": "Consulta facturas, recibos, pagos fallidos, reembolsos, métodos de pago o correcciones."
+      },
+      {
+        "value": "policyChanges",
+        "label": "Cambios de póliza",
+        "department": "Servicio de pólizas",
+        "guidance": "Solicita cambios de dirección, conductor, vehículo, cobertura, beneficiario, empresa o contacto."
+      },
+      {
+        "value": "renewals",
+        "label": "Renovaciones",
+        "department": "Renovaciones",
+        "guidance": "Consulta avisos de renovación, precio, documentos requeridos o vencimientos."
+      },
+      {
+        "value": "cancellations",
+        "label": "Cancelaciones",
+        "department": "Servicio de pólizas",
+        "guidance": "Pide ayuda con cancelación, fecha efectiva, comprobante o consecuencias."
+      },
+      {
+        "value": "certificates",
+        "label": "Certificados de seguro",
+        "department": "Certificados",
+        "guidance": "Solicita prueba de seguro, titular del certificado, asegurado adicional o actualización comercial."
+      },
+      {
+        "value": "lifeHealth",
+        "label": "Seguro de vida y salud",
+        "department": "Vida y salud",
+        "guidance": "Consulta opciones de vida, salud, médica, discapacidad o protección relacionada."
+      },
+      {
+        "value": "personalInsurance",
+        "label": "Seguro personal",
+        "department": "Líneas personales",
+        "guidance": "Recibe orientación para auto personal, hogar, responsabilidad, viaje o necesidades individuales."
+      },
+      {
+        "value": "commercialInsurance",
+        "label": "Seguro comercial",
+        "department": "Líneas comerciales",
+        "guidance": "Recibe ayuda con auto comercial, flota, responsabilidad, propiedad, agencia o cobertura empresarial."
+      },
+      {
+        "value": "employeeBenefits",
+        "label": "Beneficios para empleados",
+        "department": "Beneficios",
+        "guidance": "Consulta salud grupal, vida, discapacidad, beneficios voluntarios, inscripción o administración."
+      },
+      {
+        "value": "riskManagement",
+        "label": "Gestión de riesgos",
+        "department": "Gestión de riesgos",
+        "guidance": "Solicita revisión de riesgos, prevención, seguridad, tendencias de reclamaciones o asesoría de flota."
+      },
+      {
+        "value": "rentalIncident",
+        "label": "Incidente de alquiler o daño",
+        "department": "Reclamaciones",
+        "guidance": "Reporta accidentes, daños, robo, devolución tardía, responsabilidad o protección urgente de alquiler."
+      },
+      {
+        "value": "appAccount",
+        "label": "App, cuenta o reserva",
+        "department": "Soporte al cliente",
+        "guidance": "Recibe ayuda con acceso a la app, verificación, reservas o soporte de cuenta."
+      },
+      {
+        "value": "partnerships",
+        "label": "Alianza o alta de flota",
+        "department": "Alianzas",
+        "guidance": "Habla sobre publicación de flotas, alianzas con agencias, onboarding y requisitos comerciales."
+      },
+      {
+        "value": "other",
+        "label": "Otro servicio de seguro",
+        "department": "Soporte al cliente",
+        "guidance": "Cuéntanos qué necesitas y lo dirigiremos al equipo adecuado."
+      }
+    ],
+    "guidanceSections": [
+      {
+        "title": "Información que debes incluir",
+        "items": [
+          "Número de póliza, reserva, reclamación, factura o certificado si lo tienes.",
+          "Fechas, lugares, vehículo, conductor o empresa y descripción clara.",
+          "Fotos, informes, facturas, avisos de renovación o texto de certificado relevante."
+        ]
+      },
+      {
+        "title": "Departamento adecuado",
+        "items": [
+          "Usa Reclamaciones para accidentes, daños, robo, responsabilidad y estado.",
+          "Usa Servicio de pólizas para documentos, cambios, cancelaciones, renovaciones, facturación y certificados.",
+          "Usa Comercial, Beneficios o Riesgos para flotas, empresas, beneficios, prevención y agencias."
+        ]
+      },
+      {
+        "title": "Situaciones urgentes",
+        "items": [
+          "Si alguien está en peligro, llama primero a emergencias locales.",
+          "Para un incidente activo, asegura el vehículo, documenta la escena y marca la solicitud urgente.",
+          "Para certificados, renovaciones o cancelaciones con plazo, indica la fecha requerida."
+        ]
+      }
+    ]
+  },
   "newPage": {
     "Gagner de l'argent": "Ganar dinero",
     "main-desc": "Con Limitless, alquila tu coche y conviértelo en una fuente de ingresos adicionales. Gana dinero fácilmente compartiendo tu vehículo. Limitless es la solución ideal para rentabilizar tu coche de manera sencilla.",
@@ -387,6 +731,178 @@
     "acceptButton": "Aceptar todo",
     "rejectButton": "Rechazar todo"
   },
+  "professionalsPage": {
+    "eyebrow": "Alianzas con flotas",
+    "title": "Profesionales y agencias",
+    "intro": "Limitless da la bienvenida a empresas de alquiler como Hertz, Europcar, agencias locales y otros operadores de flotas que quieran publicar sus vehículos en nuestra plataforma. El producto se creó primero para el car sharing entre particulares, conectando a personas que quieren alquilar su vehículo con quienes buscan un coche.",
+    "primaryAction": "Contáctanos",
+    "secondaryAction": "Ver seguro",
+    "secondaryHref": "/assurance",
+    "visual": {
+      "title": "Publicación para flotas",
+      "first": "Publica vehículos elegibles con disponibilidad y detalles de reserva claros.",
+      "second": "Contáctanos directamente para hablar de oportunidades de colaboración."
+    },
+    "stats": [
+      {
+        "value": "P2P primero",
+        "label": "Nuestra misión principal sigue siendo ayudar a propietarios particulares a compartir su coche y generar ingresos."
+      },
+      {
+        "value": "Flotas bienvenidas",
+        "label": "Empresas de alquiler y operadores pueden hablar con nosotros para añadir inventario profesional."
+      },
+      {
+        "value": "Contacto directo",
+        "label": "Gestionamos las solicitudes directamente para entender tu flota y tu mercado."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Creado primero para particulares",
+        "text": "Limitless nació para hacer accesible el car sharing a propietarios cotidianos y arrendatarios cercanos. Ese modelo entre particulares sigue siendo la base."
+      },
+      {
+        "title": "Abierto a oferta profesional",
+        "text": "Hertz, Europcar, agencias independientes y operadores especializados pueden explorar la publicación de vehículos cuando mejore la elección de los usuarios."
+      },
+      {
+        "title": "Más ingresos con los vehículos",
+        "text": "Seguiremos invirtiendo en herramientas que ayuden a personas y organizaciones a convertir el tiempo sin uso del vehículo en ingresos."
+      }
+    ],
+    "details": [
+      {
+        "title": "Para operadores de flota",
+        "items": [
+          "Habla con nosotros sobre elegibilidad, ubicaciones y requisitos operativos.",
+          "Publica vehículos con fotos, precios y disponibilidad claros.",
+          "Coordina el onboarding y las expectativas de colaboración con nuestro equipo."
+        ]
+      },
+      {
+        "title": "Para la comunidad",
+        "items": [
+          "Los particulares siguen en el centro del marketplace.",
+          "El inventario profesional puede añadir disponibilidad en zonas con mucha demanda.",
+          "Los usuarios tienen más opciones en una plataforma sencilla."
+        ]
+      },
+      {
+        "title": "Enfoque de alianza",
+        "items": [
+          "Revisamos las solicitudes directamente.",
+          "Buscamos operadores fiables e información transparente.",
+          "Priorizamos una experiencia útil para arrendatarios, anfitriones y socios de flota."
+        ]
+      }
+    ],
+    "stepsTitle": "Cómo empieza una alianza",
+    "stepsIntro": "Las empresas interesadas pueden contactarnos primero y luego revisamos juntos el mejor camino de incorporación.",
+    "steps": [
+      {
+        "title": "Presenta tu flota",
+        "text": "Cuéntanos sobre tu empresa, ubicaciones, tipos de vehículos y volumen esperado."
+      },
+      {
+        "title": "Revisamos el encaje",
+        "text": "Hablamos de cómo tu inventario puede funcionar junto al marketplace entre particulares."
+      },
+      {
+        "title": "Preparamos la publicación",
+        "text": "Si hay encaje, coordinamos anuncios, verificación y expectativas de soporte."
+      }
+    ],
+    "contactTitle": "¿Te interesa una colaboración?",
+    "contactText": "Contáctanos directamente y nuestro equipo revisará tu solicitud profesional de flota o agencia.",
+    "contactAction": "Contactar al equipo"
+  },
+  "insurancePage": {
+    "eyebrow": "Cobertura y protección",
+    "title": "Seguro",
+    "intro": "El seguro tiene ahora su propia página en Limitless. Las reservas elegibles incluyen información de protección para ayudar a anfitriones y arrendatarios a entender cobertura, verificación, soporte ante incidentes y orientación para reclamaciones.",
+    "primaryAction": "Contactar soporte",
+    "secondaryAction": "Profesionales",
+    "secondaryHref": "/professionals",
+    "visual": {
+      "title": "Detalles de protección",
+      "first": "Revisa la información de cobertura en el flujo de reserva.",
+      "second": "Contacta rápidamente con soporte si ocurre un incidente durante el alquiler."
+    },
+    "stats": [
+      {
+        "value": "Cobertura",
+        "label": "La información de protección se presenta para reservas elegibles según las condiciones aplicables."
+      },
+      {
+        "value": "Verificación",
+        "label": "Los documentos y datos del vehículo ayudan a mantener el marketplace más seguro antes del alquiler."
+      },
+      {
+        "value": "Soporte",
+        "label": "Nuestro equipo puede guiar a anfitriones y arrendatarios en el reporte y próximos pasos."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Protección durante alquileres",
+        "text": "La cobertura puede ayudar a proteger reservas elegibles frente a ciertos daños, robo y responsabilidad según las condiciones aplicables a la reserva."
+      },
+      {
+        "title": "Información clara antes de reservar",
+        "text": "Arrendatarios y anfitriones deben revisar los detalles del seguro en el flujo de reserva para entender qué está incluido, excluido y requerido."
+      },
+      {
+        "title": "Ayuda si ocurre algo",
+        "text": "En caso de accidente, daño, robo u otro problema, los usuarios deben contactar soporte rápidamente y seguir las instrucciones de la reserva."
+      }
+    ],
+    "details": [
+      {
+        "title": "Para anfitriones",
+        "items": [
+          "Mantén la información del vehículo exacta y actualizada.",
+          "Sigue el proceso de verificación y entrega en cada reserva.",
+          "Reporta incidentes rápidamente con fotos, documentos y detalles relevantes."
+        ]
+      },
+      {
+        "title": "Para arrendatarios",
+        "items": [
+          "Revisa los detalles de protección antes de confirmar una reserva.",
+          "Respeta las reglas de alquiler, requisitos de conductor elegible y proceso de devolución.",
+          "Contacta soporte inmediatamente tras un incidente o sospecha de robo."
+        ]
+      },
+      {
+        "title": "Detalles importantes",
+        "items": [
+          "La cobertura puede depender del país, vehículo, elegibilidad del conductor y condiciones de reserva.",
+          "Pueden aplicarse exclusiones, franquicias o requisitos de documentación.",
+          "Las condiciones de reserva e instrucciones de soporte son la referencia principal."
+        ]
+      }
+    ],
+    "stepsTitle": "Si ocurre un incidente",
+    "stepsIntro": "Actúa rápido y mantén la información completa para que soporte pueda ayudar con los próximos pasos.",
+    "steps": [
+      {
+        "title": "Protege primero a las personas",
+        "text": "Prioriza la seguridad, contacta emergencias si es necesario y no sigas conduciendo un vehículo inseguro."
+      },
+      {
+        "title": "Documenta la situación",
+        "text": "Toma fotos, recopila detalles relevantes y conserva informes o información de terceros."
+      },
+      {
+        "title": "Contacta soporte",
+        "text": "Reporta el problema por la app o la página de contacto para que el equipo guíe la reclamación o resolución."
+      }
+    ],
+    "contactTitle": "¿Necesitas ayuda con el seguro?",
+    "contactText": "Contáctanos si necesitas ayuda para entender la cobertura o reportar un incidente vinculado a una reserva.",
+    "contactAction": "Contactar soporte"
+  },
   "footer": {
     "Comment ça marche ?": "¿Cómo funciona?",
     "Un service de confiance": "Un servicio de confianza",
@@ -396,6 +912,7 @@
     "Ressources": "Recursos",
     "Assurance": "Seguro",
     "Loueurs professionnels": "Arrendadores profesionales",
+    "Professionnels et agences": "Profesionales y agencias",
     "Remboursement et Aide": "Reembolsos y Ayuda",
     "Légal": "Legal",
     "Solutions": "Soluciones",

@@ -13,6 +13,8 @@ import './style.css'
 const navigation = [
   { name: 'Location de voiture', href: '/' },
   { name: 'Devenir locataire', href: '/new' },  // Direct link, no need for handleNavigate
+  { name: 'Professionnels', href: '/professionals' },
+  { name: 'Assurance', href: '/assurance' },
   { name: 'Aide', href: '/aide' },
   { name: 'Légal', href: '/aide' },
 ];

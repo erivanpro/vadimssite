@@ -31,13 +31,6 @@
 }
 
 
-@font-face {
-  font-family: 'MyCustomFont'; /* Name of your custom font */
-  src: url('./font/Golimitless.ttf') format('truetype'); /* Path to your custom font */
-  font-weight: normal;
-  font-style: normal;
-}
-
 h2.different {
-  font-family: 'MyCustomFont'; /* Name of your custom font */
+  font-family: inherit;
 }

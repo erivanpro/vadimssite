@@ -61,7 +61,6 @@ import {
 import ModalDialog from "../components/modalsialog/modaldialog";
 import BlogSectione from "../components/blog/product";
 import "./style.css"; // Assurez-vous que le chemin est correct selon votre structure de projet
-import localFont from "next/font/local";
 import BottomNav from "../components/bottomnav/bottomnav";
 import SvgComponentSix from "../icons/six";
 import Alert from "../components/Alert/Alert";
@@ -106,8 +105,6 @@ const backgroundImageStyle: React.CSSProperties = {
   backgroundSize: "cover",
   backgroundPosition: "center",
 };
-
-const myFont = localFont({ src: "./font/Poppins-SemiBold.ttf" });
 
 export default function Page() {
   const t = useTranslations("homePage");
@@ -173,7 +170,7 @@ export default function Page() {
 
   return (
     <div className="site-shell">
-      <div className={myFont.className}>
+      <div>
         <header className="modern-header">
           <nav
             aria-label="Global"
@@ -257,6 +254,18 @@ export default function Page() {
               >
                 {t("Devenir locataire")}
               </button>
+              <a
+                href="/professionals"
+                className="modern-nav-link"
+              >
+                {t("Professionnels")}
+              </a>
+              <a
+                href="/assurance"
+                className="modern-nav-link"
+              >
+                {t("Assurance")}
+              </a>
               <a
                 href="/aide"
                 className="modern-nav-link"
@@ -345,6 +354,18 @@ export default function Page() {
                       {t("Devenir hôte")}
                     </a>
                     <a
+                      href="/professionals"
+                      className="-mx-3 block rounded-2xl px-4 py-3 text-base font-bold leading-7 text-gray-900 hover:bg-[#f4f6f2]"
+                    >
+                      {t("Professionnels")}
+                    </a>
+                    <a
+                      href="/assurance"
+                      className="-mx-3 block rounded-2xl px-4 py-3 text-base font-bold leading-7 text-gray-900 hover:bg-[#f4f6f2]"
+                    >
+                      {t("Assurance")}
+                    </a>
+                    <a
                       href="/aide"
                       className="-mx-3 block rounded-2xl px-4 py-3 text-base font-bold leading-7 text-gray-900 hover:bg-[#f4f6f2]"
                     >
@@ -426,7 +447,7 @@ export default function Page() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
                 <span className="modern-eyebrow">
-                  <a href="/aide">
+                  <a href="/assurance">
                     {t("Notre assurance prend en compte tout")}
                   </a>
                 </span>

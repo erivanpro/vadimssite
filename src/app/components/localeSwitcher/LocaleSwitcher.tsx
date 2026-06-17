@@ -37,18 +37,18 @@ export default function LocaleSwitcher({
   const currentLanguageName = languages[locale] || locale;
 
   return (
-    <div className={`${removeMargin ? 'ml-0' : 'ml-4'} ${removePadding ? 'py-0' : 'py-2'} flex items-center gap-4`}>
-   
+    <div className={`locale-switcher-root ${removeMargin ? 'ml-0' : 'ml-4'} ${removePadding ? 'py-0' : 'py-2'} flex items-center gap-4`}>
+
 
       {/* Locale Switcher */}
       <div
         onClick={toggleDropdown}
-        className="relative inline-flex items-center cursor-pointer"
+        className="locale-switcher-control relative inline-flex items-center cursor-pointer"
         aria-haspopup="true"
         aria-expanded={isDropdownOpen ? 'true' : 'false'}
       >
-        <div 
-         className={`flex items-center justify-between rounded-[6px] border border-black/10 bg-white px-4 py-2 transition-all duration-300 ease-in-out hover:border-[#52bf88] hover:bg-[#f4f6f2]`}
+        <div
+         className={`locale-switcher-trigger flex items-center justify-between rounded-[6px] border border-black/10 bg-white px-4 py-2 transition-all duration-300 ease-in-out hover:border-[#52bf88] hover:bg-[#f4f6f2]`}
     >
           <CircleFlagLanguage className="w-6 h-6" languageCode={locale as string} />
           <p className="ml-2 text-sm font-medium">{currentLanguageName}</p>
@@ -56,8 +56,8 @@ export default function LocaleSwitcher({
         </div>
 
         {isDropdownOpen && (
-         
-          <div className="absolute left-0 right-0 z-10 mt-2 max-h-60 overflow-auto rounded-[8px] border border-black/10 bg-white shadow-lg">
+
+          <div className="locale-switcher-menu absolute left-0 right-0 z-10 mt-2 max-h-60 overflow-auto rounded-[8px] border border-black/10 bg-white shadow-lg">
             <LocaleSwitcherSelect
               currentLocale={locale}
               allLocales={Object.keys(languages)}

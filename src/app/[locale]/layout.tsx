@@ -4,9 +4,13 @@ import localFont from "next/font/local";
 import "../globals.css";
 import { getMessages } from "next-intl/server"; // Removing the locale-based logic
 import { NextIntlClientProvider } from "next-intl";
+import CookieWindow from "../components/CookieWindow/CookieWindow";
 
-// Load custom font
-const myFont = localFont({ src: "./font/Poppins-SemiBold.ttf" });
+const modernist = localFont({
+  src: "../fonts/Sk-Modernist-Regular.otf",
+  display: "swap",
+  variable: "--font-modernist",
+});
 
 export const metadata: Metadata = {
   title: "Limitless",
@@ -47,10 +51,11 @@ export default async function RootLayout({
           content="6sbsxa7mlHIjTAh5Nd94xpw8-H4fJ9qARSscnmx9fEE"
         />
       </head>
-      <body className={`${myFont.className} antialiased`}>
+      <body className={`${modernist.variable} antialiased`}>
         {/* Provide messages to the app via NextIntlClientProvider */}
         <NextIntlClientProvider messages={messages}>
           {children}
+          <CookieWindow />
         </NextIntlClientProvider>
       </body>
     </html>

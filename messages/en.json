@@ -85,6 +85,8 @@
       "submit": "Soumettre"
     },
     "Légal": "Legal",
+    "Assurance": "Insurance",
+    "Professionnels": "Professionals",
     "Télécharger": "Download",
     "Devenir hôte": "Become a host",
     "Location de voitures": "Rent a Car, Join Us, and Drive with Freedom! ",
@@ -155,26 +157,368 @@
     "Nous sommes là pour vous aider": "We are here to help",
     "Visitez le centre d'aide": "Visit the help center"
   },
-  "contact":{
-  "title": "Contact us",
-  "subtitle": "We are here to help you with your rental issues.",
-  "formTitle": "Fill out the form",
-  "firstName": "First Name",
-  "lastName": "Last Name",
-  "email": "Email Address",
-  "phone": "Phone Number",
-  "selectPlaceholder": "Select Problem Type",
-  "stoppedRental": "Stopped Rental",
-  "carStolen": "Car Stolen",
-  "technicalIssue": "Technical Issue with the Car",
-  "paymentIssue": "Payment Issue",
-  "appIssue": "App Issue",
-  "userIssue": "User Issue",
-  "other": "Other",
-  "details": "Details",
-  "submit": "Submit",
-  "responseTime": "We will respond within 1 to 2 business days."
-},
+        "contact": {
+      "eyebrow": "Insurance and customer support",
+      "title": "Contact our insurance support team",
+      "subtitle": "Tell us what you need and we will route your request to the right team for policy questions, coverage options, quotes, claims, billing, certificates, renewals, cancellations, employee benefits, risk management, personal insurance, commercial insurance, and rental-related protection.",
+      "fastestHelpTitle": "How to get the fastest help",
+      "fastestHelpText": "Choose the category that best matches your request and include the identifiers our team needs to review it without delay.",
+      "fastestHelpItems": [
+        "For claims or accidents, include the reservation, policy or claim number, date, location, photos, and any police or third-party information.",
+        "For billing, renewals, cancellations, or policy changes, include the policy number, invoice, renewal notice, or payment reference.",
+        "For commercial insurance, employee benefits, certificates, or risk management, include company name, fleet size, locations, and deadline."
+      ],
+      "departmentCards": [
+        {
+          "title": "Claims and incidents",
+          "text": "Accidents, vehicle damage, theft, liability questions, claim status, and supporting documents."
+        },
+        {
+          "title": "Policy service",
+          "text": "Coverage questions, policy changes, renewals, cancellations, certificates, and billing support."
+        },
+        {
+          "title": "Commercial and benefits",
+          "text": "Fleet insurance, agency partnerships, risk management, life and health questions, and employee benefits."
+        }
+      ],
+      "formTitle": "Send a detailed request",
+      "formIntro": "The more context you provide, the easier it is for the appropriate department to respond accurately.",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email address",
+      "phone": "Phone number",
+      "company": "Company or agency name (optional)",
+      "policyOrReservation": "Policy, reservation, invoice, or certificate number (optional)",
+      "claimNumber": "Claim number (optional)",
+      "customerType": "Customer type",
+      "customerTypePlaceholder": "Select customer type",
+      "category": "What do you need help with?",
+      "categoryPlaceholder": "Select a contact category",
+      "insuranceLine": "Insurance or service area",
+      "insuranceLinePlaceholder": "Select insurance or service area",
+      "preferredContact": "Preferred contact method",
+      "preferredContactPlaceholder": "Select contact method",
+      "urgency": "Urgency",
+      "urgencyPlaceholder": "Select urgency",
+      "details": "How can we help?",
+      "detailsPlaceholder": "Describe the situation, what happened, what you need, important dates, vehicle or policy details, and any deadlines.",
+      "consent": "I agree that Limitless may use the information in this request to route and respond to my support inquiry.",
+      "submit": "Send request",
+      "sending": "Sending request",
+      "responseTime": "Most requests receive a response within 1 to 2 business days. Urgent claim and safety issues are prioritized.",
+      "successMessage": "Your request has been received. The appropriate team will review it and respond as soon as possible.",
+      "errorMessage": "We could not send your request. Please try again or contact us again later.",
+      "validation": {
+        "required": "This field is required.",
+        "email": "Enter a valid email address.",
+        "phone": "Enter a valid phone number.",
+        "details": "Please add at least 20 characters so our team has enough context.",
+        "consent": "Please confirm that we may use your request details to respond."
+      },
+      "customerTypes": [
+        {
+          "value": "renter",
+          "label": "Renter"
+        },
+        {
+          "value": "host",
+          "label": "Vehicle host"
+        },
+        {
+          "value": "professionalFleet",
+          "label": "Professional fleet operator"
+        },
+        {
+          "value": "agency",
+          "label": "Rental agency"
+        },
+        {
+          "value": "individual",
+          "label": "Individual policyholder"
+        },
+        {
+          "value": "business",
+          "label": "Business customer"
+        },
+        {
+          "value": "broker",
+          "label": "Broker or advisor"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
+      ],
+      "insuranceLines": [
+        {
+          "value": "carSharing",
+          "label": "Car-sharing reservation protection"
+        },
+        {
+          "value": "personalAuto",
+          "label": "Personal auto insurance"
+        },
+        {
+          "value": "commercialAuto",
+          "label": "Commercial auto insurance"
+        },
+        {
+          "value": "fleet",
+          "label": "Fleet insurance"
+        },
+        {
+          "value": "lifeHealth",
+          "label": "Life and health insurance"
+        },
+        {
+          "value": "employeeBenefits",
+          "label": "Employee benefits"
+        },
+        {
+          "value": "propertyLiability",
+          "label": "Property and liability insurance"
+        },
+        {
+          "value": "general",
+          "label": "General insurance service"
+        }
+      ],
+      "preferredContacts": [
+        {
+          "value": "email",
+          "label": "Email"
+        },
+        {
+          "value": "phone",
+          "label": "Phone"
+        },
+        {
+          "value": "app",
+          "label": "In-app message"
+        },
+        {
+          "value": "video",
+          "label": "Video call"
+        }
+      ],
+      "urgencyOptions": [
+        {
+          "value": "emergency",
+          "label": "Emergency or active incident"
+        },
+        {
+          "value": "sameDay",
+          "label": "Same-day response needed"
+        },
+        {
+          "value": "standard",
+          "label": "Standard support request"
+        },
+        {
+          "value": "planning",
+          "label": "Planning or future change"
+        }
+      ],
+      "categoryData": {
+        "labels": [
+          "Policy questions",
+          "Coverage options",
+          "Quotes and pricing",
+          "Claims assistance",
+          "Billing and payments",
+          "Policy changes",
+          "Renewals",
+          "Cancellations",
+          "Certificates of insurance",
+          "Life and health insurance",
+          "Personal insurance needs",
+          "Commercial insurance needs",
+          "Employee benefits",
+          "Risk management",
+          "Rental incident or vehicle damage",
+          "App, account, or reservation support",
+          "Partnership or fleet onboarding",
+          "Other insurance service"
+        ],
+        "departments": [
+          "Policy Service",
+          "Coverage Advisory",
+          "Quotes Team",
+          "Claims Department",
+          "Billing Department",
+          "Policy Service",
+          "Renewals Team",
+          "Policy Service",
+          "Certificates Team",
+          "Life and Health Team",
+          "Personal Lines Team",
+          "Commercial Lines Team",
+          "Benefits Team",
+          "Risk Management Team",
+          "Claims Department",
+          "Customer Support",
+          "Partnerships Team",
+          "Customer Support"
+        ],
+        "guidance": [
+          "Ask about policy terms, documents, eligibility, exclusions, deductibles, or what a policy means for your situation.",
+          "Compare coverage options, limits, add-ons, deductibles, and protection choices before booking or changing a policy.",
+          "Request a quote for personal, commercial, fleet, life, health, benefits, or car-sharing protection.",
+          "Get help opening a claim, checking claim status, submitting documents, or understanding next steps after an incident.",
+          "Ask about invoices, receipts, failed payments, refunds, payment methods, or billing corrections.",
+          "Request address, driver, vehicle, coverage, beneficiary, company, or contact detail changes.",
+          "Ask about renewal notices, renewal pricing, required documents, or upcoming expiration dates.",
+          "Request cancellation help, cancellation timing, proof of cancellation, or what happens after cancellation.",
+          "Request proof of insurance, certificate holders, additional insured wording, or commercial certificate updates.",
+          "Ask questions about life, health, medical, disability, or related protection options.",
+          "Get guidance for personal auto, home, liability, travel, or individual coverage needs.",
+          "Get help with business auto, fleet, liability, property, agency, or commercial coverage needs.",
+          "Ask about group health, life, disability, voluntary benefits, enrollment, or plan administration.",
+          "Request risk reviews, loss control guidance, safety practices, claims trend support, or fleet risk advice.",
+          "Report accidents, damage, theft, late return issues, liability concerns, or urgent rental protection questions.",
+          "Get help with app access, account verification, booking issues, or reservation support.",
+          "Discuss professional fleet publishing, agency partnerships, onboarding, and commercial requirements.",
+          "Tell us what you need and we will route your request to the right insurance or support team."
+        ]
+      },
+      "guidanceSections": [
+        {
+          "title": "Information to include",
+          "items": [
+            "Your policy, reservation, claim, invoice, or certificate number when available.",
+            "Dates, locations, vehicle details, driver or company name, and a clear description of what happened.",
+            "Photos, police reports, invoices, renewal notices, or certificate wording if they are relevant."
+          ]
+        },
+        {
+          "title": "Best department for your request",
+          "items": [
+            "Use Claims for accidents, damage, theft, liability events, and claim status.",
+            "Use Policy Service for coverage documents, changes, cancellations, renewals, billing, and certificates.",
+            "Use Commercial, Benefits, or Risk Management for fleets, companies, employee benefits, loss control, and agency requests."
+          ]
+        },
+        {
+          "title": "Urgent situations",
+          "items": [
+            "If anyone is in danger, contact local emergency services first.",
+            "For an active rental incident, make the vehicle safe, document the scene, and submit the request as urgent.",
+            "For deadlines such as certificates, renewals, or cancellations, include the required date in your message."
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "value": "policyQuestions",
+          "label": "Policy questions",
+          "department": "Policy Service",
+          "guidance": "Ask about policy terms, documents, eligibility, exclusions, deductibles, or what a policy means for your situation."
+        },
+        {
+          "value": "coverageOptions",
+          "label": "Coverage options",
+          "department": "Coverage Advisory",
+          "guidance": "Compare coverage options, limits, add-ons, deductibles, and protection choices before booking or changing a policy."
+        },
+        {
+          "value": "quotes",
+          "label": "Quotes and pricing",
+          "department": "Quotes Team",
+          "guidance": "Request a quote for personal, commercial, fleet, life, health, benefits, or car-sharing protection."
+        },
+        {
+          "value": "claimsAssistance",
+          "label": "Claims assistance",
+          "department": "Claims Department",
+          "guidance": "Get help opening a claim, checking claim status, submitting documents, or understanding next steps after an incident."
+        },
+        {
+          "value": "billingPayments",
+          "label": "Billing and payments",
+          "department": "Billing Department",
+          "guidance": "Ask about invoices, receipts, failed payments, refunds, payment methods, or billing corrections."
+        },
+        {
+          "value": "policyChanges",
+          "label": "Policy changes",
+          "department": "Policy Service",
+          "guidance": "Request address, driver, vehicle, coverage, beneficiary, company, or contact detail changes."
+        },
+        {
+          "value": "renewals",
+          "label": "Renewals",
+          "department": "Renewals Team",
+          "guidance": "Ask about renewal notices, renewal pricing, required documents, or upcoming expiration dates."
+        },
+        {
+          "value": "cancellations",
+          "label": "Cancellations",
+          "department": "Policy Service",
+          "guidance": "Request cancellation help, cancellation timing, proof of cancellation, or what happens after cancellation."
+        },
+        {
+          "value": "certificates",
+          "label": "Certificates of insurance",
+          "department": "Certificates Team",
+          "guidance": "Request proof of insurance, certificate holders, additional insured wording, or commercial certificate updates."
+        },
+        {
+          "value": "lifeHealth",
+          "label": "Life and health insurance",
+          "department": "Life and Health Team",
+          "guidance": "Ask questions about life, health, medical, disability, or related protection options."
+        },
+        {
+          "value": "personalInsurance",
+          "label": "Personal insurance needs",
+          "department": "Personal Lines Team",
+          "guidance": "Get guidance for personal auto, home, liability, travel, or individual coverage needs."
+        },
+        {
+          "value": "commercialInsurance",
+          "label": "Commercial insurance needs",
+          "department": "Commercial Lines Team",
+          "guidance": "Get help with business auto, fleet, liability, property, agency, or commercial coverage needs."
+        },
+        {
+          "value": "employeeBenefits",
+          "label": "Employee benefits",
+          "department": "Benefits Team",
+          "guidance": "Ask about group health, life, disability, voluntary benefits, enrollment, or plan administration."
+        },
+        {
+          "value": "riskManagement",
+          "label": "Risk management",
+          "department": "Risk Management Team",
+          "guidance": "Request risk reviews, loss control guidance, safety practices, claims trend support, or fleet risk advice."
+        },
+        {
+          "value": "rentalIncident",
+          "label": "Rental incident or vehicle damage",
+          "department": "Claims Department",
+          "guidance": "Report accidents, damage, theft, late return issues, liability concerns, or urgent rental protection questions."
+        },
+        {
+          "value": "appAccount",
+          "label": "App, account, or reservation support",
+          "department": "Customer Support",
+          "guidance": "Get help with app access, account verification, booking issues, or reservation support."
+        },
+        {
+          "value": "partnerships",
+          "label": "Partnership or fleet onboarding",
+          "department": "Partnerships Team",
+          "guidance": "Discuss professional fleet publishing, agency partnerships, onboarding, and commercial requirements."
+        },
+        {
+          "value": "other",
+          "label": "Other insurance service",
+          "department": "Customer Support",
+          "guidance": "Tell us what you need and we will route your request to the right insurance or support team."
+        }
+      ]
+    },
   "newPage": {
     "Gagner de l'argent": "Earn money",
     "main-desc": "With limitless, rent out your car and turn it into an additional source of income. Earn your salary easily by sharing your vehicle. limitless is the perfect solution to make your car profitable with ease.",
@@ -405,6 +749,178 @@
       "Les informations sur vos droits et responsabilités sont disponibles dans nos conditions générales": "Information about your rights and responsibilities is available in our general terms and conditions."
     }
   },
+  "professionalsPage": {
+    "eyebrow": "Fleet partnerships",
+    "title": "Professionals & Agencies",
+    "intro": "Limitless welcomes car rental companies such as Hertz, Europcar, local agencies, and other fleet operators that want to publish vehicles on our platform. The product was built first for peer-to-peer car sharing, connecting individuals who want to rent out their vehicles with people looking for a car.",
+    "primaryAction": "Contact us",
+    "secondaryAction": "View insurance",
+    "secondaryHref": "/assurance",
+    "visual": {
+      "title": "Fleet-ready publishing",
+      "first": "Publish eligible vehicles with clear availability and booking details.",
+      "second": "Contact us directly to discuss partnership opportunities."
+    },
+    "stats": [
+      {
+        "value": "P2P first",
+        "label": "Our core mission remains helping individual owners share their cars and earn income."
+      },
+      {
+        "value": "Fleets welcome",
+        "label": "Rental companies and operators can talk to us about adding professional inventory."
+      },
+      {
+        "value": "Direct contact",
+        "label": "Partnership requests are handled directly so we can understand your fleet and market."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Built for individuals first",
+        "text": "Limitless was created to make car sharing accessible to everyday vehicle owners and nearby renters. That peer-to-peer model remains the foundation of the platform."
+      },
+      {
+        "title": "Open to professional supply",
+        "text": "Companies such as Hertz, Europcar, independent agencies, and specialized fleet operators can explore publishing vehicles where it improves choice for renters."
+      },
+      {
+        "title": "More income from vehicles",
+        "text": "We will keep investing in tools that help people and organizations turn unused vehicle time into revenue while keeping the experience simple."
+      }
+    ],
+    "details": [
+      {
+        "title": "For fleet operators",
+        "items": [
+          "Discuss vehicle eligibility, locations, and operating requirements.",
+          "Publish vehicles with clear photos, pricing, and availability.",
+          "Coordinate with our team on onboarding and partnership expectations."
+        ]
+      },
+      {
+        "title": "For the community",
+        "items": [
+          "Individuals remain central to the marketplace.",
+          "Professional inventory can add availability in busy areas.",
+          "Renters get more choice while still using one simple platform."
+        ]
+      },
+      {
+        "title": "Partnership focus",
+        "items": [
+          "We review partnership requests directly.",
+          "We look for reliable operators and transparent vehicle information.",
+          "We prioritize a useful experience for renters, hosts, and fleet partners."
+        ]
+      }
+    ],
+    "stepsTitle": "How partnership starts",
+    "stepsIntro": "Interested companies can contact us first, then we review the right onboarding path together.",
+    "steps": [
+      {
+        "title": "Introduce your fleet",
+        "text": "Tell us about your company, operating locations, vehicle types, and expected volume."
+      },
+      {
+        "title": "Review the fit",
+        "text": "We discuss how your inventory can work alongside the peer-to-peer marketplace."
+      },
+      {
+        "title": "Prepare publishing",
+        "text": "If there is a fit, we coordinate listing details, verification, and support expectations."
+      }
+    ],
+    "contactTitle": "Interested in a partnership?",
+    "contactText": "Contact us directly and our team will review your professional fleet or agency request.",
+    "contactAction": "Contact the team"
+  },
+  "insurancePage": {
+    "eyebrow": "Coverage and protection",
+    "title": "Insurance",
+    "intro": "Insurance has its own dedicated space on Limitless. Eligible bookings include protection information designed to help hosts and renters understand coverage, verification, incident support, and claims guidance.",
+    "primaryAction": "Contact support",
+    "secondaryAction": "Professionals",
+    "secondaryHref": "/professionals",
+    "visual": {
+      "title": "Protection details",
+      "first": "Review coverage information inside the reservation flow.",
+      "second": "Contact support quickly if an incident happens during a rental."
+    },
+    "stats": [
+      {
+        "value": "Coverage",
+        "label": "Protection information is presented for eligible reservations according to the applicable terms."
+      },
+      {
+        "value": "Verification",
+        "label": "Documents and vehicle details help keep the marketplace safer before rentals begin."
+      },
+      {
+        "value": "Support",
+        "label": "Our team can guide hosts and renters through incident reporting and next steps."
+      }
+    ],
+    "sections": [
+      {
+        "title": "Protection during rentals",
+        "text": "Coverage can help protect eligible rentals from covered damage, theft, and liability events according to the terms that apply to the reservation."
+      },
+      {
+        "title": "Clear information before booking",
+        "text": "Renters and hosts should review insurance details in the booking flow so they understand what is included, what may be excluded, and what actions are required."
+      },
+      {
+        "title": "Help when something happens",
+        "text": "If there is an accident, damage, theft, or another issue, users should contact support quickly and follow the instructions provided for the reservation."
+      }
+    ],
+    "details": [
+      {
+        "title": "For hosts",
+        "items": [
+          "Keep vehicle information accurate and current.",
+          "Follow the verification and handover process for each booking.",
+          "Report incidents quickly with photos, documents, and relevant details."
+        ]
+      },
+      {
+        "title": "For renters",
+        "items": [
+          "Review the protection details before confirming a booking.",
+          "Respect the rental rules, eligible driver requirements, and vehicle return process.",
+          "Contact support immediately after an incident or suspected theft."
+        ]
+      },
+      {
+        "title": "Important details",
+        "items": [
+          "Coverage may depend on the country, vehicle, driver eligibility, and reservation terms.",
+          "Some exclusions, deductibles, or documentation requirements may apply.",
+          "The reservation terms and support instructions should be treated as the source of truth."
+        ]
+      }
+    ],
+    "stepsTitle": "If an incident occurs",
+    "stepsIntro": "Act quickly and keep the information complete so support can help with the next steps.",
+    "steps": [
+      {
+        "title": "Secure everyone first",
+        "text": "Prioritize safety, contact emergency services if needed, and do not continue driving an unsafe vehicle."
+      },
+      {
+        "title": "Document the situation",
+        "text": "Take photos, collect relevant details, and keep any police report or third-party information."
+      },
+      {
+        "title": "Contact support",
+        "text": "Report the issue through the app or contact page so the team can guide the claim or resolution process."
+      }
+    ],
+    "contactTitle": "Need insurance help?",
+    "contactText": "Contact us if you need help understanding coverage or reporting an incident linked to a reservation.",
+    "contactAction": "Contact support"
+  },
   "footer": {
     "Comment ça marche ?": "How does it work?",
     "Un service de confiance": "A trusted service",
@@ -414,6 +930,7 @@
     "Ressources": "Resources",
     "Assurance": "Insurance",
     "Loueurs professionnels": "Professional renters",
+    "Professionnels et agences": "Professionals & Agencies",
     "Remboursement et Aide": "Refund and Help",
     "Légal": "Legal",
     "Solutions": "Solutions",

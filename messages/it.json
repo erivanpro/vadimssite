@@ -1,6 +1,6 @@
 {
     "homePage":{
-        
+
             "Aide et Légal": "Aiuto e Legale",
             "Location de voiture": "Noleggio auto",
             "ge": "Scarica l'app su Play Store o App Store ",
@@ -18,10 +18,12 @@
   "seisdeux": "Conserva in modo sicuro e accessibile i tuoi documenti, come la patente di guida e la carta d'identità.",
   "sete": "Gestisci le tue prenotazioni",
   "setedeux": "Gestisci facilmente le tue prenotazioni. Visualizzale e modificale direttamente dal tuo pannello di controllo.",
-  
+
             "Devenir locataire": "Diventa locatario",
             "Aide": "Aiuto",
             "Légal": "Legale",
+    "Assurance": "Assicurazione",
+    "Professionnels": "Professionisti",
             "Télécharger": "Scarica",
             "Devenir hôte": "Diventa ospite",
             "Notre assurance prend en compte tout": "La nostra assicurazione tiene conto di tutto",
@@ -53,20 +55,20 @@
             "Explorez une incroyable sélection de voitures, des plus communes aux plus extraordinaires": "Esplora una selezione incredibile di auto, dalle più comuni alle più straordinarie.",
             "Explorer": "Esplora",
             "Réservez une voiture proche de chez vous": "Prenota un'auto vicino a te",
-    
+
             "featuresTwo": "Prenota un'auto vicino a te. Trova auto nelle vicinanze e scegli tra i migliori modelli.",
             "Réservez une voiture": "Prenota un'auto",
-          
-          
 
 
 
 
 
-        
+
+
+
             "Trouvez des voitures autour de vous sur la carte": "Trova auto vicino a te sulla mappa",
             "Visualisez les voitures disponibles autour de vous directement sur la carte": "Visualizza le auto disponibili vicino a te direttamente sulla mappa.",
-           
+
             "Ouvrir la carte": "Apri la mappa",
             "Discutez avec les propriétaires des voitures": "Parla con i proprietari delle auto",
             "Utilisez notre système de messagerie intégré pour échanger facilement avec les propriétaires des voitures": "Usa il nostro sistema di messaggistica integrato per comunicare facilmente con i proprietari delle auto.",
@@ -80,11 +82,11 @@
             "Gérez vos réservations et vos commandes Consultez et modifiez vos réservations en toute simplicité depuis votre tableau de bord": "Gestisci le tue prenotazioni e ordini. Consulta e modifica facilmente le tue prenotazioni dal tuo pannello di controllo.",
             "Gérez vos réservations": "Gestisci le tue prenotazioni",
             "Témoignages": "Testimonianze",
-          
-          
 
 
-    
+
+
+
         "Nous avons travaillé avec des milliers de personnes formidables": "Abbiamo lavorato con migliaia di persone straordinarie",
         "“Un service rapide, pratique et fiable Grâce à limitless, j'ai pu réserver une voiture en quelques minutes seulement”": "“Un servizio rapido, pratico e affidabile. Grazie a Limitless, ho potuto prenotare un'auto in pochi minuti.”",
         "“J'ai réservé une voiture pour un week-end et le service a été exceptionnel Une interface facile à utiliser et un service client réactif”": "“Ho prenotato un'auto per un fine settimana e il servizio è stato eccezionale. Un'interfaccia facile da usare e un servizio clienti reattivo.”",
@@ -93,9 +95,9 @@
         "“Louer une voiture n'a jamais été aussi simple et rapide Merci limitless pour ce service de qualité !”": "“Noleggiare un'auto non è mai stato così semplice e veloce. Grazie Limitless per questo servizio di qualità!”",
         "“L'application est intuitive et l'assistance client est top Si vous avez besoin d'une voiture, limitless est la solution idéale”": "“L'app è intuitiva e l'assistenza clienti è eccellente. Se hai bisogno di un'auto, Limitless è la soluzione ideale.”",
         "Questions fréquemment posées": "Domande frequenti",
-      
-      
-        
+
+
+
             "Comment fonctionne le partage de voiture avec limitless ?": "Come funziona la condivisione dell'auto con Limitless?",
             "limitless permet aux utilisateurs de louer des voitures à d'autres particuliers ou de louer leur propre véhicule lorsqu'il n'est pas utilisé Il vous suffit de parcourir les voitures disponibles dans votre région, de réserver une location pour la période souhaitée, puis de récupérer la voiture Le processus est entièrement géré via notre application": "Limitless consente agli utenti di noleggiare auto da altri privati o di noleggiare il proprio veicolo quando non viene utilizzato. Basta cercare le auto disponibili nella tua zona, prenotare un noleggio per il periodo desiderato e poi ritirare l'auto. Il processo è gestito completamente tramite la nostra app.",
             "Comment puis-je louer une voiture sur limitless ?": "Come posso noleggiare un'auto su Limitless?",
@@ -119,32 +121,1098 @@
             "Support primé": "Supporto premiato",
             "Nous sommes là pour vous aider": "Siamo qui per aiutarti",
             "Visitez le centre d'aide": "Visita il centro assistenza"
-          
-          
-          
+
+
+
 },
 
 
- "contact":{
-  "title": "Contatto",
-  "subtitle": "Siamo qui per aiutarti con i tuoi problemi di noleggio.",
-  "formTitle": "Compila il modulo",
-  "firstName": "Nome",
-  "lastName": "Cognome",
-  "email": "Indirizzo email",
-  "phone": "NNumero di telefono",
-  "selectPlaceholder": "Seleziona tipo di problema",
-  "stoppedRental": "Noleggio fermato",
-  "carStolen": "Auto rubata",
-  "technicalIssue": "Problema tecnico con l'auto",
-  "paymentIssue": "Problema di pagamento",
-  "appIssue": "Problema dell'applicazione",
-  "userIssue": "Problema dell'utente",
-  "other": "Altro",
-  "details": "Dettagli",
-  "submit": "Invia",
-  "responseTime": "Ti risponderemo entro 1-2 giorni lavorativi."
-},
+
+
+ "contact": {
+
+
+   "eyebrow": "Assicurazione e supporto clienti",
+
+
+   "title": "Contatta il nostro team di supporto assicurativo",
+
+
+   "subtitle": "Dicci di cosa hai bisogno e indirizzeremo la richiesta al team giusto per polizze, coperture, preventivi, sinistri, pagamenti, certificati, rinnovi, cancellazioni, benefit, gestione rischi, assicurazioni personali, commerciali e protezione noleggi.",
+
+
+   "fastestHelpTitle": "Come ricevere aiuto più rapidamente",
+
+
+   "fastestHelpText": "Scegli la categoria più adatta e includi i dati necessari per la revisione.",
+
+
+   "fastestHelpItems": [
+
+
+     "Per sinistri o incidenti, includi prenotazione, polizza o numero sinistro, data, luogo, foto e informazioni di polizia o terzi.",
+
+
+     "Per pagamenti, rinnovi, cancellazioni o modifiche, includi polizza, fattura, avviso di rinnovo o riferimento pagamento.",
+
+
+     "Per commerciale, benefit, certificati o gestione rischi, includi azienda, dimensione flotta, sedi e scadenza."
+
+
+   ],
+
+
+   "departmentCards": [
+
+
+     {
+
+
+       "title": "Sinistri e incidenti",
+
+
+       "text": "Incidenti, danni, furto, responsabilità, stato del sinistro e documenti."
+
+
+     },
+
+
+     {
+
+
+       "title": "Servizio polizze",
+
+
+       "text": "Copertura, modifiche, rinnovi, cancellazioni, certificati e pagamenti."
+
+
+     },
+
+
+     {
+
+
+       "title": "Commerciale e benefit",
+
+
+       "text": "Flotte, partnership agenzie, gestione rischi, vita, salute e benefit."
+
+
+     }
+
+
+   ],
+
+
+   "formTitle": "Invia una richiesta dettagliata",
+
+
+   "formIntro": "Più contesto fornisci, più precisa sarà la risposta del reparto corretto.",
+
+
+   "firstName": "Nome",
+
+
+   "lastName": "Cognome",
+
+
+   "email": "Indirizzo email",
+
+
+   "phone": "Numero di telefono",
+
+
+   "company": "Azienda o agenzia (opzionale)",
+
+
+   "policyOrReservation": "Numero polizza, prenotazione, fattura o certificato (opzionale)",
+
+
+   "claimNumber": "Numero sinistro (opzionale)",
+
+
+   "customerType": "Tipo di cliente",
+
+
+   "customerTypePlaceholder": "Seleziona tipo di cliente",
+
+
+   "category": "Di cosa hai bisogno?",
+
+
+   "categoryPlaceholder": "Seleziona categoria",
+
+
+   "insuranceLine": "Area assicurativa o servizio",
+
+
+   "insuranceLinePlaceholder": "Seleziona area o servizio",
+
+
+   "preferredContact": "Metodo di contatto preferito",
+
+
+   "preferredContactPlaceholder": "Seleziona metodo",
+
+
+   "urgency": "Urgenza",
+
+
+   "urgencyPlaceholder": "Seleziona urgenza",
+
+
+   "details": "Come possiamo aiutarti?",
+
+
+   "detailsPlaceholder": "Descrivi situazione, cosa è successo, cosa ti serve, date importanti, veicolo o polizza e scadenze.",
+
+
+   "consent": "Accetto che Limitless usi queste informazioni per indirizzare e rispondere alla richiesta.",
+
+
+   "submit": "Invia richiesta",
+
+
+   "sending": "Invio richiesta",
+
+
+   "responseTime": "La maggior parte delle richieste riceve risposta entro 1-2 giorni lavorativi. Sinistri urgenti e sicurezza hanno priorità.",
+
+
+   "successMessage": "Richiesta ricevuta. Il team competente la esaminerà e risponderà appena possibile.",
+
+
+   "errorMessage": "Non abbiamo potuto inviare la richiesta. Riprova più tardi.",
+
+
+   "validation": {
+
+
+     "required": "Campo obbligatorio.",
+
+
+     "email": "Inserisci un indirizzo email valido.",
+
+
+     "phone": "Inserisci un numero valido.",
+
+
+     "details": "Aggiungi almeno 20 caratteri per fornire contesto sufficiente.",
+
+
+     "consent": "Conferma che possiamo usare i dettagli per rispondere."
+
+
+   },
+
+
+   "customerTypes": [
+
+
+     {
+
+
+       "value": "renter",
+
+
+       "label": "Noleggiatore"
+
+
+     },
+
+
+     {
+
+
+       "value": "host",
+
+
+       "label": "Host veicolo"
+
+
+     },
+
+
+     {
+
+
+       "value": "professionalFleet",
+
+
+       "label": "Operatore flotta professionale"
+
+
+     },
+
+
+     {
+
+
+       "value": "agency",
+
+
+       "label": "Agenzia di noleggio"
+
+
+     },
+
+
+     {
+
+
+       "value": "individual",
+
+
+       "label": "Assicurato privato"
+
+
+     },
+
+
+     {
+
+
+       "value": "business",
+
+
+       "label": "Cliente aziendale"
+
+
+     },
+
+
+     {
+
+
+       "value": "broker",
+
+
+       "label": "Broker o consulente"
+
+
+     },
+
+
+     {
+
+
+       "value": "other",
+
+
+       "label": "Altro"
+
+
+     }
+
+
+   ],
+
+
+   "insuranceLines": [
+
+
+     {
+
+
+       "value": "carSharing",
+
+
+       "label": "Protezione prenotazione car sharing"
+
+
+     },
+
+
+     {
+
+
+       "value": "personalAuto",
+
+
+       "label": "Assicurazione auto personale"
+
+
+     },
+
+
+     {
+
+
+       "value": "commercialAuto",
+
+
+       "label": "Assicurazione auto commerciale"
+
+
+     },
+
+
+     {
+
+
+       "value": "fleet",
+
+
+       "label": "Assicurazione flotta"
+
+
+     },
+
+
+     {
+
+
+       "value": "lifeHealth",
+
+
+       "label": "Assicurazione vita e salute"
+
+
+     },
+
+
+     {
+
+
+       "value": "employeeBenefits",
+
+
+       "label": "Benefit dipendenti"
+
+
+     },
+
+
+     {
+
+
+       "value": "propertyLiability",
+
+
+       "label": "Assicurazione proprietà e responsabilità"
+
+
+     },
+
+
+     {
+
+
+       "value": "general",
+
+
+       "label": "Servizio assicurativo generale"
+
+
+     }
+
+
+   ],
+
+
+   "preferredContacts": [
+
+
+     {
+
+
+       "value": "email",
+
+
+       "label": "Email"
+
+
+     },
+
+
+     {
+
+
+       "value": "phone",
+
+
+       "label": "Telefono"
+
+
+     },
+
+
+     {
+
+
+       "value": "app",
+
+
+       "label": "Messaggio in app"
+
+
+     },
+
+
+     {
+
+
+       "value": "video",
+
+
+       "label": "Videochiamata"
+
+
+     }
+
+
+   ],
+
+
+   "urgencyOptions": [
+
+
+     {
+
+
+       "value": "emergency",
+
+
+       "label": "Emergenza o incidente attivo"
+
+
+     },
+
+
+     {
+
+
+       "value": "sameDay",
+
+
+       "label": "Risposta in giornata"
+
+
+     },
+
+
+     {
+
+
+       "value": "standard",
+
+
+       "label": "Richiesta standard"
+
+
+     },
+
+
+     {
+
+
+       "value": "planning",
+
+
+       "label": "Pianificazione o modifica futura"
+
+
+     }
+
+
+   ],
+
+
+   "categoryData": {
+
+
+     "labels": [
+
+
+       "Domande sulla polizza",
+
+
+       "Opzioni di copertura",
+
+
+       "Preventivi e prezzi",
+
+
+       "Assistenza sinistri",
+
+
+       "Fatturazione e pagamenti",
+
+
+       "Modifiche polizza",
+
+
+       "Rinnovi",
+
+
+       "Cancellazioni",
+
+
+       "Certificati assicurativi",
+
+
+       "Vita e salute",
+
+
+       "Assicurazione personale",
+
+
+       "Assicurazione commerciale",
+
+
+       "Benefit dipendenti",
+
+
+       "Gestione rischi",
+
+
+       "Incidente noleggio o danno",
+
+
+       "App, account o prenotazione",
+
+
+       "Partnership o onboarding flotta",
+
+
+       "Altro servizio assicurativo"
+
+
+     ],
+
+
+     "departments": [
+
+
+       "Servizio polizze",
+
+
+       "Consulenza copertura",
+
+
+       "Team preventivi",
+
+
+       "Reparto sinistri",
+
+
+       "Fatturazione",
+
+
+       "Servizio polizze",
+
+
+       "Rinnovi",
+
+
+       "Servizio polizze",
+
+
+       "Certificati",
+
+
+       "Vita e salute",
+
+
+       "Linee personali",
+
+
+       "Linee commerciali",
+
+
+       "Benefit",
+
+
+       "Gestione rischi",
+
+
+       "Sinistri",
+
+
+       "Supporto clienti",
+
+
+       "Partnership",
+
+
+       "Supporto clienti"
+
+
+     ],
+
+
+     "guidance": [
+
+
+       "Chiedi termini, documenti, idoneità, esclusioni, franchigie o significato della polizza.",
+
+
+       "Confronta opzioni, limiti, garanzie, franchigie e protezioni prima di prenotare o cambiare.",
+
+
+       "Richiedi un preventivo per personale, commerciale, flotta, vita, salute, benefit o car sharing.",
+
+
+       "Ricevi aiuto per aprire un sinistro, verificarne lo stato, inviare documenti o capire i passi successivi.",
+
+
+       "Chiedi fatture, ricevute, pagamenti falliti, rimborsi, metodi di pagamento o correzioni.",
+
+
+       "Richiedi modifiche a indirizzo, conducente, veicolo, copertura, beneficiario, azienda o contatto.",
+
+
+       "Chiedi avvisi di rinnovo, prezzo, documenti richiesti o scadenze.",
+
+
+       "Richiedi aiuto per cancellazione, data effettiva, prova o conseguenze.",
+
+
+       "Richiedi prova assicurativa, titolare certificato, assicurato aggiuntivo o aggiornamento commerciale.",
+
+
+       "Chiedi opzioni vita, salute, mediche, invalidità o protezioni correlate.",
+
+
+       "Ricevi indicazioni per auto personale, casa, responsabilità, viaggio o bisogni individuali.",
+
+
+       "Ricevi aiuto per auto commerciale, flotta, responsabilità, proprietà, agenzia o copertura business.",
+
+
+       "Chiedi salute di gruppo, vita, invalidità, benefit volontari, iscrizione o amministrazione piano.",
+
+
+       "Richiedi revisione rischi, prevenzione, sicurezza, trend sinistri o consulenza flotta.",
+
+
+       "Segnala incidenti, danni, furto, ritardo restituzione, responsabilità o protezione urgente noleggio.",
+
+
+       "Ricevi aiuto con accesso app, verifica account, prenotazioni o supporto account.",
+
+
+       "Discuti pubblicazione flotte, partnership agenzie, onboarding e requisiti commerciali.",
+
+
+       "Dicci cosa ti serve e lo inoltreremo al team corretto."
+
+
+     ]
+
+
+   },
+
+
+   "categories": [
+
+
+     {
+
+
+       "value": "policyQuestions",
+
+
+       "label": "Domande sulla polizza",
+
+
+       "department": "Servizio polizze",
+
+
+       "guidance": "Chiedi termini, documenti, idoneità, esclusioni, franchigie o significato della polizza."
+
+
+     },
+
+
+     {
+
+
+       "value": "coverageOptions",
+
+
+       "label": "Opzioni di copertura",
+
+
+       "department": "Consulenza copertura",
+
+
+       "guidance": "Confronta opzioni, limiti, garanzie, franchigie e protezioni prima di prenotare o cambiare."
+
+
+     },
+
+
+     {
+
+
+       "value": "quotes",
+
+
+       "label": "Preventivi e prezzi",
+
+
+       "department": "Team preventivi",
+
+
+       "guidance": "Richiedi un preventivo per personale, commerciale, flotta, vita, salute, benefit o car sharing."
+
+
+     },
+
+
+     {
+
+
+       "value": "claimsAssistance",
+
+
+       "label": "Assistenza sinistri",
+
+
+       "department": "Reparto sinistri",
+
+
+       "guidance": "Ricevi aiuto per aprire un sinistro, verificarne lo stato, inviare documenti o capire i passi successivi."
+
+
+     },
+
+
+     {
+
+
+       "value": "billingPayments",
+
+
+       "label": "Fatturazione e pagamenti",
+
+
+       "department": "Fatturazione",
+
+
+       "guidance": "Chiedi fatture, ricevute, pagamenti falliti, rimborsi, metodi di pagamento o correzioni."
+
+
+     },
+
+
+     {
+
+
+       "value": "policyChanges",
+
+
+       "label": "Modifiche polizza",
+
+
+       "department": "Servizio polizze",
+
+
+       "guidance": "Richiedi modifiche a indirizzo, conducente, veicolo, copertura, beneficiario, azienda o contatto."
+
+
+     },
+
+
+     {
+
+
+       "value": "renewals",
+
+
+       "label": "Rinnovi",
+
+
+       "department": "Rinnovi",
+
+
+       "guidance": "Chiedi avvisi di rinnovo, prezzo, documenti richiesti o scadenze."
+
+
+     },
+
+
+     {
+
+
+       "value": "cancellations",
+
+
+       "label": "Cancellazioni",
+
+
+       "department": "Servizio polizze",
+
+
+       "guidance": "Richiedi aiuto per cancellazione, data effettiva, prova o conseguenze."
+
+
+     },
+
+
+     {
+
+
+       "value": "certificates",
+
+
+       "label": "Certificati assicurativi",
+
+
+       "department": "Certificati",
+
+
+       "guidance": "Richiedi prova assicurativa, titolare certificato, assicurato aggiuntivo o aggiornamento commerciale."
+
+
+     },
+
+
+     {
+
+
+       "value": "lifeHealth",
+
+
+       "label": "Vita e salute",
+
+
+       "department": "Vita e salute",
+
+
+       "guidance": "Chiedi opzioni vita, salute, mediche, invalidità o protezioni correlate."
+
+
+     },
+
+
+     {
+
+
+       "value": "personalInsurance",
+
+
+       "label": "Assicurazione personale",
+
+
+       "department": "Linee personali",
+
+
+       "guidance": "Ricevi indicazioni per auto personale, casa, responsabilità, viaggio o bisogni individuali."
+
+
+     },
+
+
+     {
+
+
+       "value": "commercialInsurance",
+
+
+       "label": "Assicurazione commerciale",
+
+
+       "department": "Linee commerciali",
+
+
+       "guidance": "Ricevi aiuto per auto commerciale, flotta, responsabilità, proprietà, agenzia o copertura business."
+
+
+     },
+
+
+     {
+
+
+       "value": "employeeBenefits",
+
+
+       "label": "Benefit dipendenti",
+
+
+       "department": "Benefit",
+
+
+       "guidance": "Chiedi salute di gruppo, vita, invalidità, benefit volontari, iscrizione o amministrazione piano."
+
+
+     },
+
+
+     {
+
+
+       "value": "riskManagement",
+
+
+       "label": "Gestione rischi",
+
+
+       "department": "Gestione rischi",
+
+
+       "guidance": "Richiedi revisione rischi, prevenzione, sicurezza, trend sinistri o consulenza flotta."
+
+
+     },
+
+
+     {
+
+
+       "value": "rentalIncident",
+
+
+       "label": "Incidente noleggio o danno",
+
+
+       "department": "Sinistri",
+
+
+       "guidance": "Segnala incidenti, danni, furto, ritardo restituzione, responsabilità o protezione urgente noleggio."
+
+
+     },
+
+
+     {
+
+
+       "value": "appAccount",
+
+
+       "label": "App, account o prenotazione",
+
+
+       "department": "Supporto clienti",
+
+
+       "guidance": "Ricevi aiuto con accesso app, verifica account, prenotazioni o supporto account."
+
+
+     },
+
+
+     {
+
+
+       "value": "partnerships",
+
+
+       "label": "Partnership o onboarding flotta",
+
+
+       "department": "Partnership",
+
+
+       "guidance": "Discuti pubblicazione flotte, partnership agenzie, onboarding e requisiti commerciali."
+
+
+     },
+
+
+     {
+
+
+       "value": "other",
+
+
+       "label": "Altro servizio assicurativo",
+
+
+       "department": "Supporto clienti",
+
+
+       "guidance": "Dicci cosa ti serve e lo inoltreremo al team corretto."
+
+
+     }
+
+
+   ],
+
+
+   "guidanceSections": [
+
+
+     {
+
+
+       "title": "Informazioni da includere",
+
+
+       "items": [
+
+
+         "Numero polizza, prenotazione, sinistro, fattura o certificato se disponibile.",
+
+
+         "Date, luoghi, veicolo, conducente o azienda e descrizione chiara.",
+
+
+         "Foto, rapporti, fatture, avvisi di rinnovo o testo certificato rilevante."
+
+
+       ]
+
+
+     },
+
+
+     {
+
+
+       "title": "Reparto corretto",
+
+
+       "items": [
+
+
+         "Usa Sinistri per incidenti, danni, furto, responsabilità e stato pratica.",
+
+
+         "Usa Servizio polizze per documenti, modifiche, cancellazioni, rinnovi, pagamenti e certificati.",
+
+
+         "Usa Commerciale, Benefit o Rischi per flotte, aziende, benefit, prevenzione e agenzie."
+
+
+       ]
+
+
+     },
+
+
+     {
+
+
+       "title": "Situazioni urgenti",
+
+
+       "items": [
+
+
+         "Se qualcuno è in pericolo, contatta prima i servizi di emergenza locali.",
+
+
+         "Per un incidente attivo, metti in sicurezza il veicolo, documenta la scena e segnala urgenza.",
+
+
+         "Per scadenze di certificati, rinnovi o cancellazioni, indica la data richiesta."
+
+
+       ]
+
+
+     }
+
+
+   ]
+
+
+ },
 
   "posts": {
     "ge": "Scarica l'app su Play Store o App Store ",
@@ -231,8 +1299,8 @@
       "Envoyez un message": "Invia un messaggio",
       "Voir les avis": "Vedi le recensioni"
     }
-  
-  
+
+
 ,
 
 
@@ -386,6 +1454,178 @@
     "acceptButton": "Accetta tutto",
     "rejectButton": "Rifiuta tutto"
   },
+    "professionalsPage": {
+      "eyebrow": "Partnership per flotte",
+      "title": "Professionisti e agenzie",
+      "intro": "Limitless accoglie società di noleggio come Hertz, Europcar, agenzie locali e altri operatori di flotta che vogliono pubblicare i loro veicoli sulla nostra piattaforma. Il prodotto è stato creato prima di tutto per il car sharing tra privati, collegando chi vuole noleggiare il proprio veicolo con chi cerca un’auto.",
+      "primaryAction": "Contattaci",
+      "secondaryAction": "Vedi assicurazione",
+      "secondaryHref": "/assurance",
+      "visual": {
+        "title": "Pubblicazione per flotte",
+        "first": "Pubblica veicoli idonei con disponibilità e dettagli di prenotazione chiari.",
+        "second": "Contattaci direttamente per discutere opportunità di partnership."
+      },
+      "stats": [
+        {
+          "value": "P2P prima",
+          "label": "La nostra missione resta aiutare i proprietari privati a condividere l’auto e generare reddito."
+        },
+        {
+          "value": "Flotte benvenute",
+          "label": "Società di noleggio e operatori possono parlare con noi per aggiungere inventario professionale."
+        },
+        {
+          "value": "Contatto diretto",
+          "label": "Gestiamo le richieste direttamente per capire flotta, mercato ed esigenze."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Pensato prima per i privati",
+          "text": "Limitless nasce per rendere accessibile il car sharing ai proprietari quotidiani e ai noleggiatori vicini. Questo modello tra privati resta la base."
+        },
+        {
+          "title": "Aperto all’offerta professionale",
+          "text": "Hertz, Europcar, agenzie indipendenti e operatori specializzati possono esplorare la pubblicazione dei veicoli quando migliora la scelta per gli utenti."
+        },
+        {
+          "title": "Più reddito dai veicoli",
+          "text": "Continueremo a investire in strumenti che aiutano persone e organizzazioni a trasformare il tempo inutilizzato dei veicoli in entrate."
+        }
+      ],
+      "details": [
+        {
+          "title": "Per operatori di flotta",
+          "items": [
+            "Discuti idoneità dei veicoli, sedi e requisiti operativi.",
+            "Pubblica veicoli con foto, prezzi e disponibilità chiari.",
+            "Coordina onboarding e aspettative di partnership con il nostro team."
+          ]
+        },
+        {
+          "title": "Per la community",
+          "items": [
+            "I privati restano al centro del marketplace.",
+            "L’inventario professionale può aumentare la disponibilità nelle aree richieste.",
+            "Gli utenti ottengono più scelta in una piattaforma semplice."
+          ]
+        },
+        {
+          "title": "Focus partnership",
+          "items": [
+            "Esaminiamo direttamente le richieste.",
+            "Cerchiamo operatori affidabili e informazioni trasparenti.",
+            "Diamo priorità a un’esperienza utile per utenti, host e partner di flotta."
+          ]
+        }
+      ],
+      "stepsTitle": "Come inizia una partnership",
+      "stepsIntro": "Le aziende interessate possono contattarci prima, poi definiamo insieme il percorso di onboarding.",
+      "steps": [
+        {
+          "title": "Presenta la tua flotta",
+          "text": "Raccontaci azienda, sedi operative, tipi di veicoli e volume previsto."
+        },
+        {
+          "title": "Valutiamo l’idoneità",
+          "text": "Discutiamo come il tuo inventario può convivere con il marketplace peer-to-peer."
+        },
+        {
+          "title": "Prepariamo la pubblicazione",
+          "text": "Se c’è compatibilità, coordiniamo annunci, verifica e aspettative di supporto."
+        }
+      ],
+      "contactTitle": "Ti interessa una partnership?",
+      "contactText": "Contattaci direttamente e il nostro team esaminerà la tua richiesta di flotta o agenzia professionale.",
+      "contactAction": "Contatta il team"
+    },
+    "insurancePage": {
+      "eyebrow": "Copertura e protezione",
+      "title": "Assicurazione",
+      "intro": "L’assicurazione ha ora una pagina dedicata su Limitless. Le prenotazioni idonee includono informazioni di protezione per aiutare host e noleggiatori a capire copertura, verifica, supporto in caso di incidente e indicazioni sui reclami.",
+      "primaryAction": "Contatta supporto",
+      "secondaryAction": "Professionisti",
+      "secondaryHref": "/professionals",
+      "visual": {
+        "title": "Dettagli di protezione",
+        "first": "Consulta le informazioni di copertura nel flusso di prenotazione.",
+        "second": "Contatta rapidamente il supporto se si verifica un incidente durante il noleggio."
+      },
+      "stats": [
+        {
+          "value": "Copertura",
+          "label": "Le informazioni di protezione sono mostrate per prenotazioni idonee secondo i termini applicabili."
+        },
+        {
+          "value": "Verifica",
+          "label": "Documenti e dettagli del veicolo aiutano a rendere il marketplace più sicuro prima del noleggio."
+        },
+        {
+          "value": "Supporto",
+          "label": "Il nostro team può guidare host e noleggiatori nella segnalazione e nei prossimi passi."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Protezione durante i noleggi",
+          "text": "La copertura può aiutare a proteggere prenotazioni idonee da danni, furto e responsabilità secondo i termini applicabili alla prenotazione."
+        },
+        {
+          "title": "Informazioni chiare prima della prenotazione",
+          "text": "Noleggiatori e host devono leggere i dettagli assicurativi nel flusso di prenotazione per capire inclusioni, esclusioni e azioni richieste."
+        },
+        {
+          "title": "Aiuto quando succede qualcosa",
+          "text": "In caso di incidente, danno, furto o altro problema, gli utenti devono contattare subito il supporto e seguire le istruzioni della prenotazione."
+        }
+      ],
+      "details": [
+        {
+          "title": "Per gli host",
+          "items": [
+            "Mantieni accurate e aggiornate le informazioni del veicolo.",
+            "Segui il processo di verifica e consegna per ogni prenotazione.",
+            "Segnala rapidamente incidenti con foto, documenti e dettagli rilevanti."
+          ]
+        },
+        {
+          "title": "Per i noleggiatori",
+          "items": [
+            "Consulta i dettagli di protezione prima di confermare una prenotazione.",
+            "Rispetta regole di noleggio, requisiti del conducente e procedura di restituzione.",
+            "Contatta immediatamente il supporto dopo un incidente o sospetto furto."
+          ]
+        },
+        {
+          "title": "Dettagli importanti",
+          "items": [
+            "La copertura può dipendere da paese, veicolo, idoneità del conducente e termini di prenotazione.",
+            "Possono applicarsi esclusioni, franchigie o requisiti documentali.",
+            "I termini della prenotazione e le istruzioni del supporto sono la fonte di riferimento."
+          ]
+        }
+      ],
+      "stepsTitle": "Se si verifica un incidente",
+      "stepsIntro": "Agisci rapidamente e mantieni complete le informazioni così il supporto può aiutare nei prossimi passi.",
+      "steps": [
+        {
+          "title": "Metti prima tutti al sicuro",
+          "text": "Dai priorità alla sicurezza, contatta i servizi di emergenza se necessario e non guidare un veicolo non sicuro."
+        },
+        {
+          "title": "Documenta la situazione",
+          "text": "Scatta foto, raccogli dettagli rilevanti e conserva rapporti o informazioni di terzi."
+        },
+        {
+          "title": "Contatta supporto",
+          "text": "Segnala il problema tramite app o pagina contatti così il team può guidare reclamo o risoluzione."
+        }
+      ],
+      "contactTitle": "Hai bisogno di aiuto assicurativo?",
+      "contactText": "Contattaci se hai bisogno di aiuto per capire la copertura o segnalare un incidente collegato a una prenotazione.",
+      "contactAction": "Contatta supporto"
+    },
     "footer": {
     "Comment ça marche ?": "Come funziona?",
     "Un service de confiance": "Un servizio di fiducia",
@@ -395,6 +1635,7 @@
     "Ressources": "Risorse",
     "Assurance": "Assicurazione",
     "Loueurs professionnels": "Noleggiatori professionali",
+    "Professionnels et agences": "Professionisti e agenzie",
     "Remboursement et Aide": "Rimborsi e Aiuto",
     "Légal": "Legale",
     "Solutions": "Soluzioni",

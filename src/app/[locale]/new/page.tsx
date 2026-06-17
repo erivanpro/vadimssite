@@ -93,7 +93,7 @@ export default function Page() {
 const t = useTranslations('homePage')
 const t_new = useTranslations('newPage');
   return (
-    <div className="subpage-shell">
+    <div className="subpage-shell renter-accent-page">
      
       <header className="modern-header">
         <nav aria-label="Global" className="modern-nav">
@@ -141,6 +141,8 @@ const t_new = useTranslations('newPage');
             <a href="#" className="modern-nav-link">
               
               {t('Devenir locataire')}</a>
+<a href="/professionals" className="modern-nav-link">{t('Professionnels')}</a>
+<a href="/assurance" className="modern-nav-link">{t('Assurance')}</a>
 <a href="/aide" className="modern-nav-link">{t('Aide')}</a>
 <a href="/aide" className="modern-nav-link">{t('Légal')}</a>
 
@@ -189,6 +191,8 @@ const t_new = useTranslations('newPage');
                     </DisclosurePanel>
                   </Disclosure>
                   <a href="/new" className="-mx-3 block rounded-2xl px-4 py-3 text-base font-bold leading-7 text-gray-900 hover:bg-[#f4f6f2]">{t('Devenir hôte')}</a>
+                  <a href="/professionals" className="-mx-3 block rounded-2xl px-4 py-3 text-base font-bold leading-7 text-gray-900 hover:bg-[#f4f6f2]">{t('Professionnels')}</a>
+                  <a href="/assurance" className="-mx-3 block rounded-2xl px-4 py-3 text-base font-bold leading-7 text-gray-900 hover:bg-[#f4f6f2]">{t('Assurance')}</a>
                   <a href="/aide" className="-mx-3 block rounded-2xl px-4 py-3 text-base font-bold leading-7 text-gray-900 hover:bg-[#f4f6f2]">{t('Aide')}</a>
                 </div>
                 <LocaleSwitcher/>

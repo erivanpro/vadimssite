@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
 import LocaleSwitcher from "../localeSwitcher/LocaleSwitcher";
-import Image from "next/image";
-import logo from "@/app/components/images/Logo - Black.png";
 import { FaX } from "react-icons/fa6";
 import {
   FaEnvelope,
@@ -13,19 +11,25 @@ import {
   FaTumblr,
 } from "react-icons/fa";
 
+const hasSeenModalKey = "hasSeenModal";
+const languageWindowClosedEvent = "limitless-language-window-closed";
+
 function InfoModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [allowCookies, setAllowCookies] = useState(false);
 
   useEffect(() => {
-    const hasSeenModal = localStorage.getItem("hasSeenModal");
+    const hasSeenModal = localStorage.getItem(hasSeenModalKey);
     if (!hasSeenModal) {
       setIsOpen(true);
-      localStorage.setItem("hasSeenModal", "true");
     }
   }, []);
 
-  const closeModal = () => setIsOpen(false);
+  const closeModal = () => {
+    localStorage.setItem(hasSeenModalKey, "true");
+    window.dispatchEvent(new Event(languageWindowClosedEvent));
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -35,123 +39,113 @@ function InfoModal() {
       <Dialog
         open={isOpen}
         onClose={closeModal}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        className="language-window-root"
         aria-labelledby="info-modal-title"
         aria-describedby="info-modal-description"
       >
-        {/* Overlay */}
-        <div className="fixed inset-0 bg-slate-950/25" aria-hidden="true" />
+        <div className="language-window-backdrop" aria-hidden="true" />
 
-        {/* Contenu du Modal */}
-        <Dialog.Panel className="info-modal-panel relative rounded-[8px] border border-black/10 bg-white p-6 shadow-xl">
-          {/* Bouton Fermer */}
+        <Dialog.Panel className="language-window-card">
           <button
+            type="button"
             onClick={closeModal}
-            className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-[6px] bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-gray-700 hover:text-gray-900 active:text-gray-700 transition-colors duration-200"
+            className="cookie-window-close language-window-close"
             aria-label="Fermer"
           >
-            ✕
+            &times;
           </button>
 
-          <Image
-            src={logo}
-            alt="Logo"
-            className="mx-auto h-8 w-auto mb-12"
-            width={52}
-            height={52}
-          />
+          <div className="cookie-window-mark language-window-mark" aria-hidden="true">
+            <span className="cookie-window-mark-piece cookie-window-mark-top" />
+            <span className="cookie-window-mark-piece cookie-window-mark-center" />
+            <span className="cookie-window-mark-piece cookie-window-mark-bottom" />
+          </div>
 
-          {/* Titre du Modal */}
+          <p className="cookie-window-eyebrow">Welcome to Limitless</p>
           <Dialog.Title
             id="info-modal-title"
-            className="text-2xl font-semibold text-gray-800 mb-6"
+            className="language-window-title"
           >
             Choisissez votre langue
           </Dialog.Title>
+          <p id="info-modal-description" className="language-window-copy">
+            Sélectionnez votre langue préférée pour continuer avec une expérience
+            adaptée à votre région.
+          </p>
 
-          {/* Sélecteur de langue */}
-          <div className="flex justify-center mb-6">
-            <LocaleSwitcher removeMargin />
+          <div className="language-window-switcher">
+            <LocaleSwitcher removeMargin removePadding />
           </div>
 
-          {/* Autorisation des cookies */}
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-sm text-gray-700">Autoriser les cookies</span>
+          <div className="language-window-toggle">
+            <span>Autoriser les cookies</span>
             <button
+              type="button"
               onClick={() => setAllowCookies(!allowCookies)}
-              className={`relative w-12 h-6 rounded-[6px] focus:outline-none ${
+              className={`language-window-toggle-control ${
                 allowCookies ? "bg-[#52bf88]" : "bg-gray-300"
               }`}
+              aria-pressed={allowCookies}
             >
               <span
-                className={`absolute left-0 top-0 m-1 w-4 h-4 rounded-[4px] bg-white transform transition-transform ${
-                  allowCookies ? "translate-x-6" : ""
+                className={`language-window-toggle-thumb ${
+                  allowCookies ? "language-window-toggle-thumb-on" : ""
                 }`}
               />
             </button>
           </div>
 
-          <p className="break-words text-sm leading-6 text-gray-500">
+          <p className="language-window-legal">
             La société GoLimitless, enregistrée sous le numéro SIREN 939 203 287 R.C.S. Paris, a été officiellement constituée le 6 janvier 2025 en tant que société à responsabilité limitée (SARL). Avec un capital social de 300 €, son siège social est situé au 60 rue François 1er, 75008 Paris.
           </p>
 
-          {/* Actions */}
-          <div className="mt-6 flex justify-end">
-            <button
-              onClick={closeModal}
-              className="bg-[#52bf88] font-bold text-white rounded-[6px] px-6 py-3 text-sm hover:bg-[#2f8d61] focus:outline-none focus:ring-4"
-            >
-              Fermer
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={closeModal}
+            className="cookie-window-primary language-window-primary"
+          >
+            Continuer
+          </button>
 
-          {/* Liens sociaux */}
-          <div className="modal-socials mt-12 mb-12 flex justify-center gap-6">
+          <div className="language-window-socials">
             <a
               href="https://x.com/LimitlessA66221"
-              className="text-gray-500 hover:text-gray-900"
               aria-label="Twitter"
             >
               <FaX size={20} />
             </a>
             <a
               href="https://www.instagram.com/limitlescar/"
-              className="text-gray-500 hover:text-gray-900"
               aria-label="Instagram"
             >
               <FaInstagram size={20} />
             </a>
             <a
               href="https://www.facebook.com/profile.php?id=61571093265011"
-              className="text-gray-500 hover:text-gray-900"
               aria-label="Facebook"
             >
               <FaFacebook size={20} />
             </a>
             <a
               href="mailto:rentalcarapplimitlessslimitles@gmail.com"
-              className="text-gray-500 hover:text-gray-900"
               aria-label="Gmail"
             >
               <FaEnvelope size={20} />
             </a>
             <a
               href="https://www.reddit.com/user/Born_Pangolin_3308/"
-              className="text-gray-500 hover:text-gray-900"
               aria-label="Reddit"
             >
               <FaReddit size={20} />
             </a>
             <a
               href="https://www.linkedin.com/in/limitlessapp-rental-car-app-limitlesss-1293b5344/"
-              className="text-gray-500 hover:text-gray-900"
               aria-label="LinkedIn"
             >
               <FaLinkedin size={20} />
             </a>
             <a
               href="https://www.tumblr.com/blog/golimitlesscom"
-              className="text-gray-500 hover:text-gray-900"
               aria-label="Tumblr"
             >
               <FaTumblr size={20} />

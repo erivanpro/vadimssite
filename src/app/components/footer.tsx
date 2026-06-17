@@ -15,8 +15,8 @@ const navigation = {
 
   legal: [
     { name: 'Ressources', href: '/aide' },
-    { name: 'Assurance', href: '/aide' },
-    { name: 'Loueurs professionnels', href: '/aide' },
+    { name: 'Assurance', href: '/assurance' },
+    { name: 'Professionnels et agences', href: '/professionals' },
     { name: 'Remboursement et Aide', href: '/aide' },
   ],
 };
