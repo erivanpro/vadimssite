@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Dialog,
   DialogPanel,
@@ -11,12 +11,6 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from "@headlessui/react";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
 
 import {
   ArrowPathIcon,
@@ -32,7 +26,6 @@ import {
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
 import Footer from "../components/footer";
-import logo from "@/app/components/images/Logo - White.png";
 import logoblack from "@/app/components/images/Logo - Black.png";
 import Image from "next/image";
 import Boxone from "../components/box1/Boxone";
@@ -76,7 +69,6 @@ import TestBox from "../components/testBox/TestBox";
 import carsmall from "../icons/carsmall";
 import mapsmall from "../icons/mapsmall";
 import chat from "../icons/chat";
-import ScrollReveal from "../components/motion/ScrollReveal";
 
 const products = [
   {
@@ -113,12 +105,6 @@ const backgroundImageStyle: React.CSSProperties = {
 
 export default function Page() {
   const t = useTranslations("homePage");
-  const shouldReduceMotion = useReducedMotion();
-  const { scrollY } = useScroll();
-  const heroStageY = useTransform(scrollY, [0, 620], [0, -36]);
-  const heroStageScale = useTransform(scrollY, [0, 620], [1, 0.965]);
-  const heroPanelY = useTransform(scrollY, [0, 620], [0, 28]);
-  const heroCopyY = useTransform(scrollY, [0, 620], [0, -14]);
 
   const router = useRouter();
 
@@ -135,49 +121,6 @@ export default function Page() {
   };
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prevProgress) => {
-        if (prevProgress >= 100) {
-          clearInterval(interval);
-          setLoading(false); // Simulate end of loading
-          return 100;
-        }
-        return prevProgress + 1;
-      });
-    }, 10); // Adjust the interval time to control progress speed
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="flex flex-col items-center justify-center h-screen bg-[#f4f6f2] text-[#142019]">
-        <div className="relative flex flex-col items-center">
-          <div className="absolute inset-0 rounded-full bg-[#52bf88]/10 animate-pulse"></div>
-          <Image
-            src={logo}
-            alt="Logo"
-            width={80}
-            height={80}
-            className="z-10 mb-4"
-            priority
-          />
-          <div className="text-[#142019] font-bold text-lg animate-bounce mb-4">
-            ...
-          </div>
-          <div className="w-64 bg-white rounded-full h-2 shadow-inner">
-            <div
-              className="bg-[#52bf88] h-2 rounded-full"
-              style={{ width: `${progress}%` }}
-            ></div>
-          </div>
-          <div className="text-[#142019] font-medium mt-2">{progress}%</div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="site-shell">
@@ -448,24 +391,16 @@ export default function Page() {
           </Dialog>
         </header>
 
-        <section className="modern-hero gleb-product-hero motion-hero">
+        <section className="modern-hero gleb-product-hero">
           <div className="modern-hero-inner gleb-hero-grid">
-            <motion.div
-              className="gleb-copy-stack"
-              style={shouldReduceMotion ? undefined : { y: heroCopyY }}
-            >
-              <motion.div
-                className="mt-2"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
+            <div className="gleb-copy-stack">
+              <div className="mt-2">
                 <span className="modern-eyebrow">
                   <a href="/assurance">
                     {t("Notre assurance prend en compte tout")}
                   </a>
                 </span>
-              </motion.div>
+              </div>
 
               <h2
                 className="different modern-hero-title"
@@ -510,38 +445,21 @@ export default function Page() {
                 />
               </div>
 
-              <div className="modern-rating animate-rating">
+              <div className="modern-rating">
                 <span className="font-semibold">4.6/5</span>
                 <span className="text-[12px]">★ ★ ★ ★ ★</span>
                 <span>
                   ({t("10k avis sur les stores")})
                 </span>
               </div>
-            </motion.div>
-            <motion.div
+            </div>
+            <div
               className="gleb-os-stage"
               aria-hidden="true"
-              initial={{ opacity: 0, scale: 0.96, y: 24 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.75, ease: "easeOut", delay: 0.15 }}
-              style={
-                shouldReduceMotion
-                  ? undefined
-                  : { y: heroStageY, scale: heroStageScale }
-              }
             >
-              <motion.div
-                className="gleb-ui-panel gleb-panel-one"
-                style={shouldReduceMotion ? undefined : { y: heroPanelY }}
-              />
-              <motion.div
-                className="gleb-ui-panel gleb-panel-two"
-                style={shouldReduceMotion ? undefined : { y: heroPanelY }}
-              />
-              <motion.div
-                className="gleb-ui-panel gleb-panel-three"
-                style={shouldReduceMotion ? undefined : { y: heroPanelY }}
-              />
+              <div className="gleb-ui-panel gleb-panel-one" />
+              <div className="gleb-ui-panel gleb-panel-two" />
+              <div className="gleb-ui-panel gleb-panel-three" />
               <div className="gleb-device-shell">
                 <Image src={heroPhone} alt="" priority />
               </div>
@@ -553,41 +471,21 @@ export default function Page() {
                 </div>
                 <div className="gleb-route-map" />
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
         <TestBox />
-        <ScrollReveal className="motion-section">
-          <Brands />
-        </ScrollReveal>
-        <ScrollReveal className="motion-section">
-          <Features />
-        </ScrollReveal>
-        <ScrollReveal className="motion-section">
-          <BannerBusiness />
-        </ScrollReveal>
-        <ScrollReveal className="motion-section">
-          <Box2 />
-        </ScrollReveal>
+        <Brands />
+        <Features />
+        <BannerBusiness />
+        <Box2 />
         <InfoModal />
-        <ScrollReveal className="motion-section">
-          <Boxone />
-        </ScrollReveal>
-        <ScrollReveal className="motion-section">
-          <BlogSectione />
-        </ScrollReveal>
-        <ScrollReveal className="motion-section">
-          <Reviews />
-        </ScrollReveal>
-        <ScrollReveal className="motion-section">
-          <FAQSection />
-        </ScrollReveal>
-        <ScrollReveal className="motion-section">
-          <Team />
-        </ScrollReveal>
-        <ScrollReveal className="motion-section">
-          <Footer />
-        </ScrollReveal>
+        <Boxone />
+        <BlogSectione />
+        <Reviews />
+        <FAQSection />
+        <Team />
+        <Footer />
       </div>
     </div>
   );

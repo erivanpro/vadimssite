@@ -5,7 +5,6 @@ import "../globals.css";
 import { getMessages } from "next-intl/server"; // Removing the locale-based logic
 import { NextIntlClientProvider } from "next-intl";
 import CookieWindow from "../components/CookieWindow/CookieWindow";
-import PageTransition from "../components/motion/PageTransition";
 
 const modernist = localFont({
   src: "../fonts/Sk-Modernist-Regular.otf",
@@ -55,7 +54,7 @@ export default async function RootLayout({
       <body className={`${modernist.variable} antialiased`}>
         {/* Provide messages to the app via NextIntlClientProvider */}
         <NextIntlClientProvider messages={messages}>
-          <PageTransition>{children}</PageTransition>
+          {children}
           <CookieWindow />
         </NextIntlClientProvider>
       </body>
