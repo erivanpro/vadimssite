@@ -2515,3 +2515,108 @@ h2.different {
     padding: 22px;
   }
 }
+
+.motion-section {
+  position: relative;
+  transform: translateZ(0);
+  will-change: transform, opacity, filter;
+}
+
+.motion-hero .gleb-copy-stack,
+.motion-hero .gleb-os-stage,
+.motion-hero .gleb-ui-panel {
+  will-change: transform;
+}
+
+.motion-hero .gleb-device-shell img {
+  transform-origin: center;
+  transition:
+    transform 260ms ease,
+    filter 260ms ease;
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .motion-hero .gleb-os-stage:hover .gleb-device-shell img {
+    transform: translateY(-8px) scale(1.012);
+    filter: drop-shadow(0 34px 48px rgba(16, 21, 17, 0.22));
+  }
+
+  .modern-button,
+  .proof-card,
+  .brand-logo-card,
+  .fleet-type-card,
+  .testimonial-card,
+  .faq-card,
+  .help-topic-card,
+  .contact-mini-card,
+  .contact-guidance-card,
+  .contact-info-panel,
+  .info-detail-block,
+  .info-summary-card {
+    transition:
+      transform 220ms ease,
+      border-color 220ms ease,
+      background-color 220ms ease,
+      box-shadow 220ms ease;
+  }
+
+  .modern-button:hover,
+  .proof-card:hover,
+  .brand-logo-card:hover,
+  .fleet-type-card:hover,
+  .testimonial-card:hover,
+  .faq-card:hover,
+  .help-topic-card:hover,
+  .contact-mini-card:hover,
+  .contact-guidance-card:hover,
+  .contact-info-panel:hover,
+  .info-detail-block:hover,
+  .info-summary-card:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gleb-device-shell,
+  .info-device-shell {
+    animation: none !important;
+  }
+
+  .motion-section,
+  .motion-hero .gleb-copy-stack,
+  .motion-hero .gleb-os-stage,
+  .motion-hero .gleb-ui-panel,
+  .motion-hero .gleb-device-shell img,
+  .modern-button,
+  .proof-card,
+  .brand-logo-card,
+  .fleet-type-card,
+  .testimonial-card,
+  .faq-card,
+  .help-topic-card,
+  .contact-mini-card,
+  .contact-guidance-card,
+  .contact-info-panel,
+  .info-detail-block,
+  .info-summary-card {
+    transition: none !important;
+    will-change: auto;
+  }
+
+  .motion-hero .gleb-device-shell img,
+  .modern-button:hover,
+  .proof-card:hover,
+  .brand-logo-card:hover,
+  .fleet-type-card:hover,
+  .testimonial-card:hover,
+  .faq-card:hover,
+  .help-topic-card:hover,
+  .contact-mini-card:hover,
+  .contact-guidance-card:hover,
+  .contact-info-panel:hover,
+  .info-detail-block:hover,
+  .info-summary-card:hover {
+    transform: none !important;
+  }
+}

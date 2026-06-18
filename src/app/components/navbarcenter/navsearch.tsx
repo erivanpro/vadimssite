@@ -2,13 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 import logoblack from "@/app/components/images/Logo - Black.png";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';  // Import useRouter
 import { useTranslations } from 'next-intl';
 import LocaleSwitcher from '../localeSwitcher/LocaleSwitcher';
 import SearchBar from '../serachbar/SearchBar';  // Assuming this is your search bar component
+import MenuIcon from '../menuIcon/MenuIcon';
 import Footer from '../footer';
 import { FaSearch } from 'react-icons/fa';
 import { HiSearch } from 'react-icons/hi';  // Import the HiSearch icon
@@ -209,7 +210,7 @@ export function NavCenter() {
                 className="modern-menu-button"
               >
                 <span className="sr-only">Open main menu</span>
-                <Bars3Icon aria-hidden="true" className="size-6" />
+                <MenuIcon />
               </button>
             </div>
           </div>

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 import logoblack from "@/app/components/images/Logo - Black.png";
 import Image from 'next/image';
 import Navsearch from './navsearch';
@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation';  // Import useRouter
 import { useTranslations } from 'next-intl';
 import LocaleSwitcher from '../localeSwitcher/LocaleSwitcher';
 import NavSearchTwo from './NavSearchTwo';
+import MenuIcon from '../menuIcon/MenuIcon';
 
 
 
@@ -54,7 +55,7 @@ const t = useTranslations("homePage")
                 className="modern-menu-button"
               >
                 <span className="sr-only">Open main menu</span>
-                <Bars3Icon aria-hidden="true" className="size-6" />
+                <MenuIcon />
               </button>
             </div>
           </div>

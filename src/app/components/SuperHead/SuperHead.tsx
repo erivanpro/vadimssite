@@ -13,7 +13,6 @@ import {
   PopoverPanel,
 } from '@headlessui/react'
 import {
-  Bars3Icon,
   ChartPieIcon,
   CursorArrowRaysIcon,
   FingerPrintIcon,
@@ -21,6 +20,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
+import MenuIcon from '../menuIcon/MenuIcon';
 
 const products = [
   { name: 'Analytics', href: '#', description: 'Get detailed analytics.', icon: ChartPieIcon },
@@ -67,7 +67,7 @@ export default function SuperHead() {
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            <MenuIcon />
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">

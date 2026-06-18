@@ -11,11 +11,15 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from "@headlessui/react";
-import { motion } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 
 import {
   ArrowPathIcon,
-  Bars3Icon,
   ChartPieIcon,
   CursorArrowRaysIcon,
   FingerPrintIcon,
@@ -72,6 +76,7 @@ import TestBox from "../components/testBox/TestBox";
 import carsmall from "../icons/carsmall";
 import mapsmall from "../icons/mapsmall";
 import chat from "../icons/chat";
+import ScrollReveal from "../components/motion/ScrollReveal";
 
 const products = [
   {
@@ -108,6 +113,12 @@ const backgroundImageStyle: React.CSSProperties = {
 
 export default function Page() {
   const t = useTranslations("homePage");
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollY } = useScroll();
+  const heroStageY = useTransform(scrollY, [0, 620], [0, -36]);
+  const heroStageScale = useTransform(scrollY, [0, 620], [1, 0.965]);
+  const heroPanelY = useTransform(scrollY, [0, 620], [0, 28]);
+  const heroCopyY = useTransform(scrollY, [0, 620], [0, -14]);
 
   const router = useRouter();
 
@@ -437,9 +448,12 @@ export default function Page() {
           </Dialog>
         </header>
 
-        <section className="modern-hero gleb-product-hero">
+        <section className="modern-hero gleb-product-hero motion-hero">
           <div className="modern-hero-inner gleb-hero-grid">
-            <div className="gleb-copy-stack">
+            <motion.div
+              className="gleb-copy-stack"
+              style={shouldReduceMotion ? undefined : { y: heroCopyY }}
+            >
               <motion.div
                 className="mt-2"
                 initial={{ opacity: 0, y: 20 }}
@@ -453,12 +467,12 @@ export default function Page() {
                 </span>
               </motion.div>
 
-            <h2
-  className="different modern-hero-title"
-  style={{ fontSize: "20px" }}
->
-  <span>{t("Location de voitures")}</span>
-</h2>
+              <h2
+                className="different modern-hero-title"
+                style={{ fontSize: "20px" }}
+              >
+                <span>{t("Location de voitures")}</span>
+              </h2>
               <p className="modern-hero-copy">
                 {t("appDescription")}
               </p>
@@ -503,17 +517,31 @@ export default function Page() {
                   ({t("10k avis sur les stores")})
                 </span>
               </div>
-            </div>
+            </motion.div>
             <motion.div
               className="gleb-os-stage"
               aria-hidden="true"
               initial={{ opacity: 0, scale: 0.96, y: 24 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.75, ease: "easeOut", delay: 0.15 }}
+              style={
+                shouldReduceMotion
+                  ? undefined
+                  : { y: heroStageY, scale: heroStageScale }
+              }
             >
-              <div className="gleb-ui-panel gleb-panel-one" />
-              <div className="gleb-ui-panel gleb-panel-two" />
-              <div className="gleb-ui-panel gleb-panel-three" />
+              <motion.div
+                className="gleb-ui-panel gleb-panel-one"
+                style={shouldReduceMotion ? undefined : { y: heroPanelY }}
+              />
+              <motion.div
+                className="gleb-ui-panel gleb-panel-two"
+                style={shouldReduceMotion ? undefined : { y: heroPanelY }}
+              />
+              <motion.div
+                className="gleb-ui-panel gleb-panel-three"
+                style={shouldReduceMotion ? undefined : { y: heroPanelY }}
+              />
               <div className="gleb-device-shell">
                 <Image src={heroPhone} alt="" priority />
               </div>
@@ -529,17 +557,37 @@ export default function Page() {
           </div>
         </section>
         <TestBox />
-        <Brands />
-        <Features />
-        <BannerBusiness />
-        <Box2 />
+        <ScrollReveal className="motion-section">
+          <Brands />
+        </ScrollReveal>
+        <ScrollReveal className="motion-section">
+          <Features />
+        </ScrollReveal>
+        <ScrollReveal className="motion-section">
+          <BannerBusiness />
+        </ScrollReveal>
+        <ScrollReveal className="motion-section">
+          <Box2 />
+        </ScrollReveal>
         <InfoModal />
-        <Boxone />
-        <BlogSectione />
-        <Reviews />
-        <FAQSection />
-        <Team />
-        <Footer />
+        <ScrollReveal className="motion-section">
+          <Boxone />
+        </ScrollReveal>
+        <ScrollReveal className="motion-section">
+          <BlogSectione />
+        </ScrollReveal>
+        <ScrollReveal className="motion-section">
+          <Reviews />
+        </ScrollReveal>
+        <ScrollReveal className="motion-section">
+          <FAQSection />
+        </ScrollReveal>
+        <ScrollReveal className="motion-section">
+          <Team />
+        </ScrollReveal>
+        <ScrollReveal className="motion-section">
+          <Footer />
+        </ScrollReveal>
       </div>
     </div>
   );

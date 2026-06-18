@@ -1,7 +1,7 @@
 "use client";  // This is still necessary for Next.js 13+ for client-side rendering
 import { useEffect, useState } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 import logoblack from "@/app/components/images/Logo - Black.png";
 import Image from 'next/image';
 import Footer from '../footer';
@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';  // Import useRouter
 import { useTranslations } from 'next-intl';
 import LocaleSwitcher from '../localeSwitcher/LocaleSwitcher';
 import SearchBar from '../serachbar/SearchBar';  // Import SearchBar here
+import MenuIcon from '../menuIcon/MenuIcon';
 import './style.css'
 const navigation = [
   { name: 'Location de voiture', href: '/' },
@@ -141,7 +142,7 @@ export function NavCenter() {
                 className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               >
                 <span className="sr-only">Open main menu</span>
-                <Bars3Icon aria-hidden="true" className="size-6" />
+                <MenuIcon />
               </button>
             </div>
           </div>

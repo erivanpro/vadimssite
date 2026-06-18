@@ -93,6 +93,26 @@ const languages: Record<LanguageKeys, { searchPlaceholder: string; noResults: st
   },
 };
 
+function SearchIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M17 17L13.05 13.05M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export default function SearchBar() {
   const locale = useLocale();  // Get current locale from useLocale hook
   const [searchQuery, setSearchQuery] = useState('');
@@ -113,9 +133,9 @@ export default function SearchBar() {
       {/* Search Button */}
       <button
         onClick={toggleSearch}
-        className="ml-3 flex h-10 w-10 items-center justify-center rounded-[6px] bg-[#52bf88] p-2 text-white transition hover:bg-[#2f8d61]"
+        className="ml-3 flex h-10 w-10 items-center justify-center rounded-[20px] bg-[#52bf88] p-2 text-white transition hover:bg-[#2f8d61]"
       >
-        <MagnifyingGlassIcon className="w-6 h-6" />
+        <SearchIcon />
       </button>
 
     
