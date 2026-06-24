@@ -1,0 +1,23 @@
+[debug] [2026-06-24T17:56:42.670Z] ----------------------------------------------------------------------
+[debug] [2026-06-24T17:56:42.672Z] Command:       /opt/homebrew/Cellar/node/24.5.0/bin/node /Users/macbookair/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase deploy --only firestore:rules --project elunico-5139b
+[debug] [2026-06-24T17:56:42.672Z] CLI Version:   15.22.1
+[debug] [2026-06-24T17:56:42.672Z] Platform:      darwin
+[debug] [2026-06-24T17:56:42.672Z] Node Version:  v24.5.0
+[debug] [2026-06-24T17:56:42.672Z] Detected Agent: codex_cli
+[debug] [2026-06-24T17:56:42.672Z] Time:          Wed Jun 24 2026 19:56:42 GMT+0200 (Central European Summer Time)
+[debug] [2026-06-24T17:56:42.672Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-06-24T17:56:42.673Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-06-24T17:56:43.468Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-06-24T17:56:43.502Z] Error: Could not load the default credentials. Browse to https://cloud.google.com/docs/authentication/getting-started for more information.
+    at GoogleAuth.getApplicationDefaultAsync (/Users/macbookair/.npm/_npx/7750544ccf494d8b/node_modules/google-auth-library/build/src/auth/googleauth.js:287:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async GoogleAuth._GoogleAuth_determineClient (/Users/macbookair/.npm/_npx/7750544ccf494d8b/node_modules/google-auth-library/build/src/auth/googleauth.js:834:32)
+    at async GoogleAuth.getClient (/Users/macbookair/.npm/_npx/7750544ccf494d8b/node_modules/google-auth-library/build/src/auth/googleauth.js:698:20)
+    at async GoogleAuth.getAccessToken (/Users/macbookair/.npm/_npx/7750544ccf494d8b/node_modules/google-auth-library/build/src/auth/googleauth.js:722:24)
+    at async autoAuth (/Users/macbookair/.npm/_npx/7750544ccf494d8b/node_modules/firebase-tools/lib/requireAuth.js:28:19)
+    at async requireAuth (/Users/macbookair/.npm/_npx/7750544ccf494d8b/node_modules/firebase-tools/lib/requireAuth.js:90:20)
+    at async requirePermissions (/Users/macbookair/.npm/_npx/7750544ccf494d8b/node_modules/firebase-tools/lib/requirePermissions.js:17:5)
+    at async /Users/macbookair/.npm/_npx/7750544ccf494d8b/node_modules/firebase-tools/lib/command.js:278:17
+[error] 
+[error] Error: Failed to authenticate, have you run firebase login?

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Unico | Club Yacht Car</title>
+    <style>
+      @font-face {
+        font-family: "SK Modernist";
+        src: url("app/fonts/Sk-Modernist-Regular.otf") format("opentype");
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+      }
+
+      :root {
+        --ink: #040405;
+        --paper: #f8f6ef;
+        --muted: rgba(248, 246, 239, 0.72);
+        --line: rgba(255, 255, 255, 0.16);
+        --champagne: #c9a86a;
+        --sea: #bce8ef;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--ink);
+        color: var(--paper);
+        font-family: "SK Modernist", Arial, Helvetica, sans-serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .nav {
+        position: fixed;
+        top: 18px;
+        left: 50%;
+        z-index: 10;
+        width: min(1180px, calc(100% - 32px));
+        min-height: 64px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        padding: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 18px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.035)),
+          rgba(4, 4, 5, 0.22);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.22),
+          0 18px 56px rgba(0, 0, 0, 0.2);
+        -webkit-backdrop-filter: blur(18px) saturate(150%);
+        backdrop-filter: blur(18px) saturate(150%);
+        transform: translateX(-50%);
+        transition: background 420ms ease, border-color 420ms ease, box-shadow 420ms ease;
+      }
+
+      .scrolled .nav {
+        border-color: rgba(255, 255, 255, 0.28);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.19), rgba(255, 255, 255, 0.045)),
+          rgba(4, 4, 5, 0.68);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.24),
+          0 22px 70px rgba(0, 0, 0, 0.38);
+        -webkit-backdrop-filter: blur(30px) saturate(165%);
+        backdrop-filter: blur(30px) saturate(165%);
+      }
+
+      .brand,
+      .links,
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0;
+      }
+
+      .brand {
+        gap: 10px;
+        min-height: 46px;
+        padding: 0 12px 0 6px;
+      }
+
+      .mark {
+        display: grid;
+        width: 32px;
+        height: 32px;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 9px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--champagne);
+      }
+
+      .links {
+        justify-content: center;
+        gap: 18px;
+        padding: 0 4px;
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      .links a {
+        min-height: 38px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 2px;
+      }
+
+      .links a:hover {
+        color: #fff;
+      }
+
+      .cta {
+        justify-self: end;
+        min-height: 38px;
+        padding: 0 17px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .mobile-menu-input,
+      .mobile-actions,
+      .mobile-panel {
+        display: none;
+      }
+
+      .nav,
+      .nav *,
+      .button,
+      .reserve-button,
+      .footer a {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: grid;
+        align-items: end;
+        overflow: hidden;
+        padding: 168px max(28px, calc((100vw - 1180px) / 2)) 72px;
+        isolation: isolate;
+      }
+
+      .hero img {
+        position: absolute;
+        inset: -7% 0;
+        z-index: -3;
+        width: 100%;
+        height: 114%;
+        object-fit: cover;
+        transform: translateY(calc(var(--scroll-y, 0) * 0.04px)) scale(1.045);
+        animation: heroImageLoad 1800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      .shade {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.84) 0%, rgba(0, 0, 0, 0.38) 48%, rgba(0, 0, 0, 0.08) 100%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.08) 42%, rgba(0, 0, 0, 0.88) 100%);
+      }
+
+      .copy {
+        width: min(820px, 100%);
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--champagne);
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        max-width: 900px;
+        margin: 0;
+        color: #fff;
+        font-size: 86px;
+        line-height: 0.96;
+      }
+
+      .lead {
+        width: min(660px, 100%);
+        margin: 28px 0 0;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.7;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      .button {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 21px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0;
+      }
+
+      .primary {
+        background: #fff;
+        color: var(--ink);
+      }
+
+      .secondary {
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        background: rgba(255, 255, 255, 0.08);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+      }
+
+      .journey-card {
+        position: absolute;
+        right: max(28px, calc((100vw - 1180px) / 2));
+        bottom: 72px;
+        width: min(360px, calc(100% - 56px));
+        padding: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        background: rgba(6, 8, 10, 0.5);
+        -webkit-backdrop-filter: blur(26px) saturate(145%);
+        backdrop-filter: blur(26px) saturate(145%);
+      }
+
+      .journey-card span,
+      .journey-card strong {
+        display: block;
+      }
+
+      .journey-card span {
+        color: var(--sea);
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .journey-card strong {
+        margin-top: 8px;
+        font-size: 18px;
+        line-height: 1.35;
+      }
+
+      .section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 68px;
+        align-items: center;
+        padding: 118px max(28px, calc((100vw - 1180px) / 2));
+        border-top: 1px solid var(--line);
+      }
+
+      .section-media {
+        position: relative;
+        min-height: 480px;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
+      }
+
+      .section-media img {
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+        object-fit: cover;
+        transform: translateY(calc(var(--scroll-y, 0) * -0.015px)) scale(1.035);
+        transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .section-media:hover img {
+        transform: scale(1.07);
+      }
+
+      .section h2 {
+        margin: 0;
+        font-size: 58px;
+        line-height: 1;
+      }
+
+      .section h2 + p {
+        margin-top: 24px;
+      }
+
+      .section p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      .reservation {
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0)),
+          #070708;
+      }
+
+      .reservation-form {
+        display: grid;
+        gap: 16px;
+        padding: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.035)),
+          rgba(4, 4, 5, 0.54);
+        -webkit-backdrop-filter: blur(28px) saturate(155%);
+        backdrop-filter: blur(28px) saturate(155%);
+      }
+
+      .reservation-form label {
+        display: grid;
+        gap: 8px;
+        color: rgba(255, 255, 255, 0.62);
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .reservation-form input,
+      .reservation-form textarea {
+        min-height: 48px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 8px;
+        padding: 0 14px;
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        font: inherit;
+      }
+
+      .reservation-form textarea {
+        min-height: 108px;
+        padding-block: 14px;
+      }
+
+      .reserve-button {
+        min-height: 52px;
+        border: 1px solid #fff;
+        border-radius: 8px;
+        background: #fff;
+        color: var(--ink);
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .footer {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        padding: 48px max(28px, calc((100vw - 1180px) / 2));
+        border-top: 1px solid var(--line);
+        background: #030304;
+      }
+
+      .footer a {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .reveal {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(30px);
+        transition:
+          opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
+          filter 900ms cubic-bezier(0.16, 1, 0.3, 1),
+          transform 1000ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+      }
+
+      @keyframes heroImageLoad {
+        from {
+          filter: brightness(0.78) contrast(1.08);
+          transform: scale(1.1);
+        }
+        to {
+          filter: brightness(1) contrast(1);
+          transform: translateY(calc(var(--scroll-y, 0) * 0.04px)) scale(1.045);
+        }
+      }
+
+      @media (max-width: 820px) {
+        .nav {
+          grid-template-columns: 1fr auto;
+          row-gap: 7px;
+          width: min(100% - 20px, 640px);
+          padding: 7px;
+          border-radius: 16px;
+        }
+
+        .links {
+          display: none;
+        }
+
+        .cta {
+          display: none;
+        }
+
+        .mobile-actions {
+          display: inline-flex;
+          align-items: center;
+          justify-self: end;
+          gap: 8px;
+        }
+
+        .mobile-menu-button,
+        .mobile-ticket {
+          width: 40px;
+          height: 40px;
+          display: grid;
+          place-items: center;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 10px;
+          background: rgba(255, 255, 255, 0.1);
+          cursor: pointer;
+        }
+
+        .hamburger {
+          display: grid;
+          gap: 4px;
+          width: 18px;
+        }
+
+        .hamburger span {
+          height: 2px;
+          border-radius: 999px;
+          background: #fff;
+        }
+
+        .ticket {
+          position: relative;
+          width: 20px;
+          height: 15px;
+          border: 1.5px solid #fff;
+          border-radius: 5px;
+        }
+
+        .ticket::before {
+          position: absolute;
+          top: 3px;
+          bottom: 3px;
+          left: 7px;
+          border-left: 1px dashed rgba(255, 255, 255, 0.68);
+          content: "";
+        }
+
+        .mobile-panel {
+          grid-column: 1 / -1;
+          max-height: 0;
+          display: grid;
+          gap: 0;
+          overflow: hidden;
+          opacity: 0;
+          transition: max-height 320ms ease, opacity 220ms ease;
+        }
+
+        .mobile-panel a {
+          min-height: 42px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 4px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          color: rgba(255, 255, 255, 0.76);
+          font-size: 12px;
+          font-weight: 800;
+          text-transform: uppercase;
+        }
+
+        .mobile-panel a::after {
+          color: var(--champagne);
+          content: ">";
+        }
+
+        .mobile-menu-input:checked ~ .mobile-panel {
+          max-height: 180px;
+          opacity: 1;
+        }
+
+        .hero {
+          padding: 134px 22px 74px;
+        }
+
+        h1 {
+          font-size: 48px;
+        }
+
+        .journey-card {
+          left: 22px;
+          right: 22px;
+          bottom: 22px;
+          width: auto;
+        }
+
+        .copy {
+          padding-bottom: 118px;
+        }
+
+        .section {
+          grid-template-columns: 1fr;
+          padding: 82px 22px;
+        }
+
+        .footer {
+          grid-template-columns: 1fr;
+          padding: 44px 22px;
+        }
+
+        .section-media {
+          min-height: 340px;
+        }
+
+        .section h2 {
+          font-size: 40px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .nav {
+          grid-template-columns: 1fr auto;
+          border-radius: 14px;
+        }
+
+        .brand {
+          justify-self: start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#top"><span class="mark">U</span> EL UNICO</a>
+      <div class="links">
+        <a href="#club">Club</a>
+        <a href="#yacht">Yacht</a>
+        <a href="#car">Car</a>
+      </div>
+      <a class="cta" href="#reserve">Reserve</a>
+      <input class="mobile-menu-input" id="mobile-menu-input" type="checkbox" />
+      <div class="mobile-actions">
+        <label class="mobile-menu-button" for="mobile-menu-input" aria-label="Open menu">
+          <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </label>
+        <a class="mobile-ticket" href="#reserve" aria-label="Book Ticket">
+          <span class="ticket" aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="mobile-panel">
+        <a href="#club">Club</a>
+        <a href="#yacht">Yacht</a>
+        <a href="#car">Car</a>
+      </div>
+    </nav>
+
+    <main id="top">
+      <section class="hero">
+        <img
+          src="app/images/HD-ZAGALETA-VI_CAM-666-copy.jpg"
+          alt="Private hillside residence where the El Unico club journey begins"
+        />
+        <div class="shade"></div>
+        <div class="copy reveal">
+          <p class="eyebrow">Club / Yacht / Car</p>
+          <h1>One private journey in three connected services.</h1>
+          <p class="lead">
+            Begin inside the private residence club, continue the night on the
+            yacht, and move between each moment through discreet chauffeur service.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#club">Start at the Club</a>
+            <a class="button secondary" href="#yacht">Continue to Yacht</a>
+          </div>
+        </div>
+        <aside class="journey-card">
+          <span>Connected experience</span>
+          <strong>Club to Yacht, connected by Car.</strong>
+        </aside>
+      </section>
+
+      <section id="club" class="section">
+        <div class="section-media reveal">
+          <img
+            src="app/images/292_CAM_INT_ZONA_JUEGOS_01-copy-1.jpg"
+            alt="Private residence club lounge with marble bar and billiards table"
+          />
+        </div>
+        <div class="reveal">
+          <p class="eyebrow">01 / Club</p>
+          <h2>The house becomes the private members club.</h2>
+          <p>
+            Dining, drinks, wellness rooms, lounge service, and entertainment are
+            curated like a closed-door club rather than a public venue.
+          </p>
+        </div>
+      </section>
+
+      <section id="yacht" class="section">
+        <div class="section-media reveal">
+          <img src="app/images/yatch/charter-hbc-yacht.jpg" alt="Private yacht at sea" />
+        </div>
+        <div class="reveal">
+          <p class="eyebrow">02 / Yacht</p>
+          <h2>The night continues at sea.</h2>
+          <p>
+            The yacht is the second chapter: a private platform for events,
+            entertainment, music, leisure, and coastal movement.
+          </p>
+        </div>
+      </section>
+
+      <section id="car" class="section">
+        <div class="section-media reveal">
+          <img
+            src="app/images/EL-UNICO-WINNER-1-1024x554.jpg"
+            alt="Aerial view of the private estate and arrival road"
+          />
+        </div>
+        <div class="reveal">
+          <p class="eyebrow">03 / Car</p>
+          <h2>The chauffeur service connects the whole journey.</h2>
+          <p>
+            Pickup, arrival at the house, transfer to the yacht, and final return
+            are handled with the same discretion as the club itself.
+          </p>
+        </div>
+      </section>
+
+      <section id="reserve" class="section reservation">
+        <div class="reveal">
+          <p class="eyebrow">Reserve</p>
+          <h2>Reserve your private experience.</h2>
+          <p>
+            Share pickup, identification, email, and dining details so the
+            concierge team can prepare the journey.
+          </p>
+        </div>
+        <form class="reservation-form reveal">
+          <label>
+            Pickup location
+            <input type="text" name="pickupLocation" required />
+          </label>
+          <label>
+            Name
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            Age
+            <input type="number" name="age" min="18" required />
+          </label>
+          <label>
+            ID number
+            <input type="text" name="idNumber" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Food allergies
+            <textarea name="foodAllergies"></textarea>
+          </label>
+          <button class="reserve-button" type="submit">Reserve my experience</button>
+        </form>
+      </section>
+
+      <footer class="footer">
+        <div>
+          <a class="brand" href="#top"><span class="mark">U</span> EL UNICO</a>
+          <p>Private Club, Yacht, and chauffeur Car experience.</p>
+        </div>
+        <a href="/terms">Terms and conditions</a>
+      </footer>
+    </main>
+
+    <script>
+      const root = document.documentElement;
+      const update = () => {
+        root.style.setProperty("--scroll-y", window.scrollY.toFixed(2));
+        document.body.classList.toggle("scrolled", window.scrollY > 28);
+      };
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -12% 0px", threshold: 0.12 },
+      );
+
+      document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
+
+      update();
+      window.addEventListener("scroll", update, { passive: true });
+    </script>
+  </body>
+</html>
