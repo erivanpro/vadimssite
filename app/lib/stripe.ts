@@ -1,7 +1,5 @@
 import Stripe from "stripe";
 
-const stripeApiVersion = "2026-05-27.dahlia";
-
 export function getStripeSecretKey() {
   return process.env.STRIPE_LIVE_KEY ?? process.env.STRIPE_SECRET_KEY ?? "";
 }
@@ -43,7 +41,6 @@ export function getStripe() {
   }
 
   return new Stripe(secretKey, {
-    apiVersion: stripeApiVersion,
     appInfo: {
       name: "Marbella Private Experience",
       version: "0.1.0",
