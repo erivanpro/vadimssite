@@ -2,17 +2,51 @@
 
 import { FormEvent, useState } from "react";
 
+import {
+  BookingCalendar,
+  type BookingTimeWindow,
+} from "./booking-calendar";
+import {
+  PickupMapPicker,
+  type PickupSelection,
+} from "./pickup-map-picker";
+
 type ReservationStatus = {
   tone: "error" | "info";
   message: string;
 } | null;
 
+const googleMapsApiKey =
+  process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ??
+  "AIzaSyD2s3vyySyBlavEpYIa6cG8R0mpTBJM48Y";
+
 export function ReservationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<ReservationStatus>(null);
+  const [selectedDate, setSelectedDate] = useState<Date>();
+  const [timeWindow, setTimeWindow] =
+    useState<BookingTimeWindow>("full_day");
+  const [partySize, setPartySize] = useState(2);
+  const [pickup, setPickup] = useState<PickupSelection | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (!selectedDate) {
+      setStatus({
+        tone: "error",
+        message: "Choose a preferred booking date before payment.",
+      });
+      return;
+    }
+
+    if (!pickup) {
+      setStatus({
+        tone: "error",
+        message: "Select a pickup location from Google Places or the map.",
+      });
+      return;
+    }
 
     const form = event.currentTarget;
     const formData = new FormData(form);
@@ -60,9 +94,9 @@ export function ReservationForm() {
         <p className="eyebrow">Reserve</p>
         <h2>Reserve your private experience.</h2>
         <p>
-          Share the essentials for pickup, identification, and dining
-          preferences. The concierge team can use this request to prepare the
-          Club, Yacht, and Car journey.
+          Select your preferred date, arrival window, map-verified pickup, and
+          guest essentials. The concierge team can use this request to prepare
+          the House, Yacht, and Car journey.
         </p>
         <p className="reservation-payment-note">
           Payment is completed through Stripe. The preticket becomes active only
@@ -75,16 +109,20 @@ export function ReservationForm() {
         data-reveal
         onSubmit={handleSubmit}
       >
-        <label>
-          <span>Pickup location</span>
-          <input
-            name="pickupLocation"
-            type="text"
-            autoComplete="street-address"
-            placeholder="Hotel, residence, airport, or marina"
-            required
-          />
-        </label>
+        <BookingCalendar
+          selectedDate={selectedDate}
+          onDateChange={setSelectedDate}
+          timeWindow={timeWindow}
+          onTimeWindowChange={setTimeWindow}
+          partySize={partySize}
+          onPartySizeChange={setPartySize}
+        />
+
+        <PickupMapPicker
+          apiKey={googleMapsApiKey}
+          value={pickup}
+          onChange={setPickup}
+        />
 
         <div className="form-pair">
           <label>

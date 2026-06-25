@@ -7,9 +7,9 @@ import { getStripe, getStripeSecretKey } from "../../lib/stripe";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Reservation Confirmation | El Unico",
+  title: "Reservation Confirmation | Marbella Private Experience",
   description:
-    "Stripe payment confirmation for the El Unico private Club, Yacht, and Car experience.",
+    "Stripe payment confirmation for the Marbella Private Experience private House, Yacht, and Car experience.",
 };
 
 type SuccessPageProps = {
@@ -60,11 +60,11 @@ export default async function ReserveSuccessPage({
   return (
     <main className="legal-page payment-page">
       <nav className="legal-nav" aria-label="Confirmation navigation">
-        <Link className="brand-lockup" href="/" aria-label="Return to El Unico">
+        <Link className="brand-lockup" href="/" aria-label="Return to Marbella Private Experience">
           <span className="brand-symbol" aria-hidden="true">
-            U
+            M
           </span>
-          <span>EL UNICO</span>
+          <span>Marbella Private Experience</span>
         </Link>
         <Link className="legal-back" href="/#reserve">
           Reserve

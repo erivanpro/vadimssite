@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 
 import {
+  type BookingFormData,
+  type BookingTimeWindow,
   createBookingDocument,
   markBookingCheckoutCreated,
   markBookingCheckoutError,
@@ -15,7 +17,19 @@ import {
 export const runtime = "nodejs";
 
 type ReservationPayload = {
+  bookingDate?: unknown;
+  bookingTimeWindow?: unknown;
+  bookingTimezone?: unknown;
+  calendarProvider?: unknown;
+  calendarSelectionMode?: unknown;
+  partySize?: unknown;
   pickupLocation?: unknown;
+  pickupFormattedAddress?: unknown;
+  pickupPlaceId?: unknown;
+  pickupLatitude?: unknown;
+  pickupLongitude?: unknown;
+  pickupMapsUrl?: unknown;
+  pickupSource?: unknown;
   name?: unknown;
   age?: unknown;
   idNumber?: unknown;
@@ -25,6 +39,83 @@ type ReservationPayload = {
 
 function cleanText(value: unknown, maxLength = 500) {
   return String(value ?? "").trim().slice(0, maxLength);
+}
+
+const allowedTimeWindows = new Set<BookingTimeWindow>([
+  "morning",
+  "afternoon",
+  "sunset",
+  "full_day",
+]);
+
+function cleanBookingTimeWindow(value: unknown): BookingTimeWindow {
+  const timeWindow = cleanText(value, 32) as BookingTimeWindow;
+
+  return allowedTimeWindows.has(timeWindow) ? timeWindow : "full_day";
+}
+
+function cleanInteger(value: unknown, maxLength: number) {
+  const number = Number(cleanText(value, maxLength));
+
+  return Number.isFinite(number) ? Math.trunc(number) : null;
+}
+
+function cleanCoordinate(value: unknown, min: number, max: number) {
+  const coordinate = Number(cleanText(value, 40));
+
+  if (!Number.isFinite(coordinate) || coordinate < min || coordinate > max) {
+    return null;
+  }
+
+  return coordinate;
+}
+
+function cleanBookingDate(value: unknown) {
+  const date = cleanText(value, 10);
+
+  return /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : "";
+}
+
+function utcDateFromDateKey(dateKey: string) {
+  const [year, month, day] = dateKey.split("-").map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+
+  if (
+    date.getUTCFullYear() !== year ||
+    date.getUTCMonth() !== month - 1 ||
+    date.getUTCDate() !== day
+  ) {
+    return null;
+  }
+
+  return date;
+}
+
+function firstBookableUtcDate() {
+  const date = new Date();
+  date.setUTCHours(0, 0, 0, 0);
+  date.setUTCDate(date.getUTCDate() + 1);
+  return date;
+}
+
+function isBookableDate(dateKey: string) {
+  const date = utcDateFromDateKey(dateKey);
+
+  return Boolean(date && date >= firstBookableUtcDate());
+}
+
+function cleanPickupSource(value: unknown): BookingFormData["pickup"]["source"] {
+  const source = cleanText(value, 64);
+
+  if (
+    source === "google_places_autocomplete" ||
+    source === "map_click" ||
+    source === "marker_drag"
+  ) {
+    return source;
+  }
+
+  return "unknown";
 }
 
 function getSiteOrigin(request: Request) {
@@ -58,13 +149,19 @@ function getRequestSource(request: Request, siteOrigin: string) {
   };
 }
 
-function buildMetadata(reservationId: string, payload: ReservationPayload) {
+function buildMetadata(reservationId: string, form: BookingFormData) {
   return {
     reservation_id: reservationId,
-    experience: "El Unico Club Yacht Car",
-    pickup_location_provided: cleanText(payload.pickupLocation) ? "true" : "false",
-    id_number_provided: cleanText(payload.idNumber) ? "true" : "false",
-    dietary_note_provided: cleanText(payload.foodAllergies) ? "true" : "false",
+    experience: "Marbella Private Experience",
+    booking_date: form.booking.requestedDate,
+    booking_time_window: form.booking.timeWindow,
+    availability_status: form.availability.status,
+    party_size: String(form.guest.partySize ?? ""),
+    pickup_location_provided: form.pickup.label ? "true" : "false",
+    pickup_place_id: form.pickup.placeId,
+    pickup_source: form.pickup.source,
+    id_number_provided: form.guest.idNumber ? "true" : "false",
+    dietary_note_provided: form.guest.foodAllergies ? "true" : "false",
     guest_age_verified: "18_plus",
     source: "website_reservation_form",
   };
@@ -91,31 +188,91 @@ export async function POST(request: Request) {
     );
   }
 
-  const pickupLocation = cleanText(payload.pickupLocation);
+  const bookingDate = cleanBookingDate(payload.bookingDate);
+  const bookingTimeWindow = cleanBookingTimeWindow(payload.bookingTimeWindow);
+  const bookingTimezone = cleanText(payload.bookingTimezone, 80) || "UTC";
+  const calendarProvider =
+    cleanText(payload.calendarProvider, 80) || "react-day-picker";
+  const calendarSelectionMode =
+    cleanText(payload.calendarSelectionMode, 32) === "single"
+      ? "single"
+      : "single";
+  const partySize = cleanInteger(payload.partySize, 2);
+  const pickupLocation = cleanText(payload.pickupLocation, 280);
+  const pickupFormattedAddress = cleanText(
+    payload.pickupFormattedAddress,
+    500,
+  );
+  const pickupPlaceId = cleanText(payload.pickupPlaceId, 180);
+  const pickupLatitude = cleanCoordinate(payload.pickupLatitude, -90, 90);
+  const pickupLongitude = cleanCoordinate(payload.pickupLongitude, -180, 180);
+  const pickupMapsUrl = cleanText(payload.pickupMapsUrl, 1000);
+  const pickupSource = cleanPickupSource(payload.pickupSource);
   const name = cleanText(payload.name, 160);
   const email = cleanText(payload.email, 254).toLowerCase();
   const idNumber = cleanText(payload.idNumber, 120);
   const foodAllergies = cleanText(payload.foodAllergies, 1200);
-  const age = Number(cleanText(payload.age, 3));
-  const normalizedAge = Number.isFinite(age) ? age : null;
+  const age = cleanInteger(payload.age, 3);
   const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const reservationId = crypto.randomUUID();
+  const form: BookingFormData = {
+    booking: {
+      requestedDate: bookingDate,
+      timeWindow: bookingTimeWindow,
+      timezone: bookingTimezone,
+      calendarProvider,
+      calendarSelectionMode,
+    },
+    availability: {
+      status: "requested",
+      requiresManualConfirmation: true,
+      source: "calendar_request",
+    },
+    pickup: {
+      label: pickupLocation,
+      formattedAddress: pickupFormattedAddress,
+      placeId: pickupPlaceId,
+      latitude: pickupLatitude,
+      longitude: pickupLongitude,
+      mapsUrl: pickupMapsUrl,
+      source: pickupSource,
+    },
+    guest: {
+      name,
+      age,
+      idNumber,
+      email,
+      foodAllergies,
+      partySize,
+    },
+  };
+  const errors = [
+    !bookingDate || !isBookableDate(bookingDate)
+      ? "a future booking date"
+      : null,
+    !allowedTimeWindows.has(bookingTimeWindow)
+      ? "an arrival window"
+      : null,
+    !pickupLocation || pickupLatitude === null || pickupLongitude === null
+      ? "a Google Maps pickup selection"
+      : null,
+    !name ? "your full name" : null,
+    age === null || age < 18 ? "adult age verification" : null,
+    !idNumber ? "your ID number" : null,
+    !emailIsValid ? "a valid email" : null,
+    partySize === null || partySize < 1 || partySize > 12
+      ? "a party size between 1 and 12"
+      : null,
+  ].filter(Boolean);
   const validationError =
-    !pickupLocation || !name || !idNumber || !emailIsValid || age < 18
-      ? "Please complete pickup, name, adult age, ID number, and email before payment."
+    errors.length > 0
+      ? `Please complete ${errors.join(", ")} before payment.`
       : null;
 
   try {
     await createBookingDocument({
       reservationId,
-      form: {
-        pickupLocation,
-        name,
-        age: normalizedAge,
-        idNumber,
-        email,
-        foodAllergies,
-      },
+      form,
       source: getRequestSource(request, siteOrigin),
     });
   } catch (error) {
@@ -142,7 +299,7 @@ export async function POST(request: Request) {
 
   try {
     const stripe = getStripe();
-    const metadata = buildMetadata(reservationId, payload);
+    const metadata = buildMetadata(reservationId, form);
     const amount = getReservationPriceCents();
     const currency = getReservationCurrency();
 
@@ -160,9 +317,9 @@ export async function POST(request: Request) {
             currency,
             unit_amount: amount,
             product_data: {
-              name: "El Unico Private Experience Preticket",
+              name: "Marbella Private Experience Preticket",
               description:
-                "A paid reservation preticket for the private Club, Yacht, and chauffeur Car journey.",
+                "A paid reservation preticket for the private House, Yacht, and chauffeur Car journey.",
             },
           },
         },
@@ -177,7 +334,7 @@ export async function POST(request: Request) {
       custom_text: {
         submit: {
           message:
-            "Your El Unico preticket is reserved only after Stripe confirms payment.",
+            "Your Marbella Private Experience preticket is reserved only after Stripe confirms payment.",
         },
       },
     });

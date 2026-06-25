@@ -14,6 +14,9 @@ export function ScrollOrchestrator() {
     const parallaxItems = Array.from(
       document.querySelectorAll<HTMLElement>("[data-parallax]"),
     );
+    const progressItems = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-progress]"),
+    );
     const sectionItems = Array.from(
       document.querySelectorAll<HTMLElement>("[data-section-id]"),
     );
@@ -25,6 +28,28 @@ export function ScrollOrchestrator() {
 
     let ticking = false;
     let activeSection = "";
+    let observer: IntersectionObserver | undefined;
+
+    const revealVisibleItems = () => {
+      if (reduceMotion) {
+        return;
+      }
+
+      revealItems.forEach((item) => {
+        if (item.classList.contains("is-visible")) {
+          return;
+        }
+
+        const rect = item.getBoundingClientRect();
+        const revealLine = window.innerHeight * 0.9;
+        const isVisible = rect.top <= revealLine && rect.bottom >= 0;
+
+        if (isVisible) {
+          item.classList.add("is-visible");
+          observer?.unobserve(item);
+        }
+      });
+    };
 
     const updateActiveSection = () => {
       if (sectionItems.length === 0 || navItems.length === 0) {
@@ -68,6 +93,18 @@ export function ScrollOrchestrator() {
       root.style.setProperty("--scroll-progress", progress.toFixed(4));
       root.dataset.scrolled = scrollY > 28 ? "true" : "false";
       updateActiveSection();
+      revealVisibleItems();
+
+      progressItems.forEach((item) => {
+        const rect = item.getBoundingClientRect();
+        const distance = window.innerHeight + rect.height;
+        const itemProgress = Math.min(
+          1,
+          Math.max(0, (window.innerHeight - rect.top) / distance),
+        );
+
+        item.style.setProperty("--view-progress", itemProgress.toFixed(4));
+      });
 
       if (!reduceMotion) {
         const viewportCenter = window.innerHeight / 2;
@@ -92,8 +129,6 @@ export function ScrollOrchestrator() {
       }
     };
 
-    let observer: IntersectionObserver | undefined;
-
     if (reduceMotion) {
       revealItems.forEach((item) => item.classList.add("is-visible"));
     } else {
@@ -116,10 +151,57 @@ export function ScrollOrchestrator() {
     }
 
     updateScrollState();
+
+    if (window.location.hash) {
+      window.requestAnimationFrame(() => {
+        const targetElement = document.getElementById(
+          decodeURIComponent(window.location.hash.slice(1)),
+        );
+
+        targetElement?.scrollIntoView({ block: "start" });
+        requestTick();
+      });
+    }
+
+    const handleAnchorClick = (event: MouseEvent) => {
+      const target = event.target;
+
+      if (!(target instanceof Element)) {
+        return;
+      }
+
+      const link = target.closest<HTMLAnchorElement>('a[href^="#"]');
+
+      if (!link) {
+        return;
+      }
+
+      const targetId = decodeURIComponent(link.hash.slice(1));
+      const targetElement = targetId
+        ? document.getElementById(targetId)
+        : undefined;
+
+      if (!targetElement) {
+        return;
+      }
+
+      event.preventDefault();
+      targetElement.scrollIntoView({
+        behavior: reduceMotion ? "auto" : "smooth",
+        block: "start",
+      });
+
+      if (window.location.hash !== link.hash) {
+        window.history.pushState(null, "", link.hash);
+      }
+    };
+
+    document.addEventListener("click", handleAnchorClick);
     window.addEventListener("scroll", requestTick, { passive: true });
     window.addEventListener("resize", requestTick);
 
     return () => {
+      document.removeEventListener("click", handleAnchorClick);
       window.removeEventListener("scroll", requestTick);
       window.removeEventListener("resize", requestTick);
       observer?.disconnect();
@@ -132,6 +214,9 @@ export function ScrollOrchestrator() {
       delete root.dataset.activeSection;
       root.style.removeProperty("--scroll-y");
       root.style.removeProperty("--scroll-progress");
+      progressItems.forEach((item) => {
+        item.style.removeProperty("--view-progress");
+      });
     };
   }, []);
 

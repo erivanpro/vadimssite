@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions | El Unico",
+  title: "Terms and Conditions | Marbella Private Experience",
   description:
-    "Terms and conditions for the El Unico private Club, Yacht, and Car experience.",
+    "Terms and conditions for the Marbella Private Experience private House, Yacht, and Car experience.",
 };
 
 const terms = [
   {
     title: "Private Access",
-    text: "Access to the Club, Yacht, and Car experience is private, limited, and subject to approval, availability, guest verification, and final confirmation by the concierge team.",
+    text: "Access to the House, Yacht, and Car experience is private, limited, and subject to approval, availability, guest verification, and final confirmation by the concierge team.",
   },
   {
     title: "Reservation Requests",
@@ -46,11 +46,11 @@ export default function TermsPage() {
   return (
     <main className="legal-page">
       <nav className="legal-nav" aria-label="Terms navigation">
-        <Link className="brand-lockup" href="/" aria-label="Return to El Unico">
+        <Link className="brand-lockup" href="/" aria-label="Return to Marbella Private Experience">
           <span className="brand-symbol" aria-hidden="true">
-            U
+            M
           </span>
-          <span>EL UNICO</span>
+          <span>Marbella Private Experience</span>
         </Link>
         <Link className="legal-back" href="/#reserve">
           Reserve
@@ -62,7 +62,7 @@ export default function TermsPage() {
         <h1>Terms and conditions.</h1>
         <p>
           These terms outline the core conditions for requesting access to the
-          private Club, Yacht, and chauffeur Car experience.
+          private House, Yacht, and chauffeur Car experience.
         </p>
       </section>
 

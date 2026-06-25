@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "El Unico | Club Yacht Car",
+  title: "Marbella Private Experience | House Yacht Car",
   description:
-    "A connected luxury experience across the private Club, Yacht, and chauffeur Car service.",
+    "A connected luxury experience across the private House, Yacht, and chauffeur Car service.",
 };
 
 export default function RootLayout({

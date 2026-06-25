@@ -45,7 +45,7 @@ export function getStripe() {
   return new Stripe(secretKey, {
     apiVersion: stripeApiVersion,
     appInfo: {
-      name: "El Unico",
+      name: "Marbella Private Experience",
       version: "0.1.0",
     },
     maxNetworkRetries: 2,

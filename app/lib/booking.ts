@@ -5,13 +5,53 @@ import { db } from "../../firebase";
 
 const bookingCollection = "booking";
 
+export type BookingTimeWindow =
+  | "morning"
+  | "afternoon"
+  | "sunset"
+  | "full_day";
+
+export type BookingAvailabilityStatus =
+  | "requested"
+  | "limited"
+  | "held"
+  | "confirmed"
+  | "unavailable";
+
 export type BookingFormData = {
-  pickupLocation: string;
-  name: string;
-  age: number | null;
-  idNumber: string;
-  email: string;
-  foodAllergies: string;
+  booking: {
+    requestedDate: string;
+    timeWindow: BookingTimeWindow;
+    timezone: string;
+    calendarProvider: string;
+    calendarSelectionMode: "single";
+  };
+  availability: {
+    status: BookingAvailabilityStatus;
+    requiresManualConfirmation: boolean;
+    source: "calendar_request";
+  };
+  pickup: {
+    label: string;
+    formattedAddress: string;
+    placeId: string;
+    latitude: number | null;
+    longitude: number | null;
+    mapsUrl: string;
+    source:
+      | "google_places_autocomplete"
+      | "map_click"
+      | "marker_drag"
+      | "unknown";
+  };
+  guest: {
+    name: string;
+    age: number | null;
+    idNumber: string;
+    email: string;
+    foodAllergies: string;
+    partySize: number | null;
+  };
 };
 
 type BookingSource = {
@@ -49,10 +89,23 @@ export async function createBookingDocument({
   source: BookingSource;
 }) {
   await setDoc(bookingRef(reservationId), {
+    schemaVersion: 2,
     reservationId,
     bookingStatus: "submitted",
     paymentStatus: "not_paid",
-    experience: "El Unico Club Yacht Car",
+    experience: "Marbella Private Experience",
+    bookingDate: form.booking.requestedDate,
+    bookingTimeWindow: form.booking.timeWindow,
+    availabilityStatus: form.availability.status,
+    pickupLocation: form.pickup.label,
+    pickupPlaceId: form.pickup.placeId,
+    pickupCoordinates:
+      form.pickup.latitude !== null && form.pickup.longitude !== null
+        ? {
+            latitude: form.pickup.latitude,
+            longitude: form.pickup.longitude,
+          }
+        : null,
     form,
     source,
     stripe: {
@@ -61,6 +114,7 @@ export async function createBookingDocument({
       paymentIntentId: null,
     },
     createdAt: serverTimestamp(),
+    requestedAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
   });
 }
