@@ -8,6 +8,8 @@ import {
   markBookingCheckoutError,
   markBookingValidationFailed,
 } from "../../lib/booking";
+import { getDictionary } from "../../lib/dictionaries";
+import { defaultLocale, resolveLocale } from "../../lib/locales";
 import {
   getReservationCurrency,
   getReservationPriceCents,
@@ -17,6 +19,7 @@ import {
 export const runtime = "nodejs";
 
 type ReservationPayload = {
+  locale?: unknown;
   bookingDate?: unknown;
   bookingTimeWindow?: unknown;
   bookingTimezone?: unknown;
@@ -169,10 +172,11 @@ function buildMetadata(reservationId: string, form: BookingFormData) {
 
 export async function POST(request: Request) {
   const siteOrigin = getSiteOrigin(request);
+  const defaultCheckoutCopy = getDictionary(defaultLocale).checkout;
 
   if (!hasAllowedOrigin(request, siteOrigin)) {
     return NextResponse.json(
-      { error: "This checkout request is not allowed from that origin." },
+      { error: defaultCheckoutCopy.errors.origin },
       { status: 403 },
     );
   }
@@ -183,11 +187,13 @@ export async function POST(request: Request) {
     payload = (await request.json()) as ReservationPayload;
   } catch {
     return NextResponse.json(
-      { error: "Invalid reservation request." },
+      { error: defaultCheckoutCopy.errors.invalidRequest },
       { status: 400 },
     );
   }
 
+  const locale = resolveLocale(cleanText(payload.locale, 8));
+  const checkoutCopy = getDictionary(locale).checkout;
   const bookingDate = cleanBookingDate(payload.bookingDate);
   const bookingTimeWindow = cleanBookingTimeWindow(payload.bookingTimeWindow);
   const bookingTimezone = cleanText(payload.bookingTimezone, 80) || "UTC";
@@ -246,27 +252,28 @@ export async function POST(request: Request) {
       partySize,
     },
   };
+  const validationCopy = checkoutCopy.validation;
   const errors = [
     !bookingDate || !isBookableDate(bookingDate)
-      ? "a future booking date"
+      ? validationCopy.futureDate
       : null,
     !allowedTimeWindows.has(bookingTimeWindow)
-      ? "an arrival window"
+      ? validationCopy.arrivalWindow
       : null,
     !pickupLocation || pickupLatitude === null || pickupLongitude === null
-      ? "a Google Maps pickup selection"
+      ? validationCopy.pickupSelection
       : null,
-    !name ? "your full name" : null,
-    age === null || age < 18 ? "adult age verification" : null,
-    !idNumber ? "your ID number" : null,
-    !emailIsValid ? "a valid email" : null,
+    !name ? validationCopy.fullName : null,
+    age === null || age < 18 ? validationCopy.adultAge : null,
+    !idNumber ? validationCopy.idNumber : null,
+    !emailIsValid ? validationCopy.email : null,
     partySize === null || partySize < 1 || partySize > 12
-      ? "a party size between 1 and 12"
+      ? validationCopy.partySize
       : null,
   ].filter(Boolean);
   const validationError =
     errors.length > 0
-      ? `Please complete ${errors.join(", ")} before payment.`
+      ? validationCopy.complete.replace("{items}", errors.join(", "))
       : null;
 
   try {
@@ -277,10 +284,10 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     const message =
-      error instanceof Error ? error.message : "Unable to record booking.";
+      error instanceof Error ? error.message : checkoutCopy.errors.unableRecord;
 
     return NextResponse.json(
-      { error: `Unable to record booking in Firestore: ${message}` },
+      { error: `${checkoutCopy.errors.firestorePrefix} ${message}` },
       { status: 500 },
     );
   }
@@ -308,8 +315,8 @@ export async function POST(request: Request) {
       customer_creation: "always",
       customer_email: email,
       client_reference_id: reservationId,
-      success_url: `${siteOrigin}/reserve/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${siteOrigin}/#reserve`,
+      success_url: `${siteOrigin}/${locale}/reserve/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${siteOrigin}/${locale}/#reserve`,
       line_items: [
         {
           quantity: 1,
@@ -317,9 +324,8 @@ export async function POST(request: Request) {
             currency,
             unit_amount: amount,
             product_data: {
-              name: "Marbella Private Experience Preticket",
-              description:
-                "A paid reservation preticket for the private House, Yacht, and chauffeur Car journey.",
+              name: checkoutCopy.stripe.productName,
+              description: checkoutCopy.stripe.productDescription,
             },
           },
         },
@@ -333,15 +339,14 @@ export async function POST(request: Request) {
       },
       custom_text: {
         submit: {
-          message:
-            "Your Marbella Private Experience preticket is reserved only after Stripe confirms payment.",
+          message: checkoutCopy.stripe.customSubmit,
         },
       },
     });
 
     if (!session.url) {
       return NextResponse.json(
-        { error: "Stripe did not return a checkout URL." },
+        { error: checkoutCopy.errors.noUrl },
         { status: 502 },
       );
     }
@@ -360,7 +365,7 @@ export async function POST(request: Request) {
     const message =
       error instanceof Error
         ? error.message
-        : "Unable to create Stripe checkout.";
+        : checkoutCopy.errors.unableCreate;
 
     await markBookingCheckoutError({
       reservationId,

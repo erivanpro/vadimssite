@@ -3,6 +3,9 @@
 import { importLibrary, setOptions } from "@googlemaps/js-api-loader";
 import { useEffect, useRef, useState } from "react";
 
+import type { Dictionary } from "./lib/dictionaries";
+import type { Locale } from "./lib/locales";
+
 export type PickupSelection = {
   label: string;
   formattedAddress: string;
@@ -17,9 +20,6 @@ const defaultCenter = {
   lat: 36.5101,
   lng: -4.8824,
 };
-
-const placesUnavailableMessage =
-  "Google Places autocomplete is unavailable for this API key. Enable Places API (New), billing, and this domain in Google Cloud, or click the map to set pickup.";
 
 const mapStyles: google.maps.MapTypeStyle[] = [
   {
@@ -104,7 +104,10 @@ function mapsUrl(latitude: number, longitude: number, placeId = "") {
   )}`;
 }
 
-function googleMapsStatusMessage(error: unknown) {
+function googleMapsStatusMessage(
+  error: unknown,
+  copy: Dictionary["pickup"],
+) {
   const message = error instanceof Error ? error.message : String(error ?? "");
 
   if (
@@ -112,10 +115,10 @@ function googleMapsStatusMessage(error: unknown) {
       message,
     )
   ) {
-    return placesUnavailableMessage;
+    return copy.placesUnavailable;
   }
 
-  return message || "Google Maps could not be loaded.";
+  return message || copy.mapLoadError;
 }
 
 function createPinElement() {
@@ -179,7 +182,10 @@ function createPickupOverlay(
   return overlay;
 }
 
-function selectionFromPlace(place: google.maps.places.Place) {
+function selectionFromPlace(
+  place: google.maps.places.Place,
+  copy: Dictionary["pickup"],
+) {
   const location = place.location;
 
   if (!location) {
@@ -191,7 +197,7 @@ function selectionFromPlace(place: google.maps.places.Place) {
   const formattedAddress = place.formattedAddress ?? "";
 
   return {
-    label: place.displayName || formattedAddress || "Selected pickup location",
+    label: place.displayName || formattedAddress || copy.selectedPickupLocation,
     formattedAddress,
     placeId: place.id,
     latitude: toCoordinate(latitude),
@@ -202,11 +208,13 @@ function selectionFromPlace(place: google.maps.places.Place) {
 }
 
 function selectionFromGeocodeResult({
+  copy,
   result,
   latitude,
   longitude,
   source,
 }: {
+  copy: Dictionary["pickup"];
   result: google.maps.GeocoderResult | undefined;
   latitude: number;
   longitude: number;
@@ -215,7 +223,7 @@ function selectionFromGeocodeResult({
   const formattedAddress = result?.formatted_address ?? "";
 
   return {
-    label: formattedAddress || "Pinned pickup location",
+    label: formattedAddress || copy.pinnedPickupLocation,
     formattedAddress,
     placeId: result?.place_id ?? "",
     latitude: toCoordinate(latitude),
@@ -227,10 +235,14 @@ function selectionFromGeocodeResult({
 
 export function PickupMapPicker({
   apiKey,
+  copy,
+  locale,
   value,
   onChange,
 }: {
   apiKey: string;
+  copy: Dictionary["pickup"];
+  locale: Locale;
   value: PickupSelection | null;
   onChange: (selection: PickupSelection | null) => void;
 }) {
@@ -241,7 +253,7 @@ export function PickupMapPicker({
   const overlayRef = useRef<google.maps.OverlayView | null>(null);
   const geocoderRef = useRef<google.maps.Geocoder | null>(null);
   const [status, setStatus] = useState(
-    apiKey ? "Load the map and select pickup." : "Google Maps API key is missing.",
+    apiKey ? copy.initialStatus : copy.missingKeyStatus,
   );
 
   useEffect(() => {
@@ -282,8 +294,8 @@ export function PickupMapPicker({
         });
 
         const autocompleteElement = new PlaceAutocompleteElement({
-          placeholder: "Search hotel, residence, airport, or marina",
-          requestedLanguage: "en",
+          placeholder: copy.autocompletePlaceholder,
+          requestedLanguage: locale,
           requestedRegion: "es",
           locationBias: {
             center: defaultCenter,
@@ -292,8 +304,7 @@ export function PickupMapPicker({
         });
 
         autocompleteElement.className = "places-autocomplete-element";
-        autocompleteElement.description =
-          "Search for the chauffeur pickup location.";
+        autocompleteElement.description = copy.autocompleteDescription;
         autocompleteHostRef.current.replaceChildren(autocompleteElement);
 
         const overlay = createPickupOverlay(defaultCenter, map);
@@ -305,7 +316,7 @@ export function PickupMapPicker({
           const selectEvent =
             event as google.maps.places.PlacePredictionSelectEvent;
 
-          setStatus("Loading selected place details...");
+          setStatus(copy.loadingPlaceDetails);
 
           let placeDetails: { place: google.maps.places.Place };
 
@@ -322,7 +333,7 @@ export function PickupMapPicker({
             });
           } catch (error) {
             if (isMounted) {
-              setStatus(googleMapsStatusMessage(error));
+              setStatus(googleMapsStatusMessage(error, copy));
             }
 
             return;
@@ -332,10 +343,10 @@ export function PickupMapPicker({
             return;
           }
 
-          const selection = selectionFromPlace(placeDetails.place);
+          const selection = selectionFromPlace(placeDetails.place, copy);
 
           if (!selection) {
-            setStatus("Choose a pickup result with a mapped location.");
+            setStatus(copy.noMappedLocation);
             return;
           }
 
@@ -350,7 +361,7 @@ export function PickupMapPicker({
           autocompleteElement.value =
             selection.formattedAddress || selection.label;
           onChange(selection);
-          setStatus("Pickup selected from Google Places.");
+          setStatus(copy.selectedFromPlaces);
         };
 
         autocompleteElement.addEventListener("gmp-select", handlePlaceSelect);
@@ -362,7 +373,7 @@ export function PickupMapPicker({
         });
 
         const handlePlacesError = () => {
-          setStatus(placesUnavailableMessage);
+          setStatus(copy.placesUnavailable);
         };
 
         autocompleteElement.addEventListener("gmp-error", handlePlacesError);
@@ -383,12 +394,13 @@ export function PickupMapPicker({
 
           overlay.setPosition(position);
           map.panTo(position);
-          setStatus("Resolving pinned location...");
+          setStatus(copy.resolvingPinned);
 
           const response = await geocoderRef.current?.geocode({
             location: position,
           });
           const selection = selectionFromGeocodeResult({
+            copy,
             result: response?.results[0],
             latitude,
             longitude,
@@ -402,7 +414,7 @@ export function PickupMapPicker({
           autocompleteElement.value =
             selection.formattedAddress || selection.label;
           onChange(selection);
-          setStatus("Pickup selected on the map.");
+          setStatus(copy.selectedOnMap);
         }
 
         listeners.push(
@@ -413,9 +425,9 @@ export function PickupMapPicker({
           }),
         );
 
-        setStatus("Search an address or click the map to set pickup.");
+        setStatus(copy.readyStatus);
       } catch (error) {
-        setStatus(googleMapsStatusMessage(error));
+        setStatus(googleMapsStatusMessage(error, copy));
       }
     }
 
@@ -430,11 +442,11 @@ export function PickupMapPicker({
       autocompleteElementRef.current?.remove();
       autocompleteElementRef.current = null;
     };
-  }, [apiKey, onChange]);
+  }, [apiKey, copy, locale, onChange]);
 
   return (
     <fieldset className="booking-card pickup-map-card">
-      <legend>Pickup location</legend>
+      <legend>{copy.legend}</legend>
 
       <input name="pickupLocation" type="hidden" value={value?.label ?? ""} />
       <input
@@ -457,21 +469,21 @@ export function PickupMapPicker({
       <input name="pickupSource" type="hidden" value={value?.source ?? ""} />
 
       <div className="map-search-field">
-        <span>Search with Google Places</span>
+        <span>{copy.searchLabel}</span>
         <div
           ref={autocompleteHostRef}
           className="places-autocomplete-host"
-          aria-label="Search pickup location"
+          aria-label={copy.searchAria}
         />
       </div>
 
       <div className="pickup-map-shell">
-        <div ref={mapRef} className="pickup-map" aria-label="Pickup map" />
+        <div ref={mapRef} className="pickup-map" aria-label={copy.mapAria} />
       </div>
 
       <div className="pickup-selection">
-        <span>{value ? "Selected pickup" : "Pickup pending"}</span>
-        <strong>{value?.label ?? "Search or choose a point on the map"}</strong>
+        <span>{value ? copy.selectedLabel : copy.pendingLabel}</span>
+        <strong>{value?.label ?? copy.emptySelection}</strong>
         {value?.formattedAddress ? <p>{value.formattedAddress}</p> : null}
         <small>{status}</small>
       </div>

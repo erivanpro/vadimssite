@@ -10,6 +10,8 @@ import {
   PickupMapPicker,
   type PickupSelection,
 } from "./pickup-map-picker";
+import type { Dictionary } from "./lib/dictionaries";
+import type { Locale } from "./lib/locales";
 
 type ReservationStatus = {
   tone: "error" | "info";
@@ -20,7 +22,17 @@ const googleMapsApiKey =
   process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ??
   "AIzaSyD2s3vyySyBlavEpYIa6cG8R0mpTBJM48Y";
 
-export function ReservationForm() {
+export function ReservationForm({
+  bookingCalendar,
+  locale,
+  pickup: pickupCopy,
+  reservation,
+}: {
+  bookingCalendar: Dictionary["bookingCalendar"];
+  locale: Locale;
+  pickup: Dictionary["pickup"];
+  reservation: Dictionary["reservation"];
+}) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<ReservationStatus>(null);
   const [selectedDate, setSelectedDate] = useState<Date>();
@@ -35,7 +47,7 @@ export function ReservationForm() {
     if (!selectedDate) {
       setStatus({
         tone: "error",
-        message: "Choose a preferred booking date before payment.",
+        message: reservation.status.missingDate,
       });
       return;
     }
@@ -43,7 +55,7 @@ export function ReservationForm() {
     if (!pickup) {
       setStatus({
         tone: "error",
-        message: "Select a pickup location from Google Places or the map.",
+        message: reservation.status.missingPickup,
       });
       return;
     }
@@ -55,7 +67,7 @@ export function ReservationForm() {
     setIsSubmitting(true);
     setStatus({
       tone: "info",
-      message: "Opening Stripe secure checkout...",
+      message: reservation.status.openingCheckout,
     });
 
     try {
@@ -72,7 +84,7 @@ export function ReservationForm() {
       };
 
       if (!response.ok || !data.url) {
-        throw new Error(data.error ?? "Unable to start Stripe checkout.");
+        throw new Error(data.error ?? reservation.status.unableCheckout);
       }
 
       window.location.assign(data.url);
@@ -82,7 +94,7 @@ export function ReservationForm() {
         message:
           error instanceof Error
             ? error.message
-            : "Unable to start Stripe checkout.",
+            : reservation.status.unableCheckout,
       });
       setIsSubmitting(false);
     }
@@ -91,17 +103,10 @@ export function ReservationForm() {
   return (
     <section id="reserve" className="section reservation-section">
       <div className="reservation-copy" data-reveal>
-        <p className="eyebrow">Reserve</p>
-        <h2>Reserve your private experience.</h2>
-        <p>
-          Select your preferred date, arrival window, map-verified pickup, and
-          guest essentials. The concierge team can use this request to prepare
-          the House, Yacht, and Car journey.
-        </p>
-        <p className="reservation-payment-note">
-          Payment is completed through Stripe. The preticket becomes active only
-          after successful payment confirmation.
-        </p>
+        <p className="eyebrow">{reservation.eyebrow}</p>
+        <h2>{reservation.title}</h2>
+        <p>{reservation.text}</p>
+        <p className="reservation-payment-note">{reservation.paymentNote}</p>
       </div>
 
       <form
@@ -109,7 +114,11 @@ export function ReservationForm() {
         data-reveal
         onSubmit={handleSubmit}
       >
+        <input name="locale" type="hidden" value={locale} />
+
         <BookingCalendar
+          copy={bookingCalendar}
+          locale={locale}
           selectedDate={selectedDate}
           onDateChange={setSelectedDate}
           timeWindow={timeWindow}
@@ -120,63 +129,65 @@ export function ReservationForm() {
 
         <PickupMapPicker
           apiKey={googleMapsApiKey}
+          copy={pickupCopy}
+          locale={locale}
           value={pickup}
           onChange={setPickup}
         />
 
         <div className="form-pair">
           <label>
-            <span>Name</span>
+            <span>{reservation.fields.name}</span>
             <input
               name="name"
               type="text"
               autoComplete="name"
-              placeholder="Full name"
+              placeholder={reservation.fields.namePlaceholder}
               required
             />
           </label>
 
           <label>
-            <span>Age</span>
+            <span>{reservation.fields.age}</span>
             <input name="age" type="number" min="18" max="120" required />
           </label>
         </div>
 
         <div className="form-pair">
           <label>
-            <span>ID number</span>
+            <span>{reservation.fields.idNumber}</span>
             <input
               name="idNumber"
               type="text"
               autoComplete="off"
-              placeholder="Passport or national ID"
+              placeholder={reservation.fields.idNumberPlaceholder}
               required
             />
           </label>
 
           <label>
-            <span>Email</span>
+            <span>{reservation.fields.email}</span>
             <input
               name="email"
               type="email"
               autoComplete="email"
-              placeholder="name@example.com"
+              placeholder={reservation.fields.emailPlaceholder}
               required
             />
           </label>
         </div>
 
         <label>
-          <span>Food allergies</span>
+          <span>{reservation.fields.foodAllergies}</span>
           <textarea
             name="foodAllergies"
-            placeholder="List allergies, dietary restrictions, or write none"
+            placeholder={reservation.fields.foodAllergiesPlaceholder}
             rows={4}
           />
         </label>
 
         <button className="reserve-submit" type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Opening secure payment" : "Pay and reserve my experience"}
+          {isSubmitting ? reservation.submit.loading : reservation.submit.idle}
         </button>
 
         {status ? (

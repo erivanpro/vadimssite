@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { enUS, es, fr } from "date-fns/locale";
 import { DayPicker } from "react-day-picker";
+
+import type { Dictionary } from "./lib/dictionaries";
+import type { Locale } from "./lib/locales";
 
 export type BookingTimeWindow =
   | "morning"
@@ -9,32 +13,18 @@ export type BookingTimeWindow =
   | "sunset"
   | "full_day";
 
-const timeWindows: Array<{
-  value: BookingTimeWindow;
-  label: string;
-  detail: string;
-}> = [
-  {
-    value: "full_day",
-    label: "Full day",
-    detail: "House, yacht, and car sequence",
-  },
-  {
-    value: "morning",
-    label: "Morning",
-    detail: "10:00 arrival window",
-  },
-  {
-    value: "afternoon",
-    label: "Afternoon",
-    detail: "14:00 arrival window",
-  },
-  {
-    value: "sunset",
-    label: "Sunset",
-    detail: "Golden-hour arrival",
-  },
+const timeWindowOrder: BookingTimeWindow[] = [
+  "full_day",
+  "morning",
+  "afternoon",
+  "sunset",
 ];
+
+const datePickerLocales = {
+  en: enUS,
+  es,
+  fr,
+};
 
 function startOfToday() {
   const date = new Date();
@@ -60,12 +50,20 @@ export function formatBookingDateValue(date: Date | undefined) {
   return `${year}-${month}-${day}`;
 }
 
-function formatBookingDateLabel(date: Date | undefined) {
+function formatBookingDateLabel({
+  date,
+  emptyLabel,
+  locale,
+}: {
+  date: Date | undefined;
+  emptyLabel: string;
+  locale: Locale;
+}) {
   if (!date) {
-    return "Select a preferred booking date";
+    return emptyLabel;
   }
 
-  return new Intl.DateTimeFormat("en", {
+  return new Intl.DateTimeFormat(locale, {
     weekday: "long",
     month: "long",
     day: "numeric",
@@ -74,6 +72,8 @@ function formatBookingDateLabel(date: Date | undefined) {
 }
 
 export function BookingCalendar({
+  copy,
+  locale,
   selectedDate,
   onDateChange,
   timeWindow,
@@ -81,6 +81,8 @@ export function BookingCalendar({
   partySize,
   onPartySizeChange,
 }: {
+  copy: Dictionary["bookingCalendar"];
+  locale: Locale;
   selectedDate: Date | undefined;
   onDateChange: (date: Date | undefined) => void;
   timeWindow: BookingTimeWindow;
@@ -102,13 +104,14 @@ export function BookingCalendar({
     return () => window.clearTimeout(timeout);
   }, []);
 
-  const selectedTimeWindow = timeWindows.find(
-    (item) => item.value === timeWindow,
-  );
+  const selectedTimeWindow = copy.timeWindows[timeWindow];
+  const selectedAvailability = copy.selectedAvailability
+    .replace("{window}", selectedTimeWindow.summaryLabel)
+    .replace("{timezone}", timezone);
 
   return (
     <fieldset className="booking-card booking-calendar-card">
-      <legend>Booking calendar</legend>
+      <legend>{copy.legend}</legend>
 
       <input
         type="hidden"
@@ -123,6 +126,7 @@ export function BookingCalendar({
         <DayPicker
           animate
           fixedWeeks
+          locale={datePickerLocales[locale]}
           mode="single"
           selected={selectedDate}
           onSelect={onDateChange}
@@ -141,18 +145,20 @@ export function BookingCalendar({
       </div>
 
       <div className="booking-summary">
-        <span>Preferred date</span>
-        <strong>{formatBookingDateLabel(selectedDate)}</strong>
-        <p>
-          {selectedDate
-            ? `Availability will be checked for ${selectedTimeWindow?.label.toLowerCase() ?? "the selected window"} in ${timezone}.`
-            : "Choose a future date. Final availability is confirmed by concierge after payment."}
-        </p>
+        <span>{copy.preferredDate}</span>
+        <strong>
+          {formatBookingDateLabel({
+            date: selectedDate,
+            emptyLabel: copy.emptyDateLabel,
+            locale,
+          })}
+        </strong>
+        <p>{selectedDate ? selectedAvailability : copy.emptyAvailability}</p>
       </div>
 
       <div className="booking-controls">
         <label className="booking-party-size">
-          <span>Guests</span>
+          <span>{copy.guests}</span>
           <input
             name="partySize"
             type="number"
@@ -171,25 +177,33 @@ export function BookingCalendar({
           />
         </label>
 
-        <div className="time-window-group" role="radiogroup" aria-label="Arrival window">
-          {timeWindows.map((item) => (
+        <div
+          className="time-window-group"
+          role="radiogroup"
+          aria-label={copy.arrivalWindowAria}
+        >
+          {timeWindowOrder.map((value) => {
+            const item = copy.timeWindows[value];
+
+            return (
             <label
               className={`time-window-option${
-                timeWindow === item.value ? " is-active" : ""
+                timeWindow === value ? " is-active" : ""
               }`}
-              key={item.value}
+              key={value}
             >
               <input
                 name="bookingTimeWindow"
                 type="radio"
-                value={item.value}
-                checked={timeWindow === item.value}
-                onChange={() => onTimeWindowChange(item.value)}
+                value={value}
+                checked={timeWindow === value}
+                onChange={() => onTimeWindowChange(value)}
               />
               <span>{item.label}</span>
               <small>{item.detail}</small>
             </label>
-          ))}
+            );
+          })}
         </div>
       </div>
     </fieldset>
