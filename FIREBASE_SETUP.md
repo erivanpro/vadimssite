@@ -10,46 +10,29 @@ Each booking document uses the generated reservation ID as the document ID.
 The initial write happens before Stripe Checkout is created, so unpaid,
 abandoned, failed, and paid attempts all have a record.
 
-## Booking schema v2
+## Booking schema v3
 
 New booking documents include top-level query fields plus structured nested
-objects for the calendar, availability, pickup, and guest data:
+objects for the access status and guest data:
 
 ```txt
 booking/{reservationId}
-  schemaVersion: 2
+  schemaVersion: 3
   reservationId: string
   bookingStatus: submitted | validation_failed | checkout_created | checkout_error | paid | payment_not_confirmed
   paymentStatus: not_paid | paid | unpaid
-  bookingDate: YYYY-MM-DD
-  bookingTimeWindow: full_day | morning | afternoon | sunset
   availabilityStatus: requested | limited | held | confirmed | unavailable
-  pickupLocation: string
-  pickupPlaceId: string
-  pickupCoordinates: { latitude: number, longitude: number } | null
+  guestName: string
+  guestEmail: string
+  partySize: number | null
   form:
-    booking:
-      requestedDate: YYYY-MM-DD
-      timeWindow: full_day | morning | afternoon | sunset
-      timezone: string
-      calendarProvider: react-day-picker
-      calendarSelectionMode: single
     availability:
       status: requested
       requiresManualConfirmation: true
-      source: calendar_request
-    pickup:
-      label: string
-      formattedAddress: string
-      placeId: string
-      latitude: number | null
-      longitude: number | null
-      mapsUrl: string
-      source: google_places_autocomplete | map_click | marker_drag | unknown
+      source: private_access_request
     guest:
       name: string
       age: number | null
-      idNumber: string
       email: string
       foodAllergies: string
       partySize: number | null
@@ -66,23 +49,6 @@ booking/{reservationId}
     origin: string
   createdAt: server timestamp
   requestedAt: server timestamp
-  updatedAt: server timestamp
-```
-
-The calendar can also be backed by a public read-only availability collection:
-
-```txt
-booking_availability/{YYYY-MM-DD}
-  date: YYYY-MM-DD
-  status: available | limited | held | confirmed | unavailable
-  timeWindows:
-    full_day: available | limited | held | confirmed | unavailable
-    morning: available | limited | held | confirmed | unavailable
-    afternoon: available | limited | held | confirmed | unavailable
-    sunset: available | limited | held | confirmed | unavailable
-  capacity: number | null
-  remainingSlots: number | null
-  note: string
   updatedAt: server timestamp
 ```
 
@@ -108,11 +74,6 @@ service cloud.firestore {
   match /databases/{database}/documents {
     match /booking/{bookingId} {
       allow create, update: if true;
-    }
-
-    match /booking_availability/{dateId} {
-      allow read: if true;
-      allow create, update, delete: if false;
     }
   }
 }

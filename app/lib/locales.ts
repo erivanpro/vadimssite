@@ -4,8 +4,8 @@ export type Locale = (typeof locales)[number];
 
 export const defaultLocale: Locale = "en";
 
-export const localeCookieName = "elunico-language";
-export const localeStorageKey = "elunico-language";
+export const localeCookieName = "marbella-private-experience-language";
+export const localeStorageKey = "marbella-private-experience-language";
 
 export const localeLabels: Record<Locale, string> = {
   en: "English",

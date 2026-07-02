@@ -5,12 +5,6 @@ import { db } from "../../firebase";
 
 const bookingCollection = "booking";
 
-export type BookingTimeWindow =
-  | "morning"
-  | "afternoon"
-  | "sunset"
-  | "full_day";
-
 export type BookingAvailabilityStatus =
   | "requested"
   | "limited"
@@ -19,35 +13,14 @@ export type BookingAvailabilityStatus =
   | "unavailable";
 
 export type BookingFormData = {
-  booking: {
-    requestedDate: string;
-    timeWindow: BookingTimeWindow;
-    timezone: string;
-    calendarProvider: string;
-    calendarSelectionMode: "single";
-  };
   availability: {
     status: BookingAvailabilityStatus;
     requiresManualConfirmation: boolean;
-    source: "calendar_request";
-  };
-  pickup: {
-    label: string;
-    formattedAddress: string;
-    placeId: string;
-    latitude: number | null;
-    longitude: number | null;
-    mapsUrl: string;
-    source:
-      | "google_places_autocomplete"
-      | "map_click"
-      | "marker_drag"
-      | "unknown";
+    source: "private_access_request";
   };
   guest: {
     name: string;
     age: number | null;
-    idNumber: string;
     email: string;
     foodAllergies: string;
     partySize: number | null;
@@ -89,23 +62,15 @@ export async function createBookingDocument({
   source: BookingSource;
 }) {
   await setDoc(bookingRef(reservationId), {
-    schemaVersion: 2,
+    schemaVersion: 3,
     reservationId,
     bookingStatus: "submitted",
     paymentStatus: "not_paid",
-    experience: "Marbella Private Experience",
-    bookingDate: form.booking.requestedDate,
-    bookingTimeWindow: form.booking.timeWindow,
+    experience: "MARBELLA PRIVATE EXPERIENCE",
     availabilityStatus: form.availability.status,
-    pickupLocation: form.pickup.label,
-    pickupPlaceId: form.pickup.placeId,
-    pickupCoordinates:
-      form.pickup.latitude !== null && form.pickup.longitude !== null
-        ? {
-            latitude: form.pickup.latitude,
-            longitude: form.pickup.longitude,
-          }
-        : null,
+    guestName: form.guest.name,
+    guestEmail: form.guest.email,
+    partySize: form.guest.partySize,
     form,
     source,
     stripe: {

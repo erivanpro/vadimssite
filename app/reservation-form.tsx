@@ -2,63 +2,26 @@
 
 import { FormEvent, useState } from "react";
 
-import {
-  BookingCalendar,
-  type BookingTimeWindow,
-} from "./booking-calendar";
-import {
-  PickupMapPicker,
-  type PickupSelection,
-} from "./pickup-map-picker";
 import type { Dictionary } from "./lib/dictionaries";
 import type { Locale } from "./lib/locales";
 
 type ReservationStatus = {
-  tone: "error" | "info";
+  tone: "error" | "info" | "success";
   message: string;
 } | null;
 
-const googleMapsApiKey =
-  process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ??
-  "AIzaSyD2s3vyySyBlavEpYIa6cG8R0mpTBJM48Y";
-
 export function ReservationForm({
-  bookingCalendar,
   locale,
-  pickup: pickupCopy,
   reservation,
 }: {
-  bookingCalendar: Dictionary["bookingCalendar"];
   locale: Locale;
-  pickup: Dictionary["pickup"];
   reservation: Dictionary["reservation"];
 }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<ReservationStatus>(null);
-  const [selectedDate, setSelectedDate] = useState<Date>();
-  const [timeWindow, setTimeWindow] =
-    useState<BookingTimeWindow>("full_day");
-  const [partySize, setPartySize] = useState(2);
-  const [pickup, setPickup] = useState<PickupSelection | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
-    if (!selectedDate) {
-      setStatus({
-        tone: "error",
-        message: reservation.status.missingDate,
-      });
-      return;
-    }
-
-    if (!pickup) {
-      setStatus({
-        tone: "error",
-        message: reservation.status.missingPickup,
-      });
-      return;
-    }
 
     const form = event.currentTarget;
     const formData = new FormData(form);
@@ -67,11 +30,11 @@ export function ReservationForm({
     setIsSubmitting(true);
     setStatus({
       tone: "info",
-      message: reservation.status.openingCheckout,
+      message: reservation.status.submittingRequest,
     });
 
     try {
-      const response = await fetch("/api/checkout", {
+      const response = await fetch("/api/access-request", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -79,22 +42,29 @@ export function ReservationForm({
         body: JSON.stringify(payload),
       });
       const data = (await response.json()) as {
-        url?: string;
+        reservationId?: string;
         error?: string;
       };
 
-      if (!response.ok || !data.url) {
-        throw new Error(data.error ?? reservation.status.unableCheckout);
+      if (!response.ok || !data.reservationId) {
+        throw new Error(data.error ?? reservation.status.unableRequest);
       }
 
-      window.location.assign(data.url);
+      setStatus({
+        tone: "success",
+        message: reservation.status.submitted.replace(
+          "{reservationId}",
+          data.reservationId,
+        ),
+      });
+      setIsSubmitting(false);
     } catch (error) {
       setStatus({
         tone: "error",
         message:
           error instanceof Error
             ? error.message
-            : reservation.status.unableCheckout,
+            : reservation.status.unableRequest,
       });
       setIsSubmitting(false);
     }
@@ -116,25 +86,6 @@ export function ReservationForm({
       >
         <input name="locale" type="hidden" value={locale} />
 
-        <BookingCalendar
-          copy={bookingCalendar}
-          locale={locale}
-          selectedDate={selectedDate}
-          onDateChange={setSelectedDate}
-          timeWindow={timeWindow}
-          onTimeWindowChange={setTimeWindow}
-          partySize={partySize}
-          onPartySizeChange={setPartySize}
-        />
-
-        <PickupMapPicker
-          apiKey={googleMapsApiKey}
-          copy={pickupCopy}
-          locale={locale}
-          value={pickup}
-          onChange={setPickup}
-        />
-
         <div className="form-pair">
           <label>
             <span>{reservation.fields.name}</span>
@@ -155,23 +106,24 @@ export function ReservationForm({
 
         <div className="form-pair">
           <label>
-            <span>{reservation.fields.idNumber}</span>
-            <input
-              name="idNumber"
-              type="text"
-              autoComplete="off"
-              placeholder={reservation.fields.idNumberPlaceholder}
-              required
-            />
-          </label>
-
-          <label>
             <span>{reservation.fields.email}</span>
             <input
               name="email"
               type="email"
               autoComplete="email"
               placeholder={reservation.fields.emailPlaceholder}
+              required
+            />
+          </label>
+
+          <label>
+            <span>{reservation.fields.partySize}</span>
+            <input
+              name="partySize"
+              type="number"
+              min="1"
+              max="12"
+              defaultValue="2"
               required
             />
           </label>

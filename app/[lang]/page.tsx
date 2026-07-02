@@ -386,9 +386,7 @@ export default async function Home({ params }: HomeProps) {
         </section>
 
         <ReservationForm
-          bookingCalendar={dictionary.bookingCalendar}
           locale={lang}
-          pickup={dictionary.pickup}
           reservation={dictionary.reservation}
         />
 

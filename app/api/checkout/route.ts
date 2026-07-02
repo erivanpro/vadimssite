@@ -2,14 +2,20 @@ import { NextResponse } from "next/server";
 
 import {
   type BookingFormData,
-  type BookingTimeWindow,
   createBookingDocument,
   markBookingCheckoutCreated,
   markBookingCheckoutError,
   markBookingValidationFailed,
 } from "../../lib/booking";
 import { getDictionary } from "../../lib/dictionaries";
-import { defaultLocale, resolveLocale } from "../../lib/locales";
+import { defaultLocale } from "../../lib/locales";
+import {
+  getRequestSource,
+  getSiteOrigin,
+  hasAllowedOrigin,
+  parseReservationPayload,
+  type ReservationPayload,
+} from "../../lib/reservation-request";
 import {
   getReservationCurrency,
   getReservationPriceCents,
@@ -18,152 +24,12 @@ import {
 
 export const runtime = "nodejs";
 
-type ReservationPayload = {
-  locale?: unknown;
-  bookingDate?: unknown;
-  bookingTimeWindow?: unknown;
-  bookingTimezone?: unknown;
-  calendarProvider?: unknown;
-  calendarSelectionMode?: unknown;
-  partySize?: unknown;
-  pickupLocation?: unknown;
-  pickupFormattedAddress?: unknown;
-  pickupPlaceId?: unknown;
-  pickupLatitude?: unknown;
-  pickupLongitude?: unknown;
-  pickupMapsUrl?: unknown;
-  pickupSource?: unknown;
-  name?: unknown;
-  age?: unknown;
-  idNumber?: unknown;
-  email?: unknown;
-  foodAllergies?: unknown;
-};
-
-function cleanText(value: unknown, maxLength = 500) {
-  return String(value ?? "").trim().slice(0, maxLength);
-}
-
-const allowedTimeWindows = new Set<BookingTimeWindow>([
-  "morning",
-  "afternoon",
-  "sunset",
-  "full_day",
-]);
-
-function cleanBookingTimeWindow(value: unknown): BookingTimeWindow {
-  const timeWindow = cleanText(value, 32) as BookingTimeWindow;
-
-  return allowedTimeWindows.has(timeWindow) ? timeWindow : "full_day";
-}
-
-function cleanInteger(value: unknown, maxLength: number) {
-  const number = Number(cleanText(value, maxLength));
-
-  return Number.isFinite(number) ? Math.trunc(number) : null;
-}
-
-function cleanCoordinate(value: unknown, min: number, max: number) {
-  const coordinate = Number(cleanText(value, 40));
-
-  if (!Number.isFinite(coordinate) || coordinate < min || coordinate > max) {
-    return null;
-  }
-
-  return coordinate;
-}
-
-function cleanBookingDate(value: unknown) {
-  const date = cleanText(value, 10);
-
-  return /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : "";
-}
-
-function utcDateFromDateKey(dateKey: string) {
-  const [year, month, day] = dateKey.split("-").map(Number);
-  const date = new Date(Date.UTC(year, month - 1, day));
-
-  if (
-    date.getUTCFullYear() !== year ||
-    date.getUTCMonth() !== month - 1 ||
-    date.getUTCDate() !== day
-  ) {
-    return null;
-  }
-
-  return date;
-}
-
-function firstBookableUtcDate() {
-  const date = new Date();
-  date.setUTCHours(0, 0, 0, 0);
-  date.setUTCDate(date.getUTCDate() + 1);
-  return date;
-}
-
-function isBookableDate(dateKey: string) {
-  const date = utcDateFromDateKey(dateKey);
-
-  return Boolean(date && date >= firstBookableUtcDate());
-}
-
-function cleanPickupSource(value: unknown): BookingFormData["pickup"]["source"] {
-  const source = cleanText(value, 64);
-
-  if (
-    source === "google_places_autocomplete" ||
-    source === "map_click" ||
-    source === "marker_drag"
-  ) {
-    return source;
-  }
-
-  return "unknown";
-}
-
-function getSiteOrigin(request: Request) {
-  const configuredSiteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? process.env.SITE_URL;
-
-  if (configuredSiteUrl) {
-    return new URL(configuredSiteUrl).origin;
-  }
-
-  return new URL(request.url).origin;
-}
-
-function hasAllowedOrigin(request: Request, siteOrigin: string) {
-  const requestOrigin = request.headers.get("origin");
-
-  if (!requestOrigin) {
-    return true;
-  }
-
-  return new URL(requestOrigin).origin === siteOrigin;
-}
-
-function getRequestSource(request: Request, siteOrigin: string) {
-  return {
-    ipAddress:
-      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
-      request.headers.get("x-real-ip"),
-    userAgent: request.headers.get("user-agent"),
-    origin: siteOrigin,
-  };
-}
-
 function buildMetadata(reservationId: string, form: BookingFormData) {
   return {
     reservation_id: reservationId,
-    experience: "Marbella Private Experience",
-    booking_date: form.booking.requestedDate,
-    booking_time_window: form.booking.timeWindow,
+    experience: "MARBELLA PRIVATE EXPERIENCE",
     availability_status: form.availability.status,
     party_size: String(form.guest.partySize ?? ""),
-    pickup_location_provided: form.pickup.label ? "true" : "false",
-    pickup_place_id: form.pickup.placeId,
-    pickup_source: form.pickup.source,
-    id_number_provided: form.guest.idNumber ? "true" : "false",
     dietary_note_provided: form.guest.foodAllergies ? "true" : "false",
     guest_age_verified: "18_plus",
     source: "website_reservation_form",
@@ -192,89 +58,9 @@ export async function POST(request: Request) {
     );
   }
 
-  const locale = resolveLocale(cleanText(payload.locale, 8));
-  const checkoutCopy = getDictionary(locale).checkout;
-  const bookingDate = cleanBookingDate(payload.bookingDate);
-  const bookingTimeWindow = cleanBookingTimeWindow(payload.bookingTimeWindow);
-  const bookingTimezone = cleanText(payload.bookingTimezone, 80) || "UTC";
-  const calendarProvider =
-    cleanText(payload.calendarProvider, 80) || "react-day-picker";
-  const calendarSelectionMode =
-    cleanText(payload.calendarSelectionMode, 32) === "single"
-      ? "single"
-      : "single";
-  const partySize = cleanInteger(payload.partySize, 2);
-  const pickupLocation = cleanText(payload.pickupLocation, 280);
-  const pickupFormattedAddress = cleanText(
-    payload.pickupFormattedAddress,
-    500,
-  );
-  const pickupPlaceId = cleanText(payload.pickupPlaceId, 180);
-  const pickupLatitude = cleanCoordinate(payload.pickupLatitude, -90, 90);
-  const pickupLongitude = cleanCoordinate(payload.pickupLongitude, -180, 180);
-  const pickupMapsUrl = cleanText(payload.pickupMapsUrl, 1000);
-  const pickupSource = cleanPickupSource(payload.pickupSource);
-  const name = cleanText(payload.name, 160);
-  const email = cleanText(payload.email, 254).toLowerCase();
-  const idNumber = cleanText(payload.idNumber, 120);
-  const foodAllergies = cleanText(payload.foodAllergies, 1200);
-  const age = cleanInteger(payload.age, 3);
-  const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const { checkoutCopy, email, form, locale, validationError } =
+    parseReservationPayload(payload);
   const reservationId = crypto.randomUUID();
-  const form: BookingFormData = {
-    booking: {
-      requestedDate: bookingDate,
-      timeWindow: bookingTimeWindow,
-      timezone: bookingTimezone,
-      calendarProvider,
-      calendarSelectionMode,
-    },
-    availability: {
-      status: "requested",
-      requiresManualConfirmation: true,
-      source: "calendar_request",
-    },
-    pickup: {
-      label: pickupLocation,
-      formattedAddress: pickupFormattedAddress,
-      placeId: pickupPlaceId,
-      latitude: pickupLatitude,
-      longitude: pickupLongitude,
-      mapsUrl: pickupMapsUrl,
-      source: pickupSource,
-    },
-    guest: {
-      name,
-      age,
-      idNumber,
-      email,
-      foodAllergies,
-      partySize,
-    },
-  };
-  const validationCopy = checkoutCopy.validation;
-  const errors = [
-    !bookingDate || !isBookableDate(bookingDate)
-      ? validationCopy.futureDate
-      : null,
-    !allowedTimeWindows.has(bookingTimeWindow)
-      ? validationCopy.arrivalWindow
-      : null,
-    !pickupLocation || pickupLatitude === null || pickupLongitude === null
-      ? validationCopy.pickupSelection
-      : null,
-    !name ? validationCopy.fullName : null,
-    age === null || age < 18 ? validationCopy.adultAge : null,
-    !idNumber ? validationCopy.idNumber : null,
-    !emailIsValid ? validationCopy.email : null,
-    partySize === null || partySize < 1 || partySize > 12
-      ? validationCopy.partySize
-      : null,
-  ].filter(Boolean);
-  const validationError =
-    errors.length > 0
-      ? validationCopy.complete.replace("{items}", errors.join(", "))
-      : null;
 
   try {
     await createBookingDocument({

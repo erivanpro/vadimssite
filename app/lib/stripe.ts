@@ -42,7 +42,7 @@ export function getStripe() {
 
   return new Stripe(secretKey, {
     appInfo: {
-      name: "Marbella Private Experience",
+      name: "MARBELLA PRIVATE EXPERIENCE",
       version: "0.1.0",
     },
     maxNetworkRetries: 2,

@@ -42,7 +42,7 @@ export async function POST(request: Request) {
     ) {
       await markBookingPaymentFromSession(session);
 
-      console.info("Paid Marbella Private Experience reservation received", {
+      console.info("Paid MARBELLA PRIVATE EXPERIENCE reservation received", {
         sessionId: session.id,
         reservationId: session.client_reference_id,
       });

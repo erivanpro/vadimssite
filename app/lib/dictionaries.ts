@@ -3,35 +3,35 @@ import { type Locale, defaultLocale, isLocale } from "./locales";
 const en = {
   metadata: {
     home: {
-      title: "Marbella Private Experience | House Yacht Car",
+      title: "MARBELLA PRIVATE EXPERIENCE | House Yacht Car",
       description:
-        "A connected luxury experience across the private House, Yacht, and chauffeur Car service.",
+        "Private access to a fully orchestrated House, Yacht, and chauffeur Car ecosystem in Marbella.",
     },
     terms: {
-      title: "Terms and Conditions | Marbella Private Experience",
+      title: "Terms and Conditions | MARBELLA PRIVATE EXPERIENCE",
       description:
-        "Terms and conditions for the Marbella Private Experience private House, Yacht, and Car experience.",
+        "Private access terms for the MARBELLA PRIVATE EXPERIENCE House, Yacht, and chauffeur Car ecosystem.",
     },
     success: {
-      title: "Reservation Confirmation | Marbella Private Experience",
+      title: "Reservation Confirmation | MARBELLA PRIVATE EXPERIENCE",
       description:
-        "Stripe payment confirmation for the Marbella Private Experience private House, Yacht, and Car experience.",
+        "Concierge and payment confirmation for the MARBELLA PRIVATE EXPERIENCE private access request.",
     },
   },
   common: {
-    brandName: "Marbella Private Experience",
+    brandName: "MARBELLA PRIVATE EXPERIENCE",
     brandSymbol: "M",
-    reserve: "Reserve",
+    reserve: "Request Access",
     terms: "Terms and conditions",
     returnHome: "Return home",
-    homeAria: "Marbella Private Experience home",
-    returnHomeAria: "Return to Marbella Private Experience",
+    homeAria: "MARBELLA PRIVATE EXPERIENCE home",
+    returnHomeAria: "Return to MARBELLA PRIVATE EXPERIENCE",
     nav: {
       primaryAria: "Primary navigation",
       journeyAria: "Journey sections",
       mobileOpen: "Open menu",
       mobileClose: "Close menu",
-      mobileTicketAria: "Book Ticket",
+      mobileTicketAria: "Request private access",
       languageSettingsAria: "Open language settings",
       languageCode: "EN",
     },
@@ -41,7 +41,7 @@ const en = {
     modalEyebrow: "Language",
     modalTitle: "Choose your language.",
     modalText:
-      "Select one language for the entire Marbella Private Experience website.",
+      "Select one language for the private MARBELLA PRIVATE EXPERIENCE website.",
     modalNote: "You can change this later from the language settings.",
     settingsLabel: "Language settings",
     settingsTitle: "Website language",
@@ -61,19 +61,19 @@ const en = {
         number: "01",
         id: "house",
         label: "House",
-        text: "Architecture, wellness, entertainment, and private living",
+        text: "Private residence, hosted living, wellness, and night rituals",
       },
       {
         number: "02",
         id: "yacht",
         label: "Yacht",
-        text: "Deck leisure, sea activities, dining, and guest spaces",
+        text: "Selected sea access, captain-led movement, and deck service",
       },
       {
         number: "03",
         id: "car",
         label: "Car",
-        text: "Craftsmanship, comfort, technology, and composed transfers",
+        text: "Discreet chauffeur movement between private chapters",
       },
     ],
     metrics: {
@@ -260,141 +260,78 @@ const en = {
       },
     ],
     hero: {
-      aria: "Marbella Private Experience private collection",
+      aria: "MARBELLA PRIVATE EXPERIENCE private collection",
       imageAlt:
-        "Marbella Private Experience modern private house with pool and mountain views at dusk",
-      eyebrow: "Private collection / House / Yacht / Car",
-      title: "Three luxury assets presented as one cinematic world.",
-      copy: "A scroll-driven presentation for the residence, yacht, and chauffeur car. Each chapter reveals the lifestyle, details, and movement that make Marbella Private Experience feel private from door to dock.",
-      exploreHouse: "Explore House",
-      continueYacht: "Continue to Yacht",
-      railLabel: "Scroll narrative",
+        "MARBELLA PRIVATE EXPERIENCE modern private house with pool and mountain views at dusk",
+      eyebrow: "MARBELLA PRIVATE EXPERIENCE / Private access / Marbella",
+      title: "Private access to a closed Marbella world.",
+      copy: "MARBELLA PRIVATE EXPERIENCE is not a villa rental, a yacht day, or a luxury transfer. It is a fully orchestrated private experience ecosystem in Marbella, opened only through concierge validation.",
+      exploreHouse: "Enter the World",
+      continueYacht: "View the Sea Chapter",
+      railLabel: "Access sequence",
       skipHouseAria: "Skip to House",
     },
     chapters: {
       house: {
         eyebrow: "01 / House",
-        title:
-          "A private residence that behaves like a full lifestyle resort.",
-        text: "The house is the arrival chapter: architecture, pool terraces, entertaining rooms, wellness spaces, bedrooms, wardrobes, and indoor-outdoor living are revealed as one composed experience.",
+        title: "The residence is the private base of the MARBELLA PRIVATE EXPERIENCE world.",
+        text: "Arrival is curated after validation: architecture, pool terraces, entertainment rooms, wellness spaces, bedrooms, wardrobes, and hosted living are prepared as one controlled environment.",
         imageAlt: "Modern house pool terrace glowing at twilight",
       },
       yacht: {
         eyebrow: "02 / Yacht",
-        title:
-          "A floating private retreat for sun, water, dining, and nightfall.",
-        text: "The yacht extends the residence into the sea: deck areas, onboard activities, lounge moments, dining, water access, and guest spaces unfold with the same high-service atmosphere.",
+        title: "The sea chapter is available only on selected private dates.",
+        text: "The yacht extends the residence into the water with captain-led routing, deck service, dining, guest spaces, and access that remains subject to weather, marina, and concierge approval.",
         imageAlt: "Luxury yacht underway near the coast",
       },
       car: {
         eyebrow: "03 / Car",
-        title:
-          "A composed S-Class transfer for comfort, craft, and arrival.",
-        text: "The car chapter returns to premium still imagery for now, focusing on comfort, craftsmanship, technology, performance, interior calm, and the final arrival experience.",
+        title: "The chauffeur layer keeps every movement private and precise.",
+        text: "The car is not a transfer add-on. It is the controlled thread between residence, marina, arrival, and return, with passenger calm, privacy, and timing handled by the concierge team.",
         imageAlt:
-          "Black Mercedes S-Class presented as the Marbella Private Experience chauffeur car",
+          "Black Mercedes S-Class presented as the MARBELLA PRIVATE EXPERIENCE chauffeur car",
       },
     },
     gallery: {
-      aria: "Marbella Private Experience detail gallery",
-      eyebrow: "Details in motion",
-      title: "Every image works as part of the same private sequence.",
-      text: "Architecture, terraces, decks, cabins, dining rooms, and sea moments are arranged as a continuous visual archive, with the car returned to the same image-led cinematic sequence.",
+      aria: "MARBELLA PRIVATE EXPERIENCE detail gallery",
+      eyebrow: "Inside the closed world",
+      title: "Every image belongs to one controlled private sequence.",
+      text: "Architecture, terraces, decks, cabins, dining rooms, and sea moments are arranged as one visual archive for selected guests, not as separate rental assets.",
     },
     footer: {
-      copy: "A private presentation across the House, Yacht, and chauffeur Car experience.",
+      copy: "Private access to an orchestrated House, Yacht, and chauffeur Car ecosystem in Marbella.",
       navigationAria: "Footer navigation",
-      note: "Private access is subject to availability, guest verification, and final confirmation.",
+      note: "Limited access. Selected guests only. Concierge validation required.",
     },
   },
   reservation: {
-    eyebrow: "Reserve",
-    title: "Reserve your private experience.",
-    text: "Select your preferred date, arrival window, map-verified pickup, and guest essentials. The concierge team can use this request to prepare the House, Yacht, and Car journey.",
+    eyebrow: "Private Access Request",
+    title: "Request private access to MARBELLA PRIVATE EXPERIENCE.",
+    text: "Share your guest profile, contact email, party size, and any dining notes. The concierge team reviews every request before dates, capacity, deposit, or final confirmation are offered.",
     paymentNote:
-      "Payment is completed through Stripe. The preticket becomes active only after successful payment confirmation.",
+      "No instant checkout. The sequence is request, concierge validation, private call, deposit or payment link, then written confirmation.",
     hiddenLocaleLabel: "Website language",
     status: {
-      missingDate: "Choose a preferred booking date before payment.",
-      missingPickup:
-        "Select a pickup location from Google Places or the map.",
-      openingCheckout: "Opening Stripe secure checkout...",
-      unableCheckout: "Unable to start Stripe checkout.",
+      submittingRequest: "Submitting your private access request...",
+      submitted:
+        "Private access request {reservationId} has been received. Concierge validation is required before any date, deposit, or confirmation is offered.",
+      unableRequest: "Unable to submit the private access request.",
     },
     fields: {
       name: "Name",
       namePlaceholder: "Full name",
       age: "Age",
-      idNumber: "ID number",
-      idNumberPlaceholder: "Passport or national ID",
       email: "Email",
       emailPlaceholder: "name@example.com",
+      partySize: "Guests",
       foodAllergies: "Food allergies",
       foodAllergiesPlaceholder:
         "List allergies, dietary restrictions, or write none",
     },
     submit: {
-      idle: "Pay and reserve my experience",
-      loading: "Opening secure payment",
+      idle: "Request Private Access",
+      loading: "Submitting request",
     },
-  },
-  bookingCalendar: {
-    legend: "Booking calendar",
-    preferredDate: "Preferred date",
-    emptyDateLabel: "Select a preferred booking date",
-    selectedAvailability:
-      "Availability will be checked for {window} in {timezone}.",
-    emptyAvailability:
-      "Choose a future date. Final availability is confirmed by concierge after payment.",
-    guests: "Guests",
-    arrivalWindowAria: "Arrival window",
-    timeWindows: {
-      full_day: {
-        label: "Full day",
-        summaryLabel: "the full-day sequence",
-        detail: "House, yacht, and car sequence",
-      },
-      morning: {
-        label: "Morning",
-        summaryLabel: "the morning window",
-        detail: "10:00 arrival window",
-      },
-      afternoon: {
-        label: "Afternoon",
-        summaryLabel: "the afternoon window",
-        detail: "14:00 arrival window",
-      },
-      sunset: {
-        label: "Sunset",
-        summaryLabel: "the sunset window",
-        detail: "Golden-hour arrival",
-      },
-    },
-  },
-  pickup: {
-    placesUnavailable:
-      "Google Places autocomplete is unavailable for this API key. Enable Places API (New), billing, and this domain in Google Cloud, or click the map to set pickup.",
-    mapLoadError: "Google Maps could not be loaded.",
-    selectedPickupLocation: "Selected pickup location",
-    pinnedPickupLocation: "Pinned pickup location",
-    initialStatus: "Load the map and select pickup.",
-    missingKeyStatus: "Google Maps API key is missing.",
-    autocompletePlaceholder: "Search hotel, residence, airport, or marina",
-    autocompleteDescription:
-      "Search for the chauffeur pickup location.",
-    loadingPlaceDetails: "Loading selected place details...",
-    noMappedLocation: "Choose a pickup result with a mapped location.",
-    selectedFromPlaces: "Pickup selected from Google Places.",
-    resolvingPinned: "Resolving pinned location...",
-    selectedOnMap: "Pickup selected on the map.",
-    readyStatus: "Search an address or click the map to set pickup.",
-    legend: "Pickup location",
-    searchLabel: "Search with Google Places",
-    searchAria: "Search pickup location",
-    mapAria: "Pickup map",
-    selectedLabel: "Selected pickup",
-    pendingLabel: "Pickup pending",
-    emptySelection: "Search or choose a point on the map",
   },
   termsPage: {
     navAria: "Terms navigation",
@@ -402,24 +339,24 @@ const en = {
     hero: {
       eyebrow: "Terms",
       title: "Terms and conditions.",
-      text: "These terms outline the core conditions for requesting access to the private House, Yacht, and chauffeur Car experience.",
+      text: "These terms outline the core conditions for requesting access to the MARBELLA PRIVATE EXPERIENCE private House, Yacht, and chauffeur Car ecosystem.",
     },
     items: [
       {
         title: "Private Access",
-        text: "Access to the House, Yacht, and Car experience is private, limited, and subject to approval, availability, guest verification, and final confirmation by the concierge team.",
+        text: "Access to MARBELLA PRIVATE EXPERIENCE is private, limited, and subject to approval, availability, guest verification, capacity limits, and final confirmation by the concierge team.",
       },
       {
-        title: "Reservation Requests",
-        text: "Submitting a reservation request does not guarantee entry, transport, yacht access, dining service, or event availability. A booking becomes active only after written confirmation.",
+        title: "Access Requests",
+        text: "Submitting an access request does not guarantee entry, transport, yacht access, dining service, or event availability. A booking becomes active only after concierge approval and written confirmation.",
       },
       {
-        title: "Identification",
-        text: "Guests may be required to provide valid identification before pickup or entry. The information requested is used to verify access and prepare the experience.",
+        title: "Guest Review",
+        text: "Guest details are reviewed by the concierge team to verify access, capacity, and the operational fit of the requested experience.",
       },
       {
-        title: "Chauffeur Pickup",
-        text: "Pickup location and timing must be confirmed in advance. Changes may affect the schedule, route, and availability of the residence or yacht portions of the experience.",
+        title: "Concierge Planning",
+        text: "Specific logistics, timing, and access details are handled privately after validation. Changes may affect the schedule and availability of the residence or yacht portions of the experience.",
       },
       {
         title: "Dining and Allergies",
@@ -435,27 +372,27 @@ const en = {
       },
       {
         title: "Final Terms",
-        text: "These website terms are a presentation draft. Final commercial terms, cancellation rules, payment requirements, and liability terms should be confirmed in the official booking agreement.",
+        text: "These website terms are a presentation draft. Final commercial terms, cancellation rules, deposit or payment requirements, and liability terms should be confirmed in the official booking agreement.",
       },
     ],
   },
   successPage: {
     navAria: "Confirmation navigation",
-    amountFallback: "Payment amount confirmed by Stripe",
+    amountFallback: "Deposit or payment amount confirmed by Stripe",
     notAvailable: "Not available",
     paid: {
-      eyebrow: "Payment confirmed",
-      title: "Your preticket is reserved.",
-      text: "Stripe has confirmed the payment. The concierge team can now use this paid reservation record to continue guest verification and arrival planning.",
+      eyebrow: "Private payment confirmed",
+      title: "Your MARBELLA PRIVATE EXPERIENCE deposit is recorded.",
+      text: "Stripe has confirmed the payment. The concierge team can now continue guest validation, date protection, and arrival planning.",
       state: "Paid",
-      summary: "Reservation payment accepted",
+      summary: "Private access payment accepted",
     },
     unpaid: {
       eyebrow: "Payment not confirmed",
       title: "We could not confirm payment.",
-      text: "The reservation is not active until Stripe confirms payment. Return to the reservation form and try again.",
+      text: "The private access request is not financially confirmed until Stripe confirms payment. Return to the access form and try again.",
       state: "Pending",
-      summary: "Reservation payment incomplete",
+      summary: "Private access payment incomplete",
     },
     fields: {
       reservationId: "Reservation ID",
@@ -466,7 +403,7 @@ const en = {
   },
   checkout: {
     errors: {
-      origin: "This checkout request is not allowed from that origin.",
+      origin: "This request is not allowed from that origin.",
       invalidRequest: "Invalid reservation request.",
       unableRecord: "Unable to record booking.",
       firestorePrefix: "Unable to record booking in Firestore:",
@@ -474,22 +411,18 @@ const en = {
       unableCreate: "Unable to create Stripe checkout.",
     },
     validation: {
-      futureDate: "a future booking date",
-      arrivalWindow: "an arrival window",
-      pickupSelection: "a Google Maps pickup selection",
       fullName: "your full name",
       adultAge: "adult age verification",
-      idNumber: "your ID number",
       email: "a valid email",
       partySize: "a party size between 1 and 12",
-      complete: "Please complete {items} before payment.",
+      complete: "Please complete {items} before requesting access.",
     },
     stripe: {
-      productName: "Marbella Private Experience Preticket",
+      productName: "MARBELLA PRIVATE EXPERIENCE Private Access Deposit",
       productDescription:
-        "A paid reservation preticket for the private House, Yacht, and chauffeur Car journey.",
+        "A private access deposit for the MARBELLA PRIVATE EXPERIENCE House, Yacht, and chauffeur Car ecosystem.",
       customSubmit:
-        "Your Marbella Private Experience preticket is reserved only after Stripe confirms payment.",
+        "Your MARBELLA PRIVATE EXPERIENCE access remains subject to concierge validation and written confirmation.",
     },
   },
 };
@@ -499,35 +432,35 @@ export type Dictionary = typeof en;
 const es: Dictionary = {
   metadata: {
     home: {
-      title: "Marbella Private Experience | Casa Yate Coche",
+      title: "MARBELLA PRIVATE EXPERIENCE | Casa Yate Coche",
       description:
-        "Una experiencia de lujo conectada entre la Casa privada, el Yate y el servicio de coche con chofer.",
+        "Acceso privado a un ecosistema orquestado de Casa, Yate y Coche con chofer en Marbella.",
     },
     terms: {
-      title: "Términos y condiciones | Marbella Private Experience",
+      title: "Términos y condiciones | MARBELLA PRIVATE EXPERIENCE",
       description:
-        "Términos y condiciones para la experiencia privada de Casa, Yate y Coche de Marbella Private Experience.",
+        "Términos de acceso privado para el ecosistema MARBELLA PRIVATE EXPERIENCE de Casa, Yate y Coche con chofer.",
     },
     success: {
-      title: "Confirmación de reserva | Marbella Private Experience",
+      title: "Confirmación de reserva | MARBELLA PRIVATE EXPERIENCE",
       description:
-        "Confirmación de pago de Stripe para la experiencia privada de Casa, Yate y Coche de Marbella Private Experience.",
+        "Confirmación de concierge y pago para la solicitud de acceso privado a MARBELLA PRIVATE EXPERIENCE.",
     },
   },
   common: {
-    brandName: "Marbella Private Experience",
+    brandName: "MARBELLA PRIVATE EXPERIENCE",
     brandSymbol: "M",
-    reserve: "Reservar",
+    reserve: "Solicitar acceso",
     terms: "Términos y condiciones",
     returnHome: "Volver al inicio",
-    homeAria: "Inicio de Marbella Private Experience",
-    returnHomeAria: "Volver a Marbella Private Experience",
+    homeAria: "Inicio de MARBELLA PRIVATE EXPERIENCE",
+    returnHomeAria: "Volver a MARBELLA PRIVATE EXPERIENCE",
     nav: {
       primaryAria: "Navegación principal",
       journeyAria: "Secciones de la experiencia",
       mobileOpen: "Abrir menú",
       mobileClose: "Cerrar menú",
-      mobileTicketAria: "Reservar entrada",
+      mobileTicketAria: "Solicitar acceso privado",
       languageSettingsAria: "Abrir ajustes de idioma",
       languageCode: "ES",
     },
@@ -537,7 +470,7 @@ const es: Dictionary = {
     modalEyebrow: "Idioma",
     modalTitle: "Elige tu idioma.",
     modalText:
-      "Selecciona un solo idioma para todo el sitio de Marbella Private Experience.",
+      "Selecciona un solo idioma para el sitio privado de MARBELLA PRIVATE EXPERIENCE.",
     modalNote: "Podrás cambiarlo más tarde desde los ajustes de idioma.",
     settingsLabel: "Ajustes de idioma",
     settingsTitle: "Idioma del sitio",
@@ -557,19 +490,19 @@ const es: Dictionary = {
         number: "01",
         id: "house",
         label: "Casa",
-        text: "Arquitectura, bienestar, entretenimiento y vida privada",
+        text: "Residencia privada, vida con anfitrion, bienestar y rituales nocturnos",
       },
       {
         number: "02",
         id: "yacht",
         label: "Yate",
-        text: "Cubiertas, ocio en el mar, gastronomía y zonas de invitados",
+        text: "Acceso al mar seleccionado, ruta con capitan y servicio en cubierta",
       },
       {
         number: "03",
         id: "car",
         label: "Coche",
-        text: "Artesanía, confort, tecnología y traslados serenos",
+        text: "Movimiento discreto con chofer entre capitulos privados",
       },
     ],
     metrics: {
@@ -763,141 +696,78 @@ const es: Dictionary = {
       },
     ],
     hero: {
-      aria: "Colección privada de Marbella Private Experience",
+      aria: "Colección privada de MARBELLA PRIVATE EXPERIENCE",
       imageAlt:
-        "Casa privada moderna de Marbella Private Experience con piscina y vistas a la montaña al atardecer",
-      eyebrow: "Colección privada / Casa / Yate / Coche",
-      title: "Tres activos de lujo presentados como un mundo cinematográfico.",
-      copy: "Una presentación guiada por scroll para la residencia, el yate y el coche con chofer. Cada capítulo revela estilo de vida, detalles y movimiento para que Marbella Private Experience se sienta privada de la puerta al muelle.",
-      exploreHouse: "Explorar la Casa",
-      continueYacht: "Continuar al Yate",
-      railLabel: "Narrativa de scroll",
+        "Casa privada moderna de MARBELLA PRIVATE EXPERIENCE con piscina y vistas a la montaña al atardecer",
+      eyebrow: "MARBELLA PRIVATE EXPERIENCE / Acceso privado / Marbella",
+      title: "Acceso privado a un mundo cerrado en Marbella.",
+      copy: "MARBELLA PRIVATE EXPERIENCE no es un alquiler de villa, un dia de yate ni un traslado de lujo. Es un ecosistema de experiencia privada completamente orquestado en Marbella, abierto solo mediante validacion concierge.",
+      exploreHouse: "Entrar al mundo",
+      continueYacht: "Ver el capitulo del mar",
+      railLabel: "Secuencia de acceso",
       skipHouseAria: "Saltar a Casa",
     },
     chapters: {
       house: {
         eyebrow: "01 / Casa",
-        title:
-          "Una residencia privada que se comporta como un resort completo.",
-        text: "La casa es el capítulo de llegada: arquitectura, terrazas de piscina, salas de entretenimiento, bienestar, dormitorios, vestidores y vida interior-exterior se revelan como una experiencia compuesta.",
+        title: "La residencia es la base privada del mundo MARBELLA PRIVATE EXPERIENCE.",
+        text: "La llegada se prepara tras validacion: arquitectura, terrazas de piscina, salas de entretenimiento, bienestar, dormitorios, vestidores y vida con anfitrion forman un entorno controlado.",
         imageAlt: "Terraza de piscina de casa moderna brillando al anochecer",
       },
       yacht: {
         eyebrow: "02 / Yate",
-        title:
-          "Un refugio privado flotante para sol, agua, gastronomía y anochecer.",
-        text: "El yate extiende la residencia hacia el mar: cubiertas, actividades a bordo, lounges, comidas, acceso al agua y zonas de invitados con la misma atmósfera de alto servicio.",
+        title: "El capitulo del mar se abre solo en fechas privadas seleccionadas.",
+        text: "El yate extiende la residencia al agua con ruta dirigida por capitan, servicio en cubierta, comidas, espacios de invitados y acceso sujeto a clima, marina y aprobacion concierge.",
         imageAlt: "Yate de lujo navegando cerca de la costa",
       },
       car: {
         eyebrow: "03 / Coche",
-        title:
-          "Un traslado S-Class sereno para confort, artesanía y llegada.",
-        text: "El capítulo del coche vuelve por ahora a imagen premium fija, centrada en confort, artesanía, tecnología, prestaciones, calma interior y llegada final.",
+        title: "La capa de chofer mantiene cada movimiento privado y preciso.",
+        text: "El coche no es un extra de traslado. Es el hilo controlado entre residencia, marina, llegada y regreso, con calma, privacidad y tiempos gestionados por el concierge.",
         imageAlt:
-          "Mercedes S-Class negro presentado como el coche con chofer de Marbella Private Experience",
+          "Mercedes S-Class negro presentado como el coche con chofer de MARBELLA PRIVATE EXPERIENCE",
       },
     },
     gallery: {
-      aria: "Galería de detalles de Marbella Private Experience",
-      eyebrow: "Detalles en movimiento",
-      title: "Cada imagen funciona como parte de la misma secuencia privada.",
-      text: "Arquitectura, terrazas, cubiertas, cabinas, comedores y momentos de mar se ordenan como un archivo visual continuo, con el coche de vuelta en la misma secuencia cinematográfica.",
+      aria: "Galería de detalles de MARBELLA PRIVATE EXPERIENCE",
+      eyebrow: "Dentro del mundo cerrado",
+      title: "Cada imagen pertenece a una misma secuencia privada controlada.",
+      text: "Arquitectura, terrazas, cubiertas, cabinas, comedores y momentos de mar se ordenan como un archivo visual para invitados seleccionados, no como activos de alquiler separados.",
     },
     footer: {
-      copy: "Una presentación privada a través de la experiencia de Casa, Yate y Coche con chofer.",
+      copy: "Acceso privado a un ecosistema orquestado de Casa, Yate y Coche con chofer en Marbella.",
       navigationAria: "Navegación del pie de página",
-      note: "El acceso privado está sujeto a disponibilidad, verificación de invitados y confirmación final.",
+      note: "Acceso limitado. Solo invitados seleccionados. Validacion concierge requerida.",
     },
   },
   reservation: {
-    eyebrow: "Reservar",
-    title: "Reserva tu experiencia privada.",
-    text: "Selecciona fecha preferida, ventana de llegada, recogida verificada en el mapa y datos esenciales. El equipo de concierge puede usar esta solicitud para preparar la Casa, el Yate y el Coche.",
+    eyebrow: "Solicitud de acceso privado",
+    title: "Solicita acceso privado a MARBELLA PRIVATE EXPERIENCE.",
+    text: "Comparte tu perfil de invitado, email de contacto, numero de invitados y notas de comida. El equipo de concierge revisa cada solicitud antes de ofrecer fechas, capacidad, deposito o confirmacion final.",
     paymentNote:
-      "El pago se completa mediante Stripe. La preentrada se activa solo después de la confirmación correcta del pago.",
+      "Sin checkout instantaneo. La secuencia es solicitud, validacion concierge, llamada privada, deposito o enlace de pago, y confirmacion escrita.",
     hiddenLocaleLabel: "Idioma del sitio",
     status: {
-      missingDate: "Elige una fecha de reserva preferida antes del pago.",
-      missingPickup:
-        "Selecciona una ubicación de recogida desde Google Places o el mapa.",
-      openingCheckout: "Abriendo checkout seguro de Stripe...",
-      unableCheckout: "No se pudo iniciar el checkout de Stripe.",
+      submittingRequest: "Enviando tu solicitud de acceso privado...",
+      submitted:
+        "La solicitud de acceso privado {reservationId} ha sido recibida. Se requiere validacion concierge antes de ofrecer fecha, deposito o confirmacion.",
+      unableRequest: "No se pudo enviar la solicitud de acceso privado.",
     },
     fields: {
       name: "Nombre",
       namePlaceholder: "Nombre completo",
       age: "Edad",
-      idNumber: "Número de documento",
-      idNumberPlaceholder: "Pasaporte o documento nacional",
       email: "Email",
       emailPlaceholder: "nombre@ejemplo.com",
+      partySize: "Invitados",
       foodAllergies: "Alergias alimentarias",
       foodAllergiesPlaceholder:
         "Indica alergias, restricciones alimentarias o escribe ninguna",
     },
     submit: {
-      idle: "Pagar y reservar mi experiencia",
-      loading: "Abriendo pago seguro",
+      idle: "Solicitar acceso privado",
+      loading: "Enviando solicitud",
     },
-  },
-  bookingCalendar: {
-    legend: "Calendario de reserva",
-    preferredDate: "Fecha preferida",
-    emptyDateLabel: "Selecciona una fecha de reserva preferida",
-    selectedAvailability:
-      "La disponibilidad se comprobará para {window} en {timezone}.",
-    emptyAvailability:
-      "Elige una fecha futura. La disponibilidad final la confirma concierge después del pago.",
-    guests: "Invitados",
-    arrivalWindowAria: "Ventana de llegada",
-    timeWindows: {
-      full_day: {
-        label: "Día completo",
-        summaryLabel: "la secuencia de día completo",
-        detail: "Secuencia de casa, yate y coche",
-      },
-      morning: {
-        label: "Mañana",
-        summaryLabel: "la ventana de mañana",
-        detail: "Ventana de llegada 10:00",
-      },
-      afternoon: {
-        label: "Tarde",
-        summaryLabel: "la ventana de tarde",
-        detail: "Ventana de llegada 14:00",
-      },
-      sunset: {
-        label: "Atardecer",
-        summaryLabel: "la ventana de atardecer",
-        detail: "Llegada en hora dorada",
-      },
-    },
-  },
-  pickup: {
-    placesUnavailable:
-      "Google Places autocomplete no está disponible para esta clave API. Activa Places API (New), la facturación y este dominio en Google Cloud, o haz clic en el mapa para fijar la recogida.",
-    mapLoadError: "No se pudo cargar Google Maps.",
-    selectedPickupLocation: "Ubicación de recogida seleccionada",
-    pinnedPickupLocation: "Ubicación de recogida fijada",
-    initialStatus: "Carga el mapa y selecciona la recogida.",
-    missingKeyStatus: "Falta la clave API de Google Maps.",
-    autocompletePlaceholder: "Buscar hotel, residencia, aeropuerto o marina",
-    autocompleteDescription: "Buscar la ubicación de recogida del chofer.",
-    loadingPlaceDetails: "Cargando detalles del lugar seleccionado...",
-    noMappedLocation:
-      "Elige un resultado de recogida con ubicación en el mapa.",
-    selectedFromPlaces: "Recogida seleccionada desde Google Places.",
-    resolvingPinned: "Resolviendo ubicación fijada...",
-    selectedOnMap: "Recogida seleccionada en el mapa.",
-    readyStatus: "Busca una dirección o haz clic en el mapa para fijar la recogida.",
-    legend: "Ubicación de recogida",
-    searchLabel: "Buscar con Google Places",
-    searchAria: "Buscar ubicación de recogida",
-    mapAria: "Mapa de recogida",
-    selectedLabel: "Recogida seleccionada",
-    pendingLabel: "Recogida pendiente",
-    emptySelection: "Busca o elige un punto en el mapa",
   },
   termsPage: {
     navAria: "Navegación de términos",
@@ -905,24 +775,24 @@ const es: Dictionary = {
     hero: {
       eyebrow: "Términos",
       title: "Términos y condiciones.",
-      text: "Estos términos resumen las condiciones principales para solicitar acceso a la experiencia privada de Casa, Yate y Coche con chofer.",
+      text: "Estos términos resumen las condiciones principales para solicitar acceso al ecosistema privado MARBELLA PRIVATE EXPERIENCE de Casa, Yate y Coche con chofer.",
     },
     items: [
       {
         title: "Acceso privado",
-        text: "El acceso a la experiencia de Casa, Yate y Coche es privado, limitado y sujeto a aprobación, disponibilidad, verificación de invitados y confirmación final del equipo de concierge.",
+        text: "El acceso a MARBELLA PRIVATE EXPERIENCE es privado, limitado y sujeto a aprobacion, disponibilidad, verificacion de invitados, limites de capacidad y confirmacion final del equipo de concierge.",
       },
       {
-        title: "Solicitudes de reserva",
-        text: "Enviar una solicitud de reserva no garantiza entrada, transporte, acceso al yate, servicio gastronómico ni disponibilidad de evento. La reserva se activa solo tras confirmación escrita.",
+        title: "Solicitudes de acceso",
+        text: "Enviar una solicitud de acceso no garantiza entrada, transporte, acceso al yate, servicio gastronomico ni disponibilidad de evento. La reserva se activa solo tras aprobacion concierge y confirmacion escrita.",
       },
       {
-        title: "Identificación",
-        text: "Se puede solicitar identificación válida antes de la recogida o entrada. La información solicitada se usa para verificar el acceso y preparar la experiencia.",
+        title: "Revision de invitados",
+        text: "Los datos del invitado son revisados por el equipo de concierge para verificar acceso, capacidad y ajuste operativo de la experiencia solicitada.",
       },
       {
-        title: "Recogida con chofer",
-        text: "La ubicación y hora de recogida deben confirmarse con antelación. Los cambios pueden afectar al horario, la ruta y la disponibilidad de la residencia o el yate.",
+        title: "Planificacion concierge",
+        text: "La logistica, los horarios y los detalles de acceso se gestionan en privado despues de la validacion. Los cambios pueden afectar al horario y a la disponibilidad de la residencia o el yate.",
       },
       {
         title: "Gastronomía y alergias",
@@ -938,27 +808,27 @@ const es: Dictionary = {
       },
       {
         title: "Términos finales",
-        text: "Estos términos web son un borrador de presentación. Los términos comerciales finales, reglas de cancelación, requisitos de pago y responsabilidad deben confirmarse en el acuerdo oficial de reserva.",
+        text: "Estos términos web son un borrador de presentacion. Los términos comerciales finales, reglas de cancelacion, requisitos de deposito o pago y responsabilidad deben confirmarse en el acuerdo oficial de reserva.",
       },
     ],
   },
   successPage: {
     navAria: "Navegación de confirmación",
-    amountFallback: "Importe del pago confirmado por Stripe",
+    amountFallback: "Importe del deposito o pago confirmado por Stripe",
     notAvailable: "No disponible",
     paid: {
-      eyebrow: "Pago confirmado",
-      title: "Tu preentrada está reservada.",
-      text: "Stripe ha confirmado el pago. El equipo de concierge puede usar ahora este registro de reserva pagada para continuar la verificación de invitados y la planificación de llegada.",
+      eyebrow: "Pago privado confirmado",
+      title: "Tu deposito MARBELLA PRIVATE EXPERIENCE ha quedado registrado.",
+      text: "Stripe ha confirmado el pago. El equipo de concierge puede continuar la validacion de invitados, la proteccion de fecha y la planificacion de llegada.",
       state: "Pagado",
-      summary: "Pago de reserva aceptado",
+      summary: "Pago de acceso privado aceptado",
     },
     unpaid: {
       eyebrow: "Pago no confirmado",
       title: "No pudimos confirmar el pago.",
-      text: "La reserva no está activa hasta que Stripe confirme el pago. Vuelve al formulario de reserva e inténtalo de nuevo.",
+      text: "La solicitud de acceso privado no queda confirmada financieramente hasta que Stripe confirme el pago. Vuelve al formulario de acceso e intentalo de nuevo.",
       state: "Pendiente",
-      summary: "Pago de reserva incompleto",
+      summary: "Pago de acceso privado incompleto",
     },
     fields: {
       reservationId: "ID de reserva",
@@ -969,7 +839,7 @@ const es: Dictionary = {
   },
   checkout: {
     errors: {
-      origin: "Esta solicitud de checkout no está permitida desde ese origen.",
+      origin: "Esta solicitud no está permitida desde ese origen.",
       invalidRequest: "Solicitud de reserva no válida.",
       unableRecord: "No se pudo registrar la reserva.",
       firestorePrefix: "No se pudo registrar la reserva en Firestore:",
@@ -977,22 +847,18 @@ const es: Dictionary = {
       unableCreate: "No se pudo crear el checkout de Stripe.",
     },
     validation: {
-      futureDate: "una fecha de reserva futura",
-      arrivalWindow: "una ventana de llegada",
-      pickupSelection: "una selección de recogida de Google Maps",
       fullName: "tu nombre completo",
       adultAge: "verificación de mayoría de edad",
-      idNumber: "tu número de documento",
       email: "un email válido",
       partySize: "un grupo entre 1 y 12 personas",
-      complete: "Completa {items} antes del pago.",
+      complete: "Completa {items} antes de solicitar acceso.",
     },
     stripe: {
-      productName: "Preentrada Marbella Private Experience",
+      productName: "Deposito de acceso privado MARBELLA PRIVATE EXPERIENCE",
       productDescription:
-        "Una preentrada de reserva pagada para la experiencia privada de Casa, Yate y Coche con chofer.",
+        "Un deposito de acceso privado para el ecosistema MARBELLA PRIVATE EXPERIENCE de Casa, Yate y Coche con chofer.",
       customSubmit:
-        "Tu preentrada de Marbella Private Experience queda reservada solo después de que Stripe confirme el pago.",
+        "Tu acceso MARBELLA PRIVATE EXPERIENCE sigue sujeto a validacion concierge y confirmacion escrita.",
     },
   },
 };
@@ -1000,35 +866,35 @@ const es: Dictionary = {
 const fr: Dictionary = {
   metadata: {
     home: {
-      title: "Marbella Private Experience | Maison Yacht Voiture",
+      title: "MARBELLA PRIVATE EXPERIENCE | Maison Yacht Voiture",
       description:
-        "Une expérience de luxe connectée entre la Maison privée, le Yacht et le service de voiture avec chauffeur.",
+        "Accès privé à un écosystème orchestré Maison, Yacht et Voiture avec chauffeur à Marbella.",
     },
     terms: {
-      title: "Conditions générales | Marbella Private Experience",
+      title: "Conditions générales | MARBELLA PRIVATE EXPERIENCE",
       description:
-        "Conditions générales de l'expérience privée Maison, Yacht et Voiture de Marbella Private Experience.",
+        "Conditions d'accès privé à l'écosystème MARBELLA PRIVATE EXPERIENCE Maison, Yacht et Voiture avec chauffeur.",
     },
     success: {
-      title: "Confirmation de réservation | Marbella Private Experience",
+      title: "Confirmation de réservation | MARBELLA PRIVATE EXPERIENCE",
       description:
-        "Confirmation de paiement Stripe pour l'expérience privée Maison, Yacht et Voiture de Marbella Private Experience.",
+        "Confirmation concierge et paiement pour la demande d'accès privé MARBELLA PRIVATE EXPERIENCE.",
     },
   },
   common: {
-    brandName: "Marbella Private Experience",
+    brandName: "MARBELLA PRIVATE EXPERIENCE",
     brandSymbol: "M",
-    reserve: "Réserver",
+    reserve: "Demander l'accès",
     terms: "Conditions générales",
     returnHome: "Retour à l'accueil",
-    homeAria: "Accueil de Marbella Private Experience",
-    returnHomeAria: "Retour à Marbella Private Experience",
+    homeAria: "Accueil de MARBELLA PRIVATE EXPERIENCE",
+    returnHomeAria: "Retour à MARBELLA PRIVATE EXPERIENCE",
     nav: {
       primaryAria: "Navigation principale",
       journeyAria: "Sections de l'expérience",
       mobileOpen: "Ouvrir le menu",
       mobileClose: "Fermer le menu",
-      mobileTicketAria: "Réserver un billet",
+      mobileTicketAria: "Demander l'accès privé",
       languageSettingsAria: "Ouvrir les réglages de langue",
       languageCode: "FR",
     },
@@ -1038,7 +904,7 @@ const fr: Dictionary = {
     modalEyebrow: "Langue",
     modalTitle: "Choisissez votre langue.",
     modalText:
-      "Sélectionnez une seule langue pour tout le site Marbella Private Experience.",
+      "Sélectionnez une seule langue pour le site privé MARBELLA PRIVATE EXPERIENCE.",
     modalNote: "Vous pourrez la modifier plus tard depuis les réglages de langue.",
     settingsLabel: "Réglages de langue",
     settingsTitle: "Langue du site",
@@ -1058,19 +924,19 @@ const fr: Dictionary = {
         number: "01",
         id: "house",
         label: "Maison",
-        text: "Architecture, bien-être, divertissement et vie privée",
+        text: "Résidence privée, vie accueillie, bien-être et rituels du soir",
       },
       {
         number: "02",
         id: "yacht",
         label: "Yacht",
-        text: "Ponts, loisirs en mer, repas et espaces invités",
+        text: "Accès mer sélectionné, route capitaine et service pont",
       },
       {
         number: "03",
         id: "car",
         label: "Voiture",
-        text: "Savoir-faire, confort, technologie et transferts posés",
+        text: "Mouvement chauffeur discret entre les chapitres privés",
       },
     ],
     metrics: {
@@ -1264,143 +1130,78 @@ const fr: Dictionary = {
       },
     ],
     hero: {
-      aria: "Collection privée de Marbella Private Experience",
+      aria: "Collection privée de MARBELLA PRIVATE EXPERIENCE",
       imageAlt:
-        "Maison privée moderne Marbella Private Experience avec piscine et vues montagne au crépuscule",
-      eyebrow: "Collection privée / Maison / Yacht / Voiture",
-      title: "Trois actifs de luxe présentés comme un seul monde cinématographique.",
-      copy: "Une présentation guidée par le scroll pour la résidence, le yacht et la voiture avec chauffeur. Chaque chapitre révèle le style de vie, les détails et le mouvement qui rendent Marbella Private Experience privée de la porte au ponton.",
-      exploreHouse: "Explorer la Maison",
-      continueYacht: "Continuer vers le Yacht",
-      railLabel: "Narration au scroll",
+        "Maison privée moderne MARBELLA PRIVATE EXPERIENCE avec piscine et vues montagne au crépuscule",
+      eyebrow: "MARBELLA PRIVATE EXPERIENCE / Accès privé / Marbella",
+      title: "Accès privé à un monde fermé à Marbella.",
+      copy: "MARBELLA PRIVATE EXPERIENCE n'est pas une location de villa, une journée yacht ou un transfert de luxe. C'est un écosystème d'expérience privée entièrement orchestré à Marbella, ouvert uniquement après validation concierge.",
+      exploreHouse: "Entrer dans le monde",
+      continueYacht: "Voir le chapitre mer",
+      railLabel: "Séquence d'accès",
       skipHouseAria: "Aller à la Maison",
     },
     chapters: {
       house: {
         eyebrow: "01 / Maison",
-        title:
-          "Une résidence privée qui se comporte comme un resort complet.",
-        text: "La maison est le chapitre d'arrivée: architecture, terrasses de piscine, pièces de divertissement, bien-être, chambres, dressings et vie intérieur-extérieur se révèlent comme une expérience composée.",
+        title: "La résidence est la base privée du monde MARBELLA PRIVATE EXPERIENCE.",
+        text: "L'arrivée se prépare après validation: architecture, terrasses de piscine, pièces de divertissement, bien-être, chambres, dressings et vie accueillie composent un environnement contrôlé.",
         imageAlt: "Terrasse de piscine d'une maison moderne lumineuse au crépuscule",
       },
       yacht: {
         eyebrow: "02 / Yacht",
-        title:
-          "Une retraite privée flottante pour le soleil, l'eau, les repas et la nuit.",
-        text: "Le yacht prolonge la résidence vers la mer: ponts, activités à bord, moments lounge, repas, accès à l'eau et espaces invités dans la même atmosphère de service.",
+        title: "Le chapitre mer s'ouvre uniquement sur des dates privées sélectionnées.",
+        text: "Le yacht prolonge la résidence sur l'eau avec route capitaine, service pont, repas, espaces invités et accès soumis à la météo, à la marina et à l'approbation concierge.",
         imageAlt: "Yacht de luxe en navigation près de la côte",
       },
       car: {
         eyebrow: "03 / Voiture",
-        title:
-          "Un transfert S-Class composé pour le confort, le savoir-faire et l'arrivée.",
-        text: "Le chapitre voiture revient pour l'instant à une image premium, centrée sur le confort, le savoir-faire, la technologie, la performance, le calme intérieur et l'arrivée finale.",
+        title: "La couche chauffeur garde chaque mouvement privé et précis.",
+        text: "La voiture n'est pas un simple transfert. C'est le fil contrôlé entre résidence, marina, arrivée et retour, avec calme passager, confidentialité et timing gérés par l'équipe concierge.",
         imageAlt:
-          "Mercedes S-Class noire présentée comme voiture avec chauffeur de Marbella Private Experience",
+          "Mercedes S-Class noire présentée comme voiture avec chauffeur de MARBELLA PRIVATE EXPERIENCE",
       },
     },
     gallery: {
-      aria: "Galerie de détails Marbella Private Experience",
-      eyebrow: "Détails en mouvement",
-      title: "Chaque image fonctionne comme partie de la même séquence privée.",
-      text: "Architecture, terrasses, ponts, cabines, salles à manger et moments en mer sont organisés comme une archive visuelle continue, avec la voiture revenue dans la même séquence cinématographique.",
+      aria: "Galerie de détails MARBELLA PRIVATE EXPERIENCE",
+      eyebrow: "Dans le monde fermé",
+      title: "Chaque image appartient à une même séquence privée contrôlée.",
+      text: "Architecture, terrasses, ponts, cabines, salles à manger et moments en mer forment une archive visuelle pour invités sélectionnés, pas des actifs de location séparés.",
     },
     footer: {
-      copy: "Une présentation privée à travers l'expérience Maison, Yacht et Voiture avec chauffeur.",
+      copy: "Accès privé à un écosystème orchestré Maison, Yacht et Voiture avec chauffeur à Marbella.",
       navigationAria: "Navigation du pied de page",
-      note: "L'accès privé dépend de la disponibilité, de la vérification des invités et de la confirmation finale.",
+      note: "Accès limité. Invités sélectionnés uniquement. Validation concierge requise.",
     },
   },
   reservation: {
-    eyebrow: "Réserver",
-    title: "Réservez votre expérience privée.",
-    text: "Sélectionnez votre date préférée, votre fenêtre d'arrivée, une prise en charge vérifiée sur la carte et les informations essentielles. L'équipe concierge peut utiliser cette demande pour préparer la Maison, le Yacht et la Voiture.",
+    eyebrow: "Demande d'accès privé",
+    title: "Demandez l'accès privé à MARBELLA PRIVATE EXPERIENCE.",
+    text: "Partagez votre profil invité, votre email de contact, le nombre d'invités et vos notes de repas. L'équipe concierge examine chaque demande avant de proposer dates, capacité, acompte ou confirmation finale.",
     paymentNote:
-      "Le paiement se fait via Stripe. Le pré-billet ne devient actif qu'après confirmation réussie du paiement.",
+      "Pas de checkout instantané. La séquence est demande, validation concierge, appel privé, acompte ou lien de paiement, puis confirmation écrite.",
     hiddenLocaleLabel: "Langue du site",
     status: {
-      missingDate: "Choisissez une date de réservation préférée avant le paiement.",
-      missingPickup:
-        "Sélectionnez un lieu de prise en charge depuis Google Places ou la carte.",
-      openingCheckout: "Ouverture du paiement sécurisé Stripe...",
-      unableCheckout: "Impossible de lancer le paiement Stripe.",
+      submittingRequest: "Envoi de votre demande d'accès privé...",
+      submitted:
+        "La demande d'accès privé {reservationId} a été reçue. Une validation concierge est requise avant toute date, acompte ou confirmation.",
+      unableRequest: "Impossible d'envoyer la demande d'accès privé.",
     },
     fields: {
       name: "Nom",
       namePlaceholder: "Nom complet",
       age: "Âge",
-      idNumber: "Numéro d'identité",
-      idNumberPlaceholder: "Passeport ou carte nationale",
       email: "Email",
       emailPlaceholder: "nom@exemple.com",
+      partySize: "Invités",
       foodAllergies: "Allergies alimentaires",
       foodAllergiesPlaceholder:
         "Indiquez les allergies, restrictions alimentaires ou écrivez aucune",
     },
     submit: {
-      idle: "Payer et réserver mon expérience",
-      loading: "Ouverture du paiement sécurisé",
+      idle: "Demander l'accès privé",
+      loading: "Envoi de la demande",
     },
-  },
-  bookingCalendar: {
-    legend: "Calendrier de réservation",
-    preferredDate: "Date préférée",
-    emptyDateLabel: "Sélectionnez une date de réservation préférée",
-    selectedAvailability:
-      "La disponibilité sera vérifiée pour {window} en {timezone}.",
-    emptyAvailability:
-      "Choisissez une date future. La disponibilité finale est confirmée par le concierge après paiement.",
-    guests: "Invités",
-    arrivalWindowAria: "Fenêtre d'arrivée",
-    timeWindows: {
-      full_day: {
-        label: "Journée complète",
-        summaryLabel: "la séquence journée complète",
-        detail: "Séquence maison, yacht et voiture",
-      },
-      morning: {
-        label: "Matin",
-        summaryLabel: "la fenêtre du matin",
-        detail: "Fenêtre d'arrivée 10:00",
-      },
-      afternoon: {
-        label: "Après-midi",
-        summaryLabel: "la fenêtre de l'après-midi",
-        detail: "Fenêtre d'arrivée 14:00",
-      },
-      sunset: {
-        label: "Coucher du soleil",
-        summaryLabel: "la fenêtre du coucher du soleil",
-        detail: "Arrivée à l'heure dorée",
-      },
-    },
-  },
-  pickup: {
-    placesUnavailable:
-      "Google Places autocomplete n'est pas disponible pour cette clé API. Activez Places API (New), la facturation et ce domaine dans Google Cloud, ou cliquez sur la carte pour fixer la prise en charge.",
-    mapLoadError: "Google Maps n'a pas pu être chargé.",
-    selectedPickupLocation: "Lieu de prise en charge sélectionné",
-    pinnedPickupLocation: "Lieu de prise en charge épinglé",
-    initialStatus: "Chargez la carte et sélectionnez la prise en charge.",
-    missingKeyStatus: "La clé API Google Maps est manquante.",
-    autocompletePlaceholder: "Rechercher hôtel, résidence, aéroport ou marina",
-    autocompleteDescription:
-      "Rechercher le lieu de prise en charge du chauffeur.",
-    loadingPlaceDetails: "Chargement des détails du lieu sélectionné...",
-    noMappedLocation:
-      "Choisissez un résultat de prise en charge avec une position cartographiée.",
-    selectedFromPlaces: "Prise en charge sélectionnée depuis Google Places.",
-    resolvingPinned: "Résolution du lieu épinglé...",
-    selectedOnMap: "Prise en charge sélectionnée sur la carte.",
-    readyStatus:
-      "Recherchez une adresse ou cliquez sur la carte pour fixer la prise en charge.",
-    legend: "Lieu de prise en charge",
-    searchLabel: "Rechercher avec Google Places",
-    searchAria: "Rechercher un lieu de prise en charge",
-    mapAria: "Carte de prise en charge",
-    selectedLabel: "Prise en charge sélectionnée",
-    pendingLabel: "Prise en charge en attente",
-    emptySelection: "Recherchez ou choisissez un point sur la carte",
   },
   termsPage: {
     navAria: "Navigation des conditions",
@@ -1408,24 +1209,24 @@ const fr: Dictionary = {
     hero: {
       eyebrow: "Conditions",
       title: "Conditions générales.",
-      text: "Ces conditions décrivent les règles principales pour demander l'accès à l'expérience privée Maison, Yacht et Voiture avec chauffeur.",
+      text: "Ces conditions décrivent les règles principales pour demander l'accès à l'écosystème privé MARBELLA PRIVATE EXPERIENCE Maison, Yacht et Voiture avec chauffeur.",
     },
     items: [
       {
         title: "Accès privé",
-        text: "L'accès à l'expérience Maison, Yacht et Voiture est privé, limité et soumis à l'approbation, la disponibilité, la vérification des invités et la confirmation finale de l'équipe concierge.",
+        text: "L'accès à MARBELLA PRIVATE EXPERIENCE est privé, limité et soumis à l'approbation, la disponibilité, la vérification des invités, les limites de capacité et la confirmation finale de l'équipe concierge.",
       },
       {
-        title: "Demandes de réservation",
-        text: "L'envoi d'une demande de réservation ne garantit pas l'entrée, le transport, l'accès au yacht, le service de repas ou la disponibilité d'un événement. Une réservation devient active uniquement après confirmation écrite.",
+        title: "Demandes d'accès",
+        text: "L'envoi d'une demande d'accès ne garantit pas l'entrée, le transport, l'accès au yacht, le service de repas ou la disponibilité d'un événement. Une réservation devient active uniquement après approbation concierge et confirmation écrite.",
       },
       {
-        title: "Identification",
-        text: "Les invités peuvent devoir fournir une pièce d'identité valide avant la prise en charge ou l'entrée. Les informations demandées servent à vérifier l'accès et préparer l'expérience.",
+        title: "Revue des invités",
+        text: "Les détails invités sont examinés par l'équipe concierge afin de vérifier l'accès, la capacité et l'adéquation opérationnelle de l'expérience demandée.",
       },
       {
-        title: "Prise en charge chauffeur",
-        text: "Le lieu et l'horaire de prise en charge doivent être confirmés à l'avance. Les changements peuvent affecter le planning, l'itinéraire et la disponibilité de la résidence ou du yacht.",
+        title: "Planification concierge",
+        text: "La logistique, les horaires et les détails d'accès sont traités en privé après validation. Les changements peuvent affecter le planning et la disponibilité de la résidence ou du yacht.",
       },
       {
         title: "Repas et allergies",
@@ -1441,27 +1242,27 @@ const fr: Dictionary = {
       },
       {
         title: "Conditions finales",
-        text: "Ces conditions web sont un brouillon de présentation. Les conditions commerciales finales, règles d'annulation, exigences de paiement et clauses de responsabilité doivent être confirmées dans l'accord officiel de réservation.",
+        text: "Ces conditions web sont un brouillon de présentation. Les conditions commerciales finales, règles d'annulation, exigences d'acompte ou de paiement et clauses de responsabilité doivent être confirmées dans l'accord officiel de réservation.",
       },
     ],
   },
   successPage: {
     navAria: "Navigation de confirmation",
-    amountFallback: "Montant du paiement confirmé par Stripe",
+    amountFallback: "Montant de l'acompte ou du paiement confirmé par Stripe",
     notAvailable: "Non disponible",
     paid: {
-      eyebrow: "Paiement confirmé",
-      title: "Votre pré-billet est réservé.",
-      text: "Stripe a confirmé le paiement. L'équipe concierge peut maintenant utiliser cet enregistrement payé pour poursuivre la vérification des invités et la planification de l'arrivée.",
+      eyebrow: "Paiement privé confirmé",
+      title: "Votre acompte MARBELLA PRIVATE EXPERIENCE est enregistré.",
+      text: "Stripe a confirmé le paiement. L'équipe concierge peut maintenant poursuivre la validation des invités, la protection de date et la planification de l'arrivée.",
       state: "Payé",
-      summary: "Paiement de réservation accepté",
+      summary: "Paiement d'accès privé accepté",
     },
     unpaid: {
       eyebrow: "Paiement non confirmé",
       title: "Nous n'avons pas pu confirmer le paiement.",
-      text: "La réservation n'est pas active tant que Stripe n'a pas confirmé le paiement. Revenez au formulaire de réservation et réessayez.",
+      text: "La demande d'accès privé n'est pas confirmée financièrement tant que Stripe n'a pas confirmé le paiement. Revenez au formulaire d'accès et réessayez.",
       state: "En attente",
-      summary: "Paiement de réservation incomplet",
+      summary: "Paiement d'accès privé incomplet",
     },
     fields: {
       reservationId: "ID de réservation",
@@ -1472,7 +1273,7 @@ const fr: Dictionary = {
   },
   checkout: {
     errors: {
-      origin: "Cette demande de paiement n'est pas autorisée depuis cette origine.",
+      origin: "Cette demande n'est pas autorisée depuis cette origine.",
       invalidRequest: "Demande de réservation invalide.",
       unableRecord: "Impossible d'enregistrer la réservation.",
       firestorePrefix: "Impossible d'enregistrer la réservation dans Firestore:",
@@ -1480,22 +1281,18 @@ const fr: Dictionary = {
       unableCreate: "Impossible de créer le paiement Stripe.",
     },
     validation: {
-      futureDate: "une date de réservation future",
-      arrivalWindow: "une fenêtre d'arrivée",
-      pickupSelection: "une sélection de prise en charge Google Maps",
       fullName: "votre nom complet",
       adultAge: "la vérification de majorité",
-      idNumber: "votre numéro d'identité",
       email: "un email valide",
       partySize: "un groupe entre 1 et 12 personnes",
-      complete: "Complétez {items} avant le paiement.",
+      complete: "Complétez {items} avant de demander l'accès.",
     },
     stripe: {
-      productName: "Pré-billet Marbella Private Experience",
+      productName: "Acompte d'accès privé MARBELLA PRIVATE EXPERIENCE",
       productDescription:
-        "Un pré-billet de réservation payé pour l'expérience privée Maison, Yacht et Voiture avec chauffeur.",
+        "Un acompte d'accès privé pour l'écosystème MARBELLA PRIVATE EXPERIENCE Maison, Yacht et Voiture avec chauffeur.",
       customSubmit:
-        "Votre pré-billet Marbella Private Experience est réservé uniquement après confirmation du paiement par Stripe.",
+        "Votre accès MARBELLA PRIVATE EXPERIENCE reste soumis à validation concierge et confirmation écrite.",
     },
   },
 };
