@@ -305,17 +305,16 @@ const en = {
     },
   },
   reservation: {
-    eyebrow: "Private Access Request",
-    title: "Request private access to MARBELLA PRIVATE EXPERIENCE.",
-    text: "Share your guest profile, contact email, party size, and any dining notes. The concierge team reviews every request before dates, capacity, deposit, or final confirmation are offered.",
+    eyebrow: "Private Access Deposit",
+    title: "Secure your MARBELLA PRIVATE EXPERIENCE access.",
+    text: "Share your guest profile, contact email, party size, and any dining notes. You will be redirected to secure Stripe checkout to pay the private access deposit.",
     paymentNote:
-      "No instant checkout. The sequence is request, concierge validation, private call, deposit or payment link, then written confirmation.",
+      "Payment is required now. Your deposit is recorded first, then the concierge team confirms the private experience in writing.",
     hiddenLocaleLabel: "Website language",
     status: {
-      submittingRequest: "Submitting your private access request...",
-      submitted:
-        "Private access request {reservationId} has been received. Concierge validation is required before any date, deposit, or confirmation is offered.",
-      unableRequest: "Unable to submit the private access request.",
+      submittingRequest: "Creating your secure Stripe checkout...",
+      submitted: "Redirecting to secure payment...",
+      unableRequest: "Unable to create the secure payment.",
     },
     fields: {
       name: "Name",
@@ -329,8 +328,8 @@ const en = {
         "List allergies, dietary restrictions, or write none",
     },
     submit: {
-      idle: "Request Private Access",
-      loading: "Submitting request",
+      idle: "Pay Private Access Deposit",
+      loading: "Creating payment",
     },
   },
   termsPage: {
@@ -415,14 +414,14 @@ const en = {
       adultAge: "adult age verification",
       email: "a valid email",
       partySize: "a party size between 1 and 12",
-      complete: "Please complete {items} before requesting access.",
+      complete: "Please complete {items} before payment.",
     },
     stripe: {
       productName: "MARBELLA PRIVATE EXPERIENCE Private Access Deposit",
       productDescription:
         "A private access deposit for the MARBELLA PRIVATE EXPERIENCE House, Yacht, and chauffeur Car ecosystem.",
       customSubmit:
-        "Your MARBELLA PRIVATE EXPERIENCE access remains subject to concierge validation and written confirmation.",
+        "Your MARBELLA PRIVATE EXPERIENCE deposit is recorded first, then the concierge team confirms the experience in writing.",
     },
   },
 };
@@ -741,17 +740,16 @@ const es: Dictionary = {
     },
   },
   reservation: {
-    eyebrow: "Solicitud de acceso privado",
-    title: "Solicita acceso privado a MARBELLA PRIVATE EXPERIENCE.",
-    text: "Comparte tu perfil de invitado, email de contacto, numero de invitados y notas de comida. El equipo de concierge revisa cada solicitud antes de ofrecer fechas, capacidad, deposito o confirmacion final.",
+    eyebrow: "Deposito de acceso privado",
+    title: "Asegura tu acceso a MARBELLA PRIVATE EXPERIENCE.",
+    text: "Comparte tu perfil de invitado, email de contacto, numero de invitados y notas de comida. Seras redirigido al checkout seguro de Stripe para pagar el deposito de acceso privado.",
     paymentNote:
-      "Sin checkout instantaneo. La secuencia es solicitud, validacion concierge, llamada privada, deposito o enlace de pago, y confirmacion escrita.",
+      "El pago es necesario ahora. Tu deposito queda registrado primero y luego el equipo concierge confirma la experiencia privada por escrito.",
     hiddenLocaleLabel: "Idioma del sitio",
     status: {
-      submittingRequest: "Enviando tu solicitud de acceso privado...",
-      submitted:
-        "La solicitud de acceso privado {reservationId} ha sido recibida. Se requiere validacion concierge antes de ofrecer fecha, deposito o confirmacion.",
-      unableRequest: "No se pudo enviar la solicitud de acceso privado.",
+      submittingRequest: "Creando tu checkout seguro de Stripe...",
+      submitted: "Redirigiendo al pago seguro...",
+      unableRequest: "No se pudo crear el pago seguro.",
     },
     fields: {
       name: "Nombre",
@@ -765,8 +763,8 @@ const es: Dictionary = {
         "Indica alergias, restricciones alimentarias o escribe ninguna",
     },
     submit: {
-      idle: "Solicitar acceso privado",
-      loading: "Enviando solicitud",
+      idle: "Pagar deposito de acceso",
+      loading: "Creando pago",
     },
   },
   termsPage: {
@@ -851,14 +849,14 @@ const es: Dictionary = {
       adultAge: "verificación de mayoría de edad",
       email: "un email válido",
       partySize: "un grupo entre 1 y 12 personas",
-      complete: "Completa {items} antes de solicitar acceso.",
+      complete: "Completa {items} antes del pago.",
     },
     stripe: {
       productName: "Deposito de acceso privado MARBELLA PRIVATE EXPERIENCE",
       productDescription:
         "Un deposito de acceso privado para el ecosistema MARBELLA PRIVATE EXPERIENCE de Casa, Yate y Coche con chofer.",
       customSubmit:
-        "Tu acceso MARBELLA PRIVATE EXPERIENCE sigue sujeto a validacion concierge y confirmacion escrita.",
+        "Tu deposito MARBELLA PRIVATE EXPERIENCE queda registrado primero y luego el equipo concierge confirma la experiencia por escrito.",
     },
   },
 };
@@ -1175,17 +1173,16 @@ const fr: Dictionary = {
     },
   },
   reservation: {
-    eyebrow: "Demande d'accès privé",
-    title: "Demandez l'accès privé à MARBELLA PRIVATE EXPERIENCE.",
-    text: "Partagez votre profil invité, votre email de contact, le nombre d'invités et vos notes de repas. L'équipe concierge examine chaque demande avant de proposer dates, capacité, acompte ou confirmation finale.",
+    eyebrow: "Acompte d'accès privé",
+    title: "Sécurisez votre accès à MARBELLA PRIVATE EXPERIENCE.",
+    text: "Partagez votre profil invité, votre email de contact, le nombre d'invités et vos notes de repas. Vous serez redirigé vers le checkout Stripe sécurisé pour payer l'acompte d'accès privé.",
     paymentNote:
-      "Pas de checkout instantané. La séquence est demande, validation concierge, appel privé, acompte ou lien de paiement, puis confirmation écrite.",
+      "Le paiement est requis maintenant. Votre acompte est enregistré d'abord, puis l'équipe concierge confirme l'expérience privée par écrit.",
     hiddenLocaleLabel: "Langue du site",
     status: {
-      submittingRequest: "Envoi de votre demande d'accès privé...",
-      submitted:
-        "La demande d'accès privé {reservationId} a été reçue. Une validation concierge est requise avant toute date, acompte ou confirmation.",
-      unableRequest: "Impossible d'envoyer la demande d'accès privé.",
+      submittingRequest: "Création de votre paiement Stripe sécurisé...",
+      submitted: "Redirection vers le paiement sécurisé...",
+      unableRequest: "Impossible de créer le paiement sécurisé.",
     },
     fields: {
       name: "Nom",
@@ -1199,8 +1196,8 @@ const fr: Dictionary = {
         "Indiquez les allergies, restrictions alimentaires ou écrivez aucune",
     },
     submit: {
-      idle: "Demander l'accès privé",
-      loading: "Envoi de la demande",
+      idle: "Payer l'acompte d'accès",
+      loading: "Création du paiement",
     },
   },
   termsPage: {
@@ -1285,14 +1282,14 @@ const fr: Dictionary = {
       adultAge: "la vérification de majorité",
       email: "un email valide",
       partySize: "un groupe entre 1 et 12 personnes",
-      complete: "Complétez {items} avant de demander l'accès.",
+      complete: "Complétez {items} avant le paiement.",
     },
     stripe: {
       productName: "Acompte d'accès privé MARBELLA PRIVATE EXPERIENCE",
       productDescription:
         "Un acompte d'accès privé pour l'écosystème MARBELLA PRIVATE EXPERIENCE Maison, Yacht et Voiture avec chauffeur.",
       customSubmit:
-        "Votre accès MARBELLA PRIVATE EXPERIENCE reste soumis à validation concierge et confirmation écrite.",
+        "Votre acompte MARBELLA PRIVATE EXPERIENCE est enregistré d'abord, puis l'équipe concierge confirme l'expérience par écrit.",
     },
   },
 };

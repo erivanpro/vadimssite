@@ -34,7 +34,7 @@ export function ReservationForm({
     });
 
     try {
-      const response = await fetch("/api/access-request", {
+      const response = await fetch("/api/checkout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -42,22 +42,19 @@ export function ReservationForm({
         body: JSON.stringify(payload),
       });
       const data = (await response.json()) as {
-        reservationId?: string;
+        url?: string;
         error?: string;
       };
 
-      if (!response.ok || !data.reservationId) {
+      if (!response.ok || !data.url) {
         throw new Error(data.error ?? reservation.status.unableRequest);
       }
 
       setStatus({
-        tone: "success",
-        message: reservation.status.submitted.replace(
-          "{reservationId}",
-          data.reservationId,
-        ),
+        tone: "info",
+        message: reservation.status.submitted,
       });
-      setIsSubmitting(false);
+      window.location.assign(data.url);
     } catch (error) {
       setStatus({
         tone: "error",
